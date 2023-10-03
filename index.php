@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raul Ferrero Vicente</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Raul Ferrero Vicente</h1>
-
+    <header>
+    <?php
+        include("html/header.html");
+    ?>
+    </header>
     <h2>Tema1</h2>
     <ul>
     <li><a href="/Tema1/phpinfo.php">PHP Info</a></li>
