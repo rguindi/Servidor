@@ -95,6 +95,10 @@ echo $elegido;
 echo "<br>";
 echo $$elegido;
 echo "<br>";
-?>
 
+?>
 <a href="mipagina.php?nombre=raul&nombre2=pepe"> link</a>
+
+
+
+

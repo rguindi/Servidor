@@ -1,7 +1,11 @@
 <?php
+  
+$mensaje_es = "Español";
+$mensaje_en = "Inglés";
 
-$lg = $_GET ['idioma'];
+$lg = "mensaje_" . $_GET['idioma'];
 
-echo "La pagina esta en ". $lg;
+
+print "La página está en " . $lg;
 
 ?>
