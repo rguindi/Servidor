@@ -26,6 +26,8 @@
     <h2>Tema2</h2>
     <ul>
     <li><a href="/Tema2/eligeidioma.php">Elige Idioma</a></li>
+    <li><a href="/Tema2/Tarea3.php">Tarea 3-1</a></li>
+    <li><a href="/Tema2/Tarea3-2.php?variable=456">Tarea 3-2</a></li>
     </ul>
     </main>
 
