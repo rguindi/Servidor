@@ -17,6 +17,15 @@
     print 'Me llamo  $nombre y tengo ' . $edad . " años. <br>"; //Diferencia con comillas simples
 
 
+   //Comparacion de dos cadenas iguales
+    $primera ="casa";
+    $segunda = "CASA";
+
+    $resultado = strcmp ($primera,$segunda);
+     echo "El resultado es $resultado <br>";
+     $resultado = strcasecmp ($primera, $segunda);   //ignorando mayusculas
+     echo "El resultado es $resultado <br>";
+
     ?>
 </body>
 </html>
