@@ -22,7 +22,7 @@
             echo $_SERVER['PHP_SELF'];
 
             echo "<h3> 2.  Muestra la dirección IP del equipo desde el que estás accediendo. </h3>";
-            echo $_SERVER['SERVER_ADDR'];
+            echo $_SERVER['REMOTE_ADDR'];
 
             echo "<h3> 3.  Muestra el path donde se encuentra el fichero que se está ejecutando.  </h3>";
             echo $_SERVER['REQUEST_URI'];

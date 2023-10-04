@@ -1,13 +1,15 @@
 header {
 background-color: #54582f;
 height: 100px;
+position: relative;
 
 }
 #nombre {
     display:inline-block;
     color: white;
     position: absolute;
-   padding-left: 15%;
+    text-align: center;
+  
 
 }
 
