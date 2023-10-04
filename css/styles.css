@@ -1,7 +1,28 @@
 header {
 background-color: #54582f;
+height: 100px;
+
 }
 #nombre {
     display:inline-block;
     color: white;
+    position: absolute;
+   padding-left: 15%;
+
+}
+
+footer{
+    background-color: #bec092;
+}
+
+#curso{
+    display: inline-block;
+    text-align: right;
+    right: 20px;
+
+    position: absolute;
+}
+
+#datos {
+    display: inline-block;
 }
