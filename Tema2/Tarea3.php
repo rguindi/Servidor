@@ -39,7 +39,7 @@
 
             echo "<h3> 6.  Inicializa y muestra una variable en timestamp y en fecha con formato dd/mm/yyyy 
             de tu cumpleaños</h3>";
-            $cumple = strtotime ("19820924");
+            $cumple = strtotime ("1982/09/24");
             echo date("d/m/Y", $cumple);
 
             echo "<h3> 7.  Calcular la fecha y el día de la semana de dentro de 60 días.</h3>";

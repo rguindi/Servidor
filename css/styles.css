@@ -8,7 +8,9 @@ position: relative;
     display:inline-block;
     color: white;
     position: absolute;
-    text-align: center;
+    margin-left: 100px;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
 
 }
