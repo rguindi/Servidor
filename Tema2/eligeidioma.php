@@ -21,6 +21,12 @@
     <a href="HolaMundoIdioma.php?idioma=pt"><p>Portugués</p><img src="img/portugal.png" alt="Imagen" width="200px" height="150px"></a>  
     <a href="HolaMundoIdioma.php?idioma=fr"><p>Francés</p><img src="img/francia.png" alt="Imagen" width="200px" height="150px"></a>  
 
+    <?php
+    echo "<br>";
+            $ruta = $_SERVER['SCRIPT_FILENAME'];
+            echo "<a href=http://".$_SERVER['SERVER_ADDR']."/vercontenido.php?contenido=".$ruta.">Ver Contenido</a>";
+
+    ?>
 
     <footer>
         <?php

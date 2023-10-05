@@ -35,7 +35,9 @@
             echo "Hay " . $diff->days /365 . ' años de diferencia. <br>';
 
 
-            echo "<a href='/Tema2/vercontenido.php?contenido=Tarea3-4.php'>Ver Contenido</a>";
+            echo "<br>";
+            $ruta = $_SERVER['SCRIPT_FILENAME'];
+            echo "<a href=http://".$_SERVER['SERVER_ADDR']."/vercontenido.php?contenido=".$ruta.">Ver Contenido</a>";
             
            
 

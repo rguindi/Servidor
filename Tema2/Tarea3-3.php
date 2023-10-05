@@ -19,6 +19,12 @@
 
             $fecha = strtotime ($_GET ['variable']);
             echo "El día de la semana de la fecha pasada por parámetro es " .date ("l", $fecha);
+
+            echo "<br>";
+            $ruta = $_SERVER['SCRIPT_FILENAME'];
+            echo "<a href=http://".$_SERVER['SERVER_ADDR']."/vercontenido.php?contenido=".$ruta.">Ver Contenido</a>";
+            
+           
         
         ?>
 

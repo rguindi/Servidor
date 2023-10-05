@@ -31,6 +31,13 @@
             echo $float;
             echo "<br>";
 
+            echo "<br>";
+            $ruta = $_SERVER['SCRIPT_FILENAME'];
+            echo "<a href=http://".$_SERVER['SERVER_ADDR']."/vercontenido.php?contenido=".$ruta.">Ver Contenido</a>";
+
+            
+           
+
 
         
         ?>
