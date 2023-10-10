@@ -31,6 +31,10 @@
     <li><a href="/Tema2/Tarea3-3.php?variable=2023/10/03">Tarea 3-3</a></li>
     <li><a href="/Tema2/Tarea3-4.php?raul=1982/09/24&manuel=1998/11/25">Tarea 3-4</a></li>
     </ul>
+    <h2>Tema3</h2>
+    <ul>
+    <li><a href="/Tema3/piramide.php">Piramide</a></li>
+    </ul>
     </main>
 
     <footer>
