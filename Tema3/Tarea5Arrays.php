@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Tarea 05 Arrays</title>
 </head>
 <body>
-
+<header>
+        <?php
+            include("../html/header.html");
+        ?>
+        </header>
+        <body>
+            
+        
 
 <?php
 echo "<h2>1. Escribe un programa que dado un array ordénalo y devuelve otro array sin que haya
@@ -96,6 +104,7 @@ $array = array ();
            
         
     }
+
 ?>
 
 <table border = "1">
@@ -119,6 +128,15 @@ $array = array ();
         </tr>
     </tbody>
 </table>
+
+<footer>
+        <?php
+            include("../html/footer.html");
+        ?>
+
+    
+    
+        </footer>
     
 </body>
 </html>

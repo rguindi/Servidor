@@ -16,7 +16,6 @@
         include("html/header.html");
     ?>
     </header>
-    asfasf
     <main>
     <h2>Tema1</h2>
     <ul>
@@ -38,10 +37,13 @@
     <li><a href="/Tema3/piramide.php?altura=16">Piramide</a></li>
     <li><a href="/Tema3/rombo.php?altura=16">Rombo</a></li>
     <li><a href="/Tema3/rombohueco.php?altura=16">Rombo Hueco</a></li>
+    <li><a href="/Tema3/monedas.php?precio=6.33&pago=10">Cambio de monedas</a></li>
+    <li><a href="/Tema3/bisiestos.php?ano=1998">Año Bisiesto</a></li>
     </ul>
     <h4>Arrays básicos</h4>
     <ul>
     <li><a href="/Tema3/Tarea5Arrays.php?lado=4">Tarea Arrays</a></li>
+    <li><a href="/Tema3/Tarea06.php">Tarea Equipos de Futbol</a></li>
     </ul>
     </main>
 

@@ -15,6 +15,8 @@
         ?>
         </header>
     <main>
+    <h3>3. Crea una página en la que se le pase como parámetros en la URL (ano, mes y día) y muestre
+el día de la semana de dicho día. (Por defecto, dale el valor de 03/10/2023) </h3>
         <?php
 
             $fecha = strtotime ($_GET ['variable']);

@@ -15,6 +15,9 @@
         ?>
         </header>
     <main>
+        <h3>2. Crea una página a la que se le pase por url una variable con el nombre que quieras y
+muestre el valor de la variable, el tipo, si es numérico o no y si lo es, si es entero o float. (No
+hace falta usar if)</h3>
         <?php
             
             $variable1=$_GET ['variable'];

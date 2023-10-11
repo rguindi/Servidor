@@ -1,3 +1,4 @@
+
 <?php
 $liga =
 array(
@@ -54,18 +55,24 @@ array(
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Equipos de Futbol</title>
 </head>
 <body>
+<header>
+        <?php
+            include("../html/header.html");
+        ?>
+        </header>
     
 <table border = "1">
     <thead>
-        <?php
+        <?php  //Imprimimos la primera linea
         $arrayauxiliar  = array ();
         echo "<th> Equipos</th>";
         foreach ($liga as $key => $value) {
             echo "<th> $key</th>";
-            array_push ($arrayauxiliar, $key);
+            array_push ($arrayauxiliar, $key); //Guardamos un array auxiliar con los equipos
         }
         ?>
     </thead>
@@ -75,22 +82,26 @@ array(
                     
                    
 
-            foreach ($liga as $key => $value) {
+            foreach ($liga as $local => $visitantes) {
                 echo "<tr>";
-                echo "<td>$key</td>";
+                echo "<td>$local</td>";    //Imprimimos en la primera celda de cada linea el equipo local
+
                 $contador = 0;
                 
 
-                    foreach ($value as $key1 => $value1) {
+                    foreach ($visitantes as $visitante => $resultados) { //bucle de los visitantes
                         
+                        if ($arrayauxiliar[$contador]===$local) echo "<td></td>"; //SI nos entramos en equipo local iprimimos en blanco
                     
-                        echo "<td>";
-                        foreach ($value1 as $key2 => $value2) {                          
-                            if ($arrayauxiliar[$contador]==$key2){
-                                echo "<br></br>";
-                            }else{
-                            echo "$value2";
-                            }
+                        echo "<td>";  //Imprimimos en cada celd los dato de los visitantes
+
+                            
+
+                        foreach ($resultados as $resultado => $datos) {                          
+                            
+                            
+                            echo "$datos";
+                            
                         }
                         
                      $contador++;
@@ -101,11 +112,22 @@ array(
                     }
                     echo "</tr>";
                 }
+
+                foreach ($arrayauxiliar as $key => $value) {
+                        }
       
         ?>
        
     </tbody>
 </table>
     
+<footer>
+        <?php
+            include("../html/footer.html");
+        ?>
+
+    
+    
+        </footer>
 </body>
 </html>

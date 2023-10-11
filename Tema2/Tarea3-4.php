@@ -15,6 +15,8 @@
         ?>
         </header>
     <main>
+        <h3>4. Crea una página en la que se le pase como parámetros en la URL (ano, mes y día) de dos
+personas y muestre las fechas de nacimiento de ambos y la diferencia de edad en años. </h3>
         <?php
 
             $raul = strtotime ($_GET ['raul']);
@@ -36,6 +38,9 @@
 
 
             echo "<br>";
+            echo "<h3>5. Crea un enlace a una página en cada página anterior que muestre el contenido del fichero
+            que se está ejecutando.
+             </h3>";
             $ruta = $_SERVER['SCRIPT_FILENAME'];
             echo "<a href=http://".$_SERVER['SERVER_ADDR']."/vercontenido.php?contenido=".$ruta.">Ver Contenido</a>";
             
