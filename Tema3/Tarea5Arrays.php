@@ -53,6 +53,7 @@ datos = [2,5,9,7,6,3,1,5,4,8,3,2,6,9,3,5,1,2,3] <br>";
 $datos = [2,5,9,7,6,3,1,5,4,8,3,2,6,9,3,5,1,2,3];
 
 
+
 //Recorremos el array
     foreach ($datos as $key => $value) {
 
@@ -69,30 +70,56 @@ echo "<h2>3. Escribe un programa que pida por pantalla el tamaño de una matriz 
 la siguiente manera
 </h2> <br> <img src='../img/tabla05.png' alt='Tabla' width='300px' height='400px'> <br>";
 
- $longitud = $_GET ['lado'];
 
- $matriz1 = [1 => 1,1,1,1];
- $matriz2 = [1 => 1,2,3,4];
- $matriz3 = [1 => 1,3,6,10];
- $matriz4 = [1 => 1,4,10,20];
+$longitud = $_GET ['lado'];
 
- $tarea = [$matriz1,$matriz2,$matriz3,$matriz4];
+$array = array ();
 
- foreach ($tarea as $key => $value) {
-            
-    echo "<br> Matriz $key tiene los valores: ";
+    for ($i=0; $i <$longitud ; $i++) { 
+        
+        $array [$i] = array();
 
-    foreach ($value as $key => $valor) {
-        echo "<br>- $key : $valor .";
+            for ($j=0; $j < $longitud; $j++) { 
+
+                if ($i==0 || $j==0){
+
+                $array [$i][$j] = 1;                 
+
+                }else {
+                    
+                    $array [$i][$j] = $array [$i-1][$j] + $array[$i][$j-1];
+
+                }
 
 
+            }
+           
+        
     }
-}
-
-
 ?>
 
+<table border = "1">
+    <thead>
+     
+    </thead>
+    <tbody>
+        <tr>
+        <?php
+       
+        foreach ($array as $key => $value) {
+            echo "<tr>";
+              
+                foreach ($value as $resultado) {
+                    echo "<td>$resultado</td>";
+                }
 
+            echo "</tr>";
+        }
+        ?>
+        </tr>
+    </tbody>
+</table>
     
 </body>
 </html>
+
