@@ -69,6 +69,26 @@ echo "<h2>3. Escribe un programa que pida por pantalla el tamaño de una matriz 
 la siguiente manera
 </h2> <br> <img src='../img/tabla05.png' alt='Tabla' width='300px' height='400px'> <br>";
 
+ $longitud = $_GET ['lado'];
+
+ $matriz1 = [1 => 1,1,1,1];
+ $matriz2 = [1 => 1,2,3,4];
+ $matriz3 = [1 => 1,3,6,10];
+ $matriz4 = [1 => 1,4,10,20];
+
+ $tarea = [$matriz1,$matriz2,$matriz3,$matriz4];
+
+ foreach ($tarea as $key => $value) {
+            
+    echo "<br> Matriz $key tiene los valores: ";
+
+    foreach ($value as $key => $valor) {
+        echo "<br>- $key : $valor .";
+
+
+    }
+}
+
 
 ?>
 

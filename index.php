@@ -16,7 +16,7 @@
         include("html/header.html");
     ?>
     </header>
-
+    asfasf
     <main>
     <h2>Tema1</h2>
     <ul>
@@ -24,6 +24,7 @@
     <li><a href="/Tema1/Tutorial.pdf">Tutorial para crear servidor Linux</a></li>
     </ul>
     <h2>Tema2</h2>
+    
     <ul>
     <li><a href="/Tema2/eligeidioma.php">Elige Idioma</a></li>
     <li><a href="/Tema2/Tarea3.php">Tarea 3-1</a></li>
@@ -32,8 +33,15 @@
     <li><a href="/Tema2/Tarea3-4.php?raul=1982/09/24&manuel=1998/11/25">Tarea 3-4</a></li>
     </ul>
     <h2>Tema3</h2>
+    <h4>Operadores y bucles</h4>
     <ul>
-    <li><a href="/Tema3/piramide.php">Piramide</a></li>
+    <li><a href="/Tema3/piramide.php?altura=16">Piramide</a></li>
+    <li><a href="/Tema3/rombo.php?altura=16">Rombo</a></li>
+    <li><a href="/Tema3/rombohueco.php?altura=16">Rombo Hueco</a></li>
+    </ul>
+    <h4>Arrays básicos</h4>
+    <ul>
+    <li><a href="/Tema3/Tarea5Arrays.php?lado=4">Tarea Arrays</a></li>
     </ul>
     </main>
 

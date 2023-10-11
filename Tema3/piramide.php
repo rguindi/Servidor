@@ -1,5 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Rombo</title>
+</head>
+<body>
+<header>
+        <?php
+            include("../html/header.html");
+        ?>
+        </header>
+
 <?php
-    $altura =45;
+    $altura = $_GET ['altura'];
     $espacios = $altura -1;
     $asteriscos = 1;
 
@@ -25,3 +40,14 @@
 
 
 ?>
+
+<footer>
+        <?php
+            include("../html/footer.html");
+        ?>
+
+    
+    
+        </footer>
+        </body>
+</html>

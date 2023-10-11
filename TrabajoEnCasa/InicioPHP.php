@@ -26,6 +26,31 @@
      $resultado = strcasecmp ($primera, $segunda);   //ignorando mayusculas
      echo "El resultado es $resultado <br>";
 
+     //FUNCIONES MATEMATICAS
+
+     //RAndom
+
+     $num1 = rand(2, 5000);
+     echo "numero aleatorio es $num1 <br>";
+
+     // exponencia
+     $num1 = pow(5, 3);
+     echo "La exponencia es $num1 <br>";
+
+     //redondeo
+
+     $num1 = 5.2352352;
+     echo "El numero redondeado es " . round ($num1, 3) ."<br>";
+
+     //CASTING IMPLICITO
+     $num2 = "5";
+     $num2 = 5;
+
+     //CASTING EXPLICITO
+     $num4 = "5";
+     $num5 =  (int) $num4;
+     
+
     ?>
 </body>
 </html>
