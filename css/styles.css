@@ -11,12 +11,46 @@ position: relative;
     margin-left: 100px;
     margin-bottom: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
   
-
+body{
+    background-color: #9c9e74;
+}
+main{
+    background-color: #dbe29a;
+    padding: 35px;
 }
 
 footer{
     background-color: #bec092;
+   
+}
+main{
+    margin-left: 50px;
+}
+
+main li{
+    border: 1px solid black;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 4px;
+    background-color: #0058aa;
+    margin-top: 10px;
+    font-weight: bold;
+    list-style: disc;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+main li a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+main li:hover{
+
+    background-color: rgb(161, 14, 167);
+    padding-left: 14px;
+    transition: all .2s;
 }
 
 #curso{
