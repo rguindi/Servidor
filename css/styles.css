@@ -23,6 +23,7 @@ main{
     background-size: 100%;
     padding-left: 100px;
     color: white;
+    background-attachment: fixed;
 }
 
 footer{
@@ -56,13 +57,14 @@ main li:hover{
 
 main h2 {
     border-bottom: 3px solid white;
-    width: 25%;
+    
 }
 
 #curso{
     display: inline-block;
     text-align: right;
-    right: 20px;
+    right: 100px;
+   
 
     position: absolute;
 }

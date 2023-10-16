@@ -65,6 +65,7 @@ array(
         ?>
         </header>
         <main>
+            <h3>Tabla de resultados</h3>
 <table border = "1">
     <thead>
         <?php  //Imprimimos la primera linea
@@ -113,13 +114,32 @@ array(
                     echo "</tr>";
                 }
 
-                foreach ($arrayauxiliar as $key => $value) {
-                        }
-      
+              
         ?>
        
     </tbody>
 </table>
+<h3>Tabla de Clasificacion</h3>
+
+                <table border = "1">
+                    <thead>
+                        <th>Equipos</th>
+                        <th>Puntos</th>
+                        <th>Goles a favor</th>
+                        <th>Goles en contra</th>
+                    </thead>
+
+
+
+
+                </table>
+
+
+
+
+
+
+
     </main>
 <footer>
         <?php
