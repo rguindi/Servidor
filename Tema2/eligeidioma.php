@@ -14,13 +14,13 @@
             include("../html/header.html");
         ?>
         </header>
-
+<main>
     <a href="HolaMundoIdioma.php?idioma=es"><p>Español</p><img src="img/españa.png" alt="Imagen" width="200px" height="150px"></a>   
     <a href="HolaMundoIdioma.php?idioma=en"><p>Inglés</p><img src="img/inglaterra.png" alt="Imagen" width="200px" height="150px"></a>  
     <a href="HolaMundoIdioma.php?idioma=de"><p>Alemán</p><img src="img/alemnia.png" alt="Imagen" width="200px" height="150px"></a>  
     <a href="HolaMundoIdioma.php?idioma=pt"><p>Portugués</p><img src="img/portugal.png" alt="Imagen" width="200px" height="150px"></a>  
     <a href="HolaMundoIdioma.php?idioma=fr"><p>Francés</p><img src="img/francia.png" alt="Imagen" width="200px" height="150px"></a>  
-
+    </main>
     <?php
     echo "<br>";
             $ruta = $_SERVER['SCRIPT_FILENAME'];

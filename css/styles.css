@@ -1,7 +1,8 @@
 header {
-background-color: #54582f;
+background-color: hsl(66, 30%, 26%, 0.6);
 height: 100px;
-position: relative;
+top: 0px;
+position: sticky;
 
 }
 #nombre {
@@ -14,19 +15,19 @@ position: relative;
 }
   
 body{
-    background-color: #9c9e74;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
 }
 main{
-    background-color: #dbe29a;
-    padding: 35px;
+    background-image: url("../img/teclado.jpg");
+    background-size: 100%;
+    padding-left: 100px;
+    color: white;
 }
 
 footer{
     background-color: #bec092;
    
-}
-main{
-    margin-left: 50px;
 }
 
 main li{
@@ -53,6 +54,11 @@ main li:hover{
     transition: all .2s;
 }
 
+main h2 {
+    border-bottom: 3px solid white;
+    width: 25%;
+}
+
 #curso{
     display: inline-block;
     text-align: right;
@@ -63,7 +69,4 @@ main li:hover{
 
 #datos {
     display: inline-block;
-}
-body{
-    font-family: 'Courier New', Courier, monospace;
 }

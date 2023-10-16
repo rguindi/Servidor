@@ -15,8 +15,9 @@
         <body>
             
         
-
+<main>
 <?php
+
 echo "<h2>1. Escribe un programa que dado un array ordénalo y devuelve otro array sin que haya
 elementos repetidos.</h2> <br>
 datos = [2,5,9,7,6,3,1,5,4,8,3,2,6,9,3,5,1,2,3] <br>";
@@ -128,7 +129,7 @@ $array = array ();
         </tr>
     </tbody>
 </table>
-
+</main>
 <footer>
         <?php
             include("../html/footer.html");

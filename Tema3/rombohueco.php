@@ -12,7 +12,7 @@
             include("../html/header.html");
         ?>
         </header>
-
+        <main>
 <?php
    $altura = $_GET ['altura'];
    $espacios = $altura/2 -1;
@@ -64,7 +64,7 @@
 }
 
 ?>
-
+</main>
 <footer>
         <?php
             include("../html/footer.html");

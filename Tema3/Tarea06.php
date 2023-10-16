@@ -64,7 +64,7 @@ array(
             include("../html/header.html");
         ?>
         </header>
-    
+        <main>
 <table border = "1">
     <thead>
         <?php  //Imprimimos la primera linea
@@ -120,7 +120,7 @@ array(
        
     </tbody>
 </table>
-    
+    </main>
 <footer>
         <?php
             include("../html/footer.html");

@@ -12,6 +12,7 @@
             include("../html/header.html");
         ?>
         </header>
+        <main>
 
 <?php
     $altura = $_GET ['altura'];
@@ -40,7 +41,7 @@
 
 
 ?>
-
+</main>
 <footer>
         <?php
             include("../html/footer.html");
