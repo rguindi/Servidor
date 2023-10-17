@@ -57,8 +57,49 @@ array(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <title>Equipos de Futbol</title>
+
+    <style>
+        #datostabla{
+            text-align: center;
+           
+        }
+        #resultado{
+            background-color: green;
+            text-align: center;
+        }
+        #roja{
+            background-color: red;
+            text-align: center;
+            padding; 10px;
+            display : inline;
+            padding-left : 5px;
+            padding-right : 5px;
+            
+        }
+
+        #amarilla{
+            background-color: yellow;
+            text-align: center;
+            display : inline;
+            padding-left : 5px;
+            padding-right : 5px;
+            margin-left : 5px;
+            margin-right : 5px;
+        }
+
+        #penalti{
+            background-color: orange;
+            text-align: center;
+            display : inline;
+            padding-left : 5px;
+            padding-right : 5px;
+        }
+
+
+
+    </style>
 </head>
-<body>
+<body>  
 <header>
         <?php
             include("../html/header.html");
@@ -94,14 +135,28 @@ array(
                         
                         if ($arrayauxiliar[$contador]===$local) echo "<td></td>"; //SI nos entramos en equipo local iprimimos en blanco
                     
-                        echo "<td>";  //Imprimimos en cada celd los dato de los visitantes
+                        echo '<td id="datostabla">';  //Imprimimos en cada celda los dato de los visitantes
 
                             
 
                         foreach ($resultados as $resultado => $datos) {                          
                             
-                            
-                            echo "$datos";
+                         if ($resultado=="Resultado") {
+                             
+                             echo '<p id="resultado">'. $datos . '</p>';
+                         }
+                         if ($resultado=="Roja") {
+                             
+                            echo '<p id="roja">'. $datos . '</p>';
+                        }
+                        if ($resultado=="Amarilla") {
+                             
+                            echo '<p id="amarilla">'. $datos . '</p>';
+                        }
+                        if ($resultado=="Penalti") {
+                             
+                            echo '<p id="penalti">'. $datos . '</p>';
+                        }
                             
                         }
                         
@@ -129,6 +184,54 @@ array(
                         <th>Goles en contra</th>
                     </thead>
 
+                    
+<?php
+
+
+foreach ($liga as $locales => $visitantes) {  //ITERAMOS ARRAY LIGA
+    $golescasa = 0;
+    $golesvisitante = 0;
+    $puntos = 0;
+
+
+
+    foreach ($visitantes as $parametros1 => $datos) {  //ITERAMOS PARAMETROS
+
+        foreach ($datos as $key => $value) {        //ITERAMOS LOS DATOS
+
+
+            
+                       // SUMAMOS DATOS  
+                        if ($key=="Resultado"){                            
+
+                            if (substr ($value, 0,1)==substr ($value, 2,1)){
+                                $puntos+=1;
+                                $golescasa += (int) substr ($value, 0,1);
+                                $golesvisitante += (int) substr ($value, 2,1);
+
+                            }elseif (substr ($value, 0,1) > substr ($value, 2,1)) {
+                                $puntos += 3;
+                                $golescasa += (int) substr ($value, 0,1);
+                                $golesvisitante += (int) substr ($value, 2,1);
+                            }else{
+                                $golescasa += (int) substr ($value, 0,1);
+                                $golesvisitante += (int) substr ($value, 2,1);
+                            }
+
+                            
+                        }
+                        
+                        //-----------------------------------------------
+    
+                    }
+                }
+            
+                echo "<tr><td><b>$locales</b></td><td>$puntos</td><td>$golescasa</td><td>$golesvisitante</td></tr>";
+            }
+            
+        
+
+?>
 
 
 
