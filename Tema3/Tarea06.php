@@ -186,23 +186,23 @@ array(
 
                     
 <?php
+  
 
-
-foreach ($liga as $locales => $visitantes) {  //ITERAMOS ARRAY LIGA
+  foreach ($arrayauxiliar as $llaveauxiliar => $equiposauxiliar) {   //Iteramos array auxialiar
     $golescasa = 0;
     $golesvisitante = 0;
     $puntos = 0;
+ 
 
+    foreach ($liga as $locales => $visitantes) {  //ITERAMOS ARRAY LIGA
 
+            if (($equiposauxiliar == $locales) || ($equiposauxiliar == $visitantes)){
 
-    foreach ($visitantes as $parametros1 => $datos) {  //ITERAMOS PARAMETROS
-
-        foreach ($datos as $key => $value) {        //ITERAMOS LOS DATOS
-
-
+                foreach ($visitantes as $equipos => $parametros) {
+                    foreach ($parametros as $parametro => $value) {
             
                        // SUMAMOS DATOS  
-                        if ($key=="Resultado"){                            
+                        if ($parametro=="Resultado"){                            
 
                             if (substr ($value, 0,1)==substr ($value, 2,1)){
                                 $puntos+=1;
@@ -217,19 +217,18 @@ foreach ($liga as $locales => $visitantes) {  //ITERAMOS ARRAY LIGA
                                 $golescasa += (int) substr ($value, 0,1);
                                 $golesvisitante += (int) substr ($value, 2,1);
                             }
-
-                            
                         }
-                        
-                        //-----------------------------------------------
-    
                     }
                 }
             
-                echo "<tr><td><b>$locales</b></td><td>$puntos</td><td>$golescasa</td><td>$golesvisitante</td></tr>";
+                }
             }
+            echo "<tr><td><b>$equiposauxiliar</b></td><td>$puntos</td><td>$golescasa</td><td>$golesvisitante</td></tr>";
+
+                  
+  }
             
-        
+                        
 
 ?>
 
