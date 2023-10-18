@@ -45,6 +45,10 @@
     <li><a href="/Tema3/Tarea5Arrays.php?lado=4">Tarea Arrays</a></li>
     <li><a href="/Tema3/Tarea06.php">Tarea Equipos de Futbol</a></li>
     </ul>
+    <h4>Funciones</h4>
+    <ul>
+    <li><a href="/Tema3/tarea07utilizarfunciones.php">Tarea Funciones</a></li>
+    </ul>
     </main>
 
     <footer>
