@@ -24,12 +24,15 @@ return $precio * $ivaP;
 
 
 
-function añadirArray ($array, $value){  // funcionamiento arraypush
+function añadirArray (&$array, $value){  // funcionamiento arraypush (pasar puntero, o devolver array)
 
 $ultimo = count($array);
 $array [$ultimo] = $value;
 
 }
 
+foreach ($variable as $key => $value) {
+    # code...
+}
 
 ?>

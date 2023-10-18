@@ -42,7 +42,7 @@ function Dni($dni)
 //FUNCION NUMEROS ALEATORIOS
 
 
-function aleatorios($arrayarellenar, $min, $max, $cantidad, $repetir){
+function aleatorios($arrayarellenar, $min, $max, $cantidad, $repetir=false){
 
 
     if ($repetir){ 
@@ -51,6 +51,11 @@ function aleatorios($arrayarellenar, $min, $max, $cantidad, $repetir){
         }
     }
 
+
+
+
+
+    
 
     elseif (!$repetir){ 
 
