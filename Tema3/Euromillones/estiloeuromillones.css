@@ -1,3 +1,10 @@
 .ganadores {
     background-color: green;
 }
+
+.jugados {
+    background-color: rgb(255, 252, 53);
+}
+.premiados {
+    background-color: rgb(255, 75, 228);
+}
