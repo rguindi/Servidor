@@ -50,6 +50,10 @@
     <li><a href="/Tema3/tarea07utilizarfunciones.php">Tarea Funciones</a></li>
     <li><a href="/Tema3/Euromillones/euromillones.php?var1=1&var2=18&var3=21&var4=24&var5=45&var6=48&especial1=3&especial2=4">Tarea Euromillolnes</a></li>
     </ul>
+    <h4>Formularios</h4>
+    <ul>
+    <li><a href="/Tema3/Formularios/formulario.php">Formulario</a></li>
+    </ul>
     </main>
 
     <footer>

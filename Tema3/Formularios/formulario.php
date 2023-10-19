@@ -1,20 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="./estilosformulario.css">
+    <title>Euromillones</title>
+</head>
+
+<body>
+    <header>
+        <?php
+        include("../../html/header.html");
+        ?>
+    </header>
+
+<main>
+
 <?php
  include ("./validaciones.php")
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
-    <style>
-        .error{
-            color: red;
-        }
-    </style>
-</head>
 <?php
 
 $errores = array ();
@@ -24,7 +32,7 @@ if (enviado()){
 }
 ?>
 
-<body>
+
     <form action="" method="post" name="formulario1" enctype="multipart/form-data">
     <label for="nombre">Nombre:<input type="text" name="nombre" id="nombre" 
     
@@ -75,5 +83,17 @@ if (enviado()){
     
 
 </form>
+</main>
+
+<footer>
+    <?php
+    include("../../html/footer.html");
+    ?>
+
+
+
+</footer>
+
 </body>
+
 </html>

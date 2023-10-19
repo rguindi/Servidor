@@ -1,0 +1,13 @@
+.error{
+    color: rgb(139, 15, 15);
+    font-weight: bold;
+}
+
+form{
+    margin: 40px;
+    padding: 20px;
+    background-color: rgb(169, 169, 169);
+    width: fit-content;
+    border-radius: 13px;
+    color: black;
+}

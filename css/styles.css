@@ -3,9 +3,8 @@ background-color: hsl(66, 30%, 26%, 0.6);
 height: 100px;
 top: 0px;
 position: sticky;
-
 }
-#nombre {
+header #nombre {
     display:inline-block;
     color: white;
     position: absolute;
