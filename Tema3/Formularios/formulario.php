@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="./estilosformulario.css">
-    <title>Euromillones</title>
+    <title>Formulario</title>
 </head>
 
 <body>
@@ -38,8 +38,7 @@ if (enviado()){
     
     value= <?php
      recuerda ('nombre');
-    ?>
-    
+    ?>    
     ></label>
     <p class="error"><?php errores ($errores,'nombre');?></p>
 
@@ -48,6 +47,8 @@ if (enviado()){
      recuerda ('apellido');
     ?>></label>
     <p class="error"><?php errores ($errores,'apellido');?></p>
+
+
     <label for="hombre">Hombre<input type="radio" name="genero" id="hombre" value="hombre"></label>
     <label for="hombre">Mujer<input type="radio" name="genero" id="mujer" value="mujer"></label>
 
