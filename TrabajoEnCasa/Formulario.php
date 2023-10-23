@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styleformulario.css">
 
     <title>Formulario en Casa</title>
 </head>
 <body>
+    <header>
+        <div>Parte 1 del header</div>
+        <div>Parte 2 del header</div>
+        <div>Parte 3 del header</div>
 
+    </header>
 
     <main>
+
+    <nav>
+        <ul>
+            <li>menu lateral 1</li>
+            <li>menu lateral 2</li>
+            <li>menu lateral 3</li>
+        </ul>
+    </nav>
        
     <?php
  include ("./funcionesformulario.php");
@@ -76,6 +90,12 @@ if (vacio('apellidos') && enviado()) {
 
 
     </main>
+
+    <footer>
+        <div>Parte 1 del footer</div>
+        <div>Parte 2 del footer</div>
+        <div>Parte 3 del footer</div>
+    </footer>
 
 
 </body>
