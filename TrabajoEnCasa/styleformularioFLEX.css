@@ -1,0 +1,43 @@
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: azure;
+    height: 100px;
+}
+main {
+    display: flex;
+    flex-direction: row;
+    height: 800px;
+}
+
+nav{
+    background-color: bisque;
+    
+}
+nav ul{
+    list-style: none;
+    padding: 20px;
+}
+nav ul li{
+    padding-top: 50px;
+}
+
+form{
+    background-color: rgb(162, 162, 162);
+margin-left: 100px;
+margin-top: 100px;
+height: fit-content;
+padding: 50px;
+border-radius: 2em;
+}
+
+footer {
+    background-color: rgb(69, 125, 125);
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+}

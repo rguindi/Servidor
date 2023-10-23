@@ -1,0 +1,43 @@
+body{
+
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 10% 80% 10%;
+    row-gap: 50px;
+    column-gap: 50px;
+}
+
+header{
+    display: flex;
+    background-color: azure;
+    grid-column: 1/4;
+    grid-row: 1/2;
+    height: 100px;
+    align-items: center;
+    justify-content: space-around;
+}
+main{
+    display: flex;
+    grid-column: 1/4;
+    grid-row: 2/3;
+
+}
+nav{
+    background-color: rgb(155, 155, 103);
+ 
+}
+form{
+    margin-left: 100px;
+    background-color: rgb(191, 191, 191);
+ 
+}
+footer{
+    display: flex;
+    background-color: aquamarine;
+    grid-column: 1/4;
+    grid-row: 3/4;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    
+}
