@@ -24,7 +24,6 @@ function errores ($errores, $name){
 function recuerda ($name){
     if (enviado() && !empty ($_REQUEST[$name])) 
     echo $_REQUEST[$name];
-  //REVISAR LA PARTE BORRAR -- SEGUIR AQUI
     if (isset($_REQUEST['Borrar']))
     echo "''";
 }

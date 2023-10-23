@@ -33,7 +33,7 @@ if (enviado()){
 ?>
 
 
-    <form action="" method="post" name="formulario1" enctype="multipart/form-data">
+    <form action="" method="post" name="formulario1" >
     <label for="nombre">Nombre:<input type="text" name="nombre" id="nombre" 
     
     value= <?php
@@ -50,7 +50,7 @@ if (enviado()){
 
 
     <label for="hombre">Hombre<input type="radio" name="genero" id="hombre" value="hombre"></label>
-    <label for="hombre">Mujer<input type="radio" name="genero" id="mujer" value="mujer"></label>
+    <label for="mujer">Mujer<input type="radio" name="genero" id="mujer" value="mujer"></label>
 
     <br>
     <p>Aficciones</p>
