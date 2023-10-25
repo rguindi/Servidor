@@ -1,12 +1,41 @@
 <?php
-if (count ($_FILES) !=0){
-  
+if (count($_FILES) != 0) {
+
+    echo "<pre>";
     print_r($_FILES);
+    echo "</pre>";
+    $rutaC = '/var/www/servidor/Tema3/';
 
-    $ruta = '/var/www/servidor/Tema3/';
-    $ruta .= basename ($_FILES ['fichero']['name']); 
+    $numeroficheros = count($_FILES['fichero']['name']);
 
-    //MOVIENDO FICHERO AL SERVIDOR SEGUIR AQUI
+
+    for ($i = 0; $i < $numeroficheros; $i++) {
+
+        $ruta = $rutaC . basename($_FILES['fichero']['name'][$i]);
+
+        if (move_uploaded_file($_FILES['fichero']['tmp_name'][$i], $ruta)) {
+            echo "Archivo subido con éxito";
+        } else {
+            echo "Error subiendo archivo";
+        }
+        
+    }
+
+
+
+
+
+
+
+
+
+
+    // $ruta .= basename ($_FILES ['fichero']['name']); 
+    // if (move_uploaded_file($_FILES ['fichero']['tmp_name'], $ruta)){
+    //     echo "Archivo subido con éxito";
+    // }else{
+    //     echo "Error subiendo archivo";
+    // };
 
 }
 ?>
