@@ -11,3 +11,12 @@ form{
     border-radius: 13px;
     color: black;
 }
+.resultados{
+    color: green;
+    font-weight: bold;
+}
+
+
+img {
+    width: 200px;
+}

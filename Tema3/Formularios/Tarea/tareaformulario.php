@@ -43,7 +43,7 @@ if (textoVacio ('archivo')) $errores ['archivo'] = 'Seleccione una imagen.';
 <main>
     <!-- FORMULARIO -->
 
-<form action="./tareasubir.php" method="get" enctype="multipart/form-data">
+<form action="./tareasubir.php" method="post" enctype="multipart/form-data">
 
    <label for="alfabetico">Alfabético <input type="text" name="alfabetico" id="alfabetico" value = <?php recuerda ('alfabetico') ?>></label> <br>
   <?php  printerror($errores, 'alfabetico');  ?>
@@ -98,7 +98,7 @@ if (textoVacio ('archivo')) $errores ['archivo'] = 'Seleccione una imagen.';
    <?php  printerror($errores, 'pass');  ?>
    
    <!-- ARCHIVO -->
-   <label for="archivo">Subir Documento<input type="file" name="archivo" id="archivo"></label> <br>
+   <label for="archivo">Subir Documento<input type="file" name="archivo"></label> <br>
    <?php  printerror($errores, 'archivo');  ?>
 
 
