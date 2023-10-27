@@ -83,12 +83,8 @@ if (textoVacio ('archivo')) $errores ['archivo'] = 'Seleccione una imagen.';
    <!-- CHECK -->
   <p>Check</p>
     <?php   
-        for ($i=1; $i < 6; $i++) { 
-            echo '<label for="ch'.$i.'"><input type="checkbox" name="check[]" id="ch'.$i.'" value="check'.$i.'" >Check'.$i.'</label> <br>';  
-            // '.recuerdaCheck("check", "check'.$i.'").'
-     
-
-        }
+       
+        generarChecks (5);
         printerror($errores, 'check'); 
         printerror($errores, 'checks'); 
     ?>

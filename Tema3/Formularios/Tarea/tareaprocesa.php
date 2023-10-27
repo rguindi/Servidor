@@ -31,13 +31,22 @@ function recuerdaRadio ($nombrecomun, $opcion){
     if (isset ($_REQUEST[$nombrecomun]) && $_REQUEST [$nombrecomun]==$opcion)
     echo 'selected';
   }
-
+  
   function recuerdaCheck ($arrayCheck, $value){
-    if (isset ($_REQUEST[$arrayCheck[$value]]) && in_array($value, $_REQUEST[$arrayCheck]))
+    if (enviado() && isset ($_REQUEST[$arrayCheck]) && in_array($value, $_REQUEST[$arrayCheck]))
+    // if (isset ($_REQUEST[$arrayCheck[$value]]) && in_array($value, $arrayCheck))
     echo 'checked';
-  }
+}
 
-  function checksCorrectos ($arrayCheck){
+function generarChecks($cantidad){
+  for ($i=1; $i < $cantidad+1; $i++) { 
+    echo '<label for="ch'.$i.'"><input '.recuerdaCheck("check", "check'.$i.'").' type="checkbox" name="check[]" id="ch'.$i.'" value="check'.$i.'" >Check'.$i.'</label> <br>';  
+    // echo recuerdaCheck('check', "check'.$i.'");
+
+}
+
+}
+function checksCorrectos ($arrayCheck){
     if (count($arrayCheck) < 1 || count($arrayCheck) > 3) return false;
     return true;
   }
