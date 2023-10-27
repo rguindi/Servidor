@@ -29,8 +29,8 @@ if (textoVacio ('fecha')) $errores ['fecha'] = 'Debe de seleccionar una fecha.';
 if (!mayorEdad()) $errores ['mayor'] = 'Debe ser mayor a 18 años.';
 if (textoVacio ('opcion')) $errores ['opcion'] = 'Escoja una de las opciones.';
 if (textoVacio ('select')) $errores ['select'] = 'Seleccione un Campo.';
-if (textoVacio ('check')) $errores ['check'] = 'Marque las opciones deseadas';
-if (isset($_REQUEST['check']) && !checksCorrectos($_REQUEST['check'])) $errores ['checks'] = 'Debe elegir un mínimo de 1 y un máximo de 3.';
+if (textoVacio ('checks')) $errores ['check'] = 'Marque las opciones deseadas';
+if (isset($_REQUEST['checks']) && !checksCorrectos($_REQUEST['checks'])) $errores ['checks'] = 'Debe elegir un mínimo de 1 y un máximo de 3.';
 
 if (textoVacio ('telefono')) $errores ['telefono'] = 'Indique su número de teléfono.';
 if (textoVacio ('email')) $errores ['email'] = 'Indique su email.';
@@ -42,7 +42,9 @@ if (textoVacio ('archivo')) $errores ['archivo'] = 'Seleccione una imagen.';
 
 <main>
     <!-- FORMULARIO -->
-<form action="" method="get" enctype="multipart/form-data">
+
+<form action="./tareasubir.php" method="get" enctype="multipart/form-data">
+
    <label for="alfabetico">Alfabético <input type="text" name="alfabetico" id="alfabetico" value = <?php recuerda ('alfabetico') ?>></label> <br>
   <?php  printerror($errores, 'alfabetico');  ?>
    <label for="alfabeticoopcional">Alfabético Opcional <input type="text" name="alfabeticoopcional" id="alfabeticoopcional"></label> <br>
@@ -101,6 +103,8 @@ if (textoVacio ('archivo')) $errores ['archivo'] = 'Seleccione una imagen.';
 
 
     <input type="submit" value="Enviar" name="Enviar">
+    <input type="submit" value="Borrar" name="Borrar">
+    
 
 </form>
 

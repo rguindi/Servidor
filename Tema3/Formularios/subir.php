@@ -18,24 +18,8 @@ if (count($_FILES) != 0) {
         } else {
             echo "Error subiendo archivo";
         }
-        
+
     }
-
-
-
-
-
-
-
-
-
-
-    // $ruta .= basename ($_FILES ['fichero']['name']); 
-    // if (move_uploaded_file($_FILES ['fichero']['tmp_name'], $ruta)){
-    //     echo "Archivo subido con éxito";
-    // }else{
-    //     echo "Error subiendo archivo";
-    // };
 
 }
 ?>

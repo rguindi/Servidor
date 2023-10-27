@@ -18,31 +18,50 @@ function printerror($errores, $valor){
 }
 
 function recuerda($campo){
-    if (!empty ($_REQUEST[$campo])) 
+    if (!empty ($_REQUEST[$campo])) {
     echo "'$_REQUEST[$campo]'";
+}else if (isset ($_REQUEST['Borrar']))
+echo '';
 }
 
 function recuerdaRadio ($nombrecomun, $opcion){
-    if (isset ($_REQUEST[$nombrecomun]) && $_REQUEST [$nombrecomun]==$opcion)
+    if (isset ($_REQUEST[$nombrecomun]) && $_REQUEST [$nombrecomun]==$opcion){
     echo 'checked';
+    }else if (isset ($_REQUEST['Borrar'])){
+    echo '';
+    }
   }
 
   function recuerdaSelect ($nombrecomun, $opcion){
-    if (isset ($_REQUEST[$nombrecomun]) && $_REQUEST [$nombrecomun]==$opcion)
-    echo 'selected';
+    if (isset ($_REQUEST[$nombrecomun]) && $_REQUEST [$nombrecomun]==$opcion){
+
+      echo 'selected';
+    }else if (isset ($_REQUEST['Borrar'])){
+    echo '';
+    }
   }
   
   function recuerdaCheck ($arrayCheck, $value){
-    if (enviado() && isset ($_REQUEST[$arrayCheck]) && in_array($value, $_REQUEST[$arrayCheck]))
-    // if (isset ($_REQUEST[$arrayCheck[$value]]) && in_array($value, $arrayCheck))
-    echo 'checked';
+    if (enviado() && isset($_REQUEST[$arrayCheck]) && in_array($value, $_REQUEST[$arrayCheck])){
+    echo 'checked'; 
+    }else if (isset ($_REQUEST['Borrar'])){
+    echo '';
+    }
+    
+ 
+  
 }
 
 function generarChecks($cantidad){
-  for ($i=1; $i < $cantidad+1; $i++) { 
-    echo '<label for="ch'.$i.'"><input '.recuerdaCheck("check", "check'.$i.'").' type="checkbox" name="check[]" id="ch'.$i.'" value="check'.$i.'" >Check'.$i.'</label> <br>';  
-    // echo recuerdaCheck('check', "check'.$i.'");
 
+  
+  for ($i=1; $i < $cantidad+1; $i++) { 
+
+  echo '<label for="ch'.$i.'"><input type="checkbox"  name="checks[]" id="ch'.$i.'" value="valor'.$i.'" ';
+  echo recuerdaCheck("checks", "valor".$i);
+  echo ' >Check '.$i.'</label> <br>';  
+
+    // echo ;
 }
 
 }
@@ -63,6 +82,6 @@ function checksCorrectos ($arrayCheck){
 
 
 
-//RECORDAR CHECK FALTA
+//FALTA MOSTRAR PAGINA DE RESULTADOS SI ESTA BIEN, SI NO REPETIR FORMULARIO
 
 ?>
