@@ -82,13 +82,14 @@
     ?>
     </p>
 
-//Check
+<h3>Checks Seleccionados</h3>
 
-Check 1
-Check 2
-Check 3
-Check 4
-Check 5
+<?php
+    foreach ($_REQUEST['checks'] as $key => $value) {
+        echo $value.'<br>';
+    }
+?>
+
 <h3>Telefono;</h3> 
     <p class="resultados">
     <?php
@@ -117,15 +118,17 @@ $cruta = '/Applications/XAMPP/xamppfiles/htdocs/servidor/Tema3/Formularios/Tarea
 
 $ruta = $cruta . basename($_FILES['archivo']['name']);
 
-if (move_uploaded_file($_FILES['archivo']['tmp_name'], $ruta)) {
-    echo "Archivo subido con éxito";
-} else {
-    echo "Error subiendo archivo";
-}
+// if (
+    move_uploaded_file($_FILES['archivo']['tmp_name'], $ruta)
+//     ) {
+// //     echo "Archivo subido con éxito";
+// // } else {
+// //     echo "Error subiendo archivo";
+// // }
 ?>
-<picture>
-<img src= "<?php basename($ruta) ?>" alt="No se encuentra la imagen">
-</picture>
+
+<img class="imagensubida" src= "<?php echo "./".basename($_FILES['archivo']['name'])?>" alt="No se encuentra la imagen">
+
 
 <?php 
  echo "<pre>";
@@ -136,4 +139,4 @@ if (move_uploaded_file($_FILES['archivo']['tmp_name'], $ruta)) {
 </body>
 </html>
 
-<!-- IMPRIMIR CHECK, enlazar foto, y redirigir formulario -->
+<!--redirigir formulario-->
