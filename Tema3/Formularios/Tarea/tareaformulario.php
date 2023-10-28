@@ -13,37 +13,24 @@
     <header>
         <?php
         include("../../../html/header.html");
+        include ("./tareaprocesa.php");
         ?>
     </header>
 
 <?php
-
-$errores = array ();
-include ("./tareaprocesa.php");
+ 
+    $errores = array ();
 if (enviado()){
-if (textoVacio ('alfabetico')) $errores ['alfabetico'] = 'El Alfabetico no puede estar vacío.';
-if (textoVacio ('alfanumerico')) $errores ['alfanumerico'] = 'El Alfanumerico no puede estar vacío.';
-if (textoVacio ('numerico')) $errores ['numerico'] = 'El Numérico no puede estar vacío.';
-if (numeroValido ($_REQUEST ['numerico'])) $errores ['valornumero'] = "El número debe estar comprendido entre 0 y 100.";
-if (textoVacio ('fecha')) $errores ['fecha'] = 'Debe de seleccionar una fecha.';
-if (!mayorEdad()) $errores ['mayor'] = 'Debe ser mayor a 18 años.';
-if (textoVacio ('opcion')) $errores ['opcion'] = 'Escoja una de las opciones.';
-if (textoVacio ('select')) $errores ['select'] = 'Seleccione un Campo.';
-if (textoVacio ('checks')) $errores ['check'] = 'Marque las opciones deseadas';
-if (isset($_REQUEST['checks']) && !checksCorrectos($_REQUEST['checks'])) $errores ['checks'] = 'Debe elegir un mínimo de 1 y un máximo de 3.';
-
-if (textoVacio ('telefono')) $errores ['telefono'] = 'Indique su número de teléfono.';
-if (textoVacio ('email')) $errores ['email'] = 'Indique su email.';
-if (textoVacio ('pass')) $errores ['pass'] = 'Contraseña requerida.';
-if (textoVacio ('archivo')) $errores ['archivo'] = 'Seleccione una imagen.';
+    validaFormulario($errores);
 }
 ?>
+
 
 
 <main>
     <!-- FORMULARIO -->
 
-<form action="#" method="post" enctype="multipart/form-data">
+<form action="./tareasubir.php" method="post" enctype="multipart/form-data">
 
    <label for="alfabetico">Alfabético <input type="text" name="alfabetico" id="alfabetico" value = <?php recuerda ('alfabetico') ?>></label> <br>
   <?php  printerror($errores, 'alfabetico');  ?>
@@ -107,8 +94,6 @@ if (textoVacio ('archivo')) $errores ['archivo'] = 'Seleccione una imagen.';
     
 
 </form>
-
-
 </main>
 
 <footer>
