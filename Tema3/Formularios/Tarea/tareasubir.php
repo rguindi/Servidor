@@ -71,6 +71,7 @@
 <h3>Opcion Radio elegida;</h3> 
     <p class="resultados">
     <?php
+    if (isset ($_REQUEST['opcion']))
    echo $_REQUEST['opcion'];
     ?>
     </p>

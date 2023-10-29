@@ -13,6 +13,7 @@ function numeroValido($numero){
     return false;
 }
 function printerror($errores, $valor){
+  if (isset ($errores[$valor]))
     echo "<p class = error>".$errores[$valor]."</p>";
 
 }
