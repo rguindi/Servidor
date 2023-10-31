@@ -20,9 +20,16 @@
 <?php
  
     $errores = array ();
-if (enviado()){
-    validaFormulario($errores);
-}
+// if (enviado()){
+//     validaFormulario($errores);
+// }
+
+//Si ha ido todo bienb
+if (enviado()&& validaFormulario($errores)){
+    include ("./tareasubir.php");
+
+}else{
+
 ?>
 
 
@@ -30,7 +37,7 @@ if (enviado()){
 <main>
     <!-- FORMULARIO -->
 
-<form action="./tareasubir.php" method="post" enctype="multipart/form-data">
+<form action="#" method="post" enctype="multipart/form-data">
 
    <label for="alfabetico">Alfabético <input type="text" name="alfabetico" id="alfabetico" value = <?php recuerda ('alfabetico') ?>></label> <br>
   <?php  printerror($errores, 'alfabetico');  ?>
@@ -94,6 +101,10 @@ if (enviado()){
     
 
 </form>
+
+<?php
+}   //Cerramos el else
+?>
 </main>
 
 <footer>
