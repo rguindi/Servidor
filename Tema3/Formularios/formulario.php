@@ -31,6 +31,7 @@ $errores = array ();
 if (enviado()&& validaFormulario($errores)){
     echo "<pre>";
     print_r ($_REQUEST);
+
 }else{
 
 ?>
