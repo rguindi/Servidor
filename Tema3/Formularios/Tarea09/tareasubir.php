@@ -83,13 +83,16 @@ $ruta = $cruta . basename($_FILES['archivo']['name']);
 // // }
 ?>
 
-<img class="imagensubida" src= "<?php echo "./".basename($_FILES['archivo']['name'])?>" alt="No se encuentra la imagen">
+<img class="imagensubida" src= "<?php echo './'.basename($_FILES['archivo']['name'])?>" alt="No se encuentra la imagen">
 
 
 
 <?php 
  echo "<pre>";
  print_r ($_REQUEST);
+ echo "<pre>";
+ print_r ($_FILES);
+ echo dirname(__FILE__);
 
 ?>
 </div>

@@ -39,7 +39,8 @@
             <form action="" method="post" enctype="multipart/form-data">
 
                 <label for="nombre">Nombre <input type="text" name="nombre" id="nombre" value=<?php recuerda('nombre') ?>></label> <br>
-                <?php printerror($errores, 'nombre'); ?>
+                <?php printerror($errores, 'nombre'); 
+                      printerror($errores, 'validarNombre');   ?>
                 <label for="apellidos">Apellidos <input type="text" name="apellidos" id="apellidos" value=<?php recuerda('apellidos') ?>></label> <br>
                 <?php printerror($errores, 'apellidos'); ?>
                 <label for="pass">Contraseña<input type="password" name="pass" id="pass" value=<?php recuerda('pass') ?>></label> <br>
