@@ -7,6 +7,7 @@
     <title>Resultado Formulario</title>
 </head>
 <body>
+    <div class="resultadoform">
     <h1>Resultado del Formulario</h1>
 
     <h3>Alfabético;</h3> 
@@ -131,11 +132,13 @@ $ruta = $cruta . basename($_FILES['archivo']['name']);
 <img class="imagensubida" src= "<?php echo "./".basename($_FILES['archivo']['name'])?>" alt="No se encuentra la imagen">
 
 
+
 <?php 
  echo "<pre>";
  print_r ($_REQUEST);
 
 ?>
+</div>
     
 </body>
 </html>

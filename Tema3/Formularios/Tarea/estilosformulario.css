@@ -11,8 +11,16 @@ form{
     border-radius: 13px;
     color: black;
 }
+
+.resultadoform {
+    margin: 50px;
+    padding: 50px;
+    border-radius: 40px;
+   background: linear-gradient(red 0%, orange 25%, yellow 50%, green 75%, blue 100%);;
+}
+
 .resultados{
-    color: green;
+    color: rgb(0, 57, 0);
     font-weight: bold;
 }
 
@@ -20,6 +28,4 @@ form{
 .imagensubida {
     width: 200px;
 }
-body{
-    color: azure;
-}
+

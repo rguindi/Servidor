@@ -26,7 +26,9 @@
 
 //Si ha ido todo bienb
 if (enviado()&& validaFormulario($errores)){
+   
     include ("./tareasubir.php");
+ 
 
 }else{
 
