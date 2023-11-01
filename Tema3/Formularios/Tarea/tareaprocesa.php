@@ -94,7 +94,7 @@ if (isset($_REQUEST['checks']) && !checksCorrectos($_REQUEST['checks'])) $errore
 if (textoVacio ('telefono')) $errores ['telefono'] = 'Indique su número de teléfono.';
 if (textoVacio ('email')) $errores ['email'] = 'Indique su email.';
 if (textoVacio ('pass')) $errores ['pass'] = 'Contraseña requerida.';
-if (textoVacio ('archivo')) $errores ['archivo'] = 'Seleccione una imagen.';
+//if (textoVacio ('archivo')) $errores ['archivo'] = 'Seleccione una imagen.';
 if (count($errores)==0) return true;
 return false;
 

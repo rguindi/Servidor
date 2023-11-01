@@ -140,4 +140,3 @@ $ruta = $cruta . basename($_FILES['archivo']['name']);
 </body>
 </html>
 
-<!-- PENDIEDNTE redirigir formulario solo si validado-->

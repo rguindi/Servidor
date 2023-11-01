@@ -37,7 +37,7 @@ if (enviado()&& validaFormulario($errores)){
 <main>
     <!-- FORMULARIO -->
 
-<form action="#" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
 
    <label for="alfabetico">Alfabético <input type="text" name="alfabetico" id="alfabetico" value = <?php recuerda ('alfabetico') ?>></label> <br>
   <?php  printerror($errores, 'alfabetico');  ?>
@@ -93,7 +93,7 @@ if (enviado()&& validaFormulario($errores)){
    
    <!-- ARCHIVO -->
    <label for="archivo">Subir Documento<input type="file" name="archivo"></label> <br>
-   <?php  printerror($errores, 'archivo');  ?>
+   <?//php  printerror($errores, 'archivo');  ?>
 
 
     <input type="submit" value="Enviar" name="Enviar">
