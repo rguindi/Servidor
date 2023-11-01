@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="./estilosformulario.css">
-    <title>Formulario</title>
+    <title>Formulario Tarea 09</title>
 </head>
 
 <body>
@@ -20,9 +20,6 @@
     <?php
 
     $errores = array();
-    // if (enviado()){
-//     validaFormulario($errores);
-// }
     
     //Si ha ido todo bienb
     if (enviado() && validaFormulario($errores)) {
@@ -47,18 +44,18 @@
                 <?php printerror($errores, 'apellidos'); ?>
                 <label for="pass">Contraseña<input type="password" name="pass" id="pass" value=<?php recuerda('pass') ?>></label> <br>
                 <?php printerror($errores, 'pass'); ?>
+                <label for="repitepass">Repite contraseña<input type="password" name="repitepass" id="repitepass" value=<?php recuerda('repitepass') ?>></label> <br>
+                <?php printerror($errores, 'repitepass'); ?>
                 <label for="fecha">Fecha <input type="text" name="fecha" id="fecha" value=<?php recuerda('fecha') ?>></label> <br>
                 <?php printerror($errores, 'fecha'); ?>
-                <label for="DNI">Numérico <input type="number" name="DNI" id="DNI" value=<?php recuerda('DNI') ?>></label> <br>
+                <label for="DNI">DNI <input type="text" name="DNI" id="DNI" value=<?php recuerda('DNI') ?>></label> <br>
                 <?php printerror($errores, 'DNI');?>
                 <label for="email">Email<input type="email" name="email" id="email" value=<?php recuerda('email') ?>></label> <br>
                 <?php printerror($errores, 'email'); ?>
-                
 
                 <!-- ARCHIVO -->
-                <label for="archivo">Subir Documento<input type="file" name="archivo"></label> <br>
-                <? //php  printerror($errores, 'archivo');  ?>
-
+                <label for="archivo">Subir Imagen<input type="file" name="archivo"></label> <br>
+                <?php  printerror($errores, 'archivo');  ?>
 
                 <input type="submit" value="Enviar" name="Enviar">
                 <input type="submit" value="Borrar" name="Borrar">

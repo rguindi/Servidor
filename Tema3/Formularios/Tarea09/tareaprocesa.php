@@ -30,12 +30,11 @@ function validaFormulario (&$errores){
 if (textoVacio ('nombre')) $errores ['nombre'] = 'El nombre no puede estar vacío.';
 if (textoVacio ('apellidos')) $errores ['apellidos'] = 'El apellidos no puede estar vacío.';
 if (textoVacio ('pass')) $errores ['pass'] = 'Contraseña requerida.';
+if (textoVacio ('repitepass')) $errores ['repitepass'] = 'Repetir contraseña requerido.';
 if (textoVacio ('fecha')) $errores ['fecha'] = 'Debe de seleccionar una fecha.';
 if (textoVacio ('DNI')) $errores ['DNI'] = 'El Numérico no puede estar vacío.';
 if (textoVacio ('email')) $errores ['email'] = 'Indique su email.';
-//if (textoVacio ('archivo')) $errores ['archivo'] = 'Seleccione una imagen.';
-
-
+if (textoVacio ('archivo')) $errores ['archivo'] = 'Seleccione una imagen.';
 
 if (count($errores)==0) return true;
 return false;

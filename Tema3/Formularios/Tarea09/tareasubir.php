@@ -26,64 +26,37 @@
     ?>
     </p>
 
-<h3>Numerico;</h3> 
+
+    <h3>Contraseña;</h3> 
     <p class="resultados">
     <?php
-   echo $_REQUEST['numerico'];
+   echo $_REQUEST['pass'];
     ?>
     </p>
-<?php
-    if (!empty($_REQUEST['numericoopcional'])) {
- echo '<h3>Numerico Opcional;</h3>' ;
- echo '  <p class="resultados">'.$_REQUEST['numericoopcional'].'</p>';
 
-    }   
+    <h3>Repite contraseña;</h3> 
+    <p class="resultados">
+    <?php
+   echo $_REQUEST['repitepass'];
     ?>
+    </p>
 
-<h3>Fecha;</h3> 
+    <h3>Fecha;</h3> 
     <p class="resultados">
     <?php
    echo $_REQUEST['fecha'];
     ?>
     </p>
 
-<?php
-    if (!empty($_REQUEST['fechaopcional'])) {
- echo '<h3>Fecha Opcional;</h3>' ;
- echo '  <p class="resultados">'.$_REQUEST['fechaopcional'].'</p>';
 
-    }   
-    ?>
-
-<h3>Opcion Radio elegida;</h3> 
+<h3>DNI;</h3> 
     <p class="resultados">
     <?php
-    if (isset ($_REQUEST['opcion']))
-   echo $_REQUEST['opcion'];
+   echo $_REQUEST['DNI'];
     ?>
     </p>
 
-<h3>Opcion Select elegida;</h3> 
-    <p class="resultados">
-    <?php
-   echo $_REQUEST['select'];
-    ?>
-    </p>
 
-<h3>Checks Seleccionados</h3>
-
-<?php
-    foreach ($_REQUEST['checks'] as $key => $value) {
-        echo $value.'<br>';
-    }
-?>
-
-<h3>Telefono;</h3> 
-    <p class="resultados">
-    <?php
-   echo $_REQUEST['telefono'];
-    ?>
-    </p>
 
 <h3>Email;</h3> 
     <p class="resultados">
@@ -92,17 +65,12 @@
     ?>
     </p>
 
-<h3>Contraseña;</h3> 
-    <p class="resultados">
-    <?php
-   echo $_REQUEST['pass'];
-    ?>
-    </p>
+
  <!-- IMAGEN -->
 
 <h3>Foto;</h3> 
 <?php
-$cruta = '/Applications/XAMPP/xamppfiles/htdocs/servidor/Tema3/Formularios/Tarea/';
+$cruta = './';
 
 $ruta = $cruta . basename($_FILES['archivo']['name']);
 
