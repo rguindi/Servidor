@@ -42,13 +42,18 @@
                 <?php printerror($errores, 'nombre'); 
                       printerror($errores, 'validarNombre');   ?>
                 <label for="apellidos">Apellidos <input type="text" name="apellidos" id="apellidos" value=<?php recuerda('apellidos') ?>></label> <br>
-                <?php printerror($errores, 'apellidos'); ?>
+                <?php printerror($errores, 'apellidos'); 
+                      printerror($errores, 'validarApellidos'); ?>
                 <label for="pass">Contraseña<input type="password" name="pass" id="pass" value=<?php recuerda('pass') ?>></label> <br>
-                <?php printerror($errores, 'pass'); ?>
+                <?php printerror($errores, 'pass'); 
+                      printerror($errores, 'contraseñaValida');?>
                 <label for="repitepass">Repite contraseña<input type="password" name="repitepass" id="repitepass" value=<?php recuerda('repitepass') ?>></label> <br>
-                <?php printerror($errores, 'repitepass'); ?>
-                <label for="fecha">Fecha <input type="text" name="fecha" id="fecha" value=<?php recuerda('fecha') ?>></label> <br>
-                <?php printerror($errores, 'fecha'); ?>
+                <?php printerror($errores, 'repitepass'); 
+                      printerror($errores, 'repetirContraseña'); ?>
+                <label for="fecha">Fecha <input type="text" name="fecha" id="fecha" placeholder="DD/MM/AAAA" value=<?php recuerda('fecha') ?>></label> <br>
+                <?php printerror($errores, 'fecha'); 
+                      printerror($errores, 'formatoFecha');
+                      printerror($errores, 'mayorEdad');?>
                 <label for="DNI">DNI <input type="text" name="DNI" id="DNI" value=<?php recuerda('DNI') ?>></label> <br>
                 <?php printerror($errores, 'DNI');?>
                 <label for="email">Email<input type="email" name="email" id="email" value=<?php recuerda('email') ?>></label> <br>
