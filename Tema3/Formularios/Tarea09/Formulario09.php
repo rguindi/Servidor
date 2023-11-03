@@ -55,9 +55,11 @@
                       printerror($errores, 'formatoFecha');
                       printerror($errores, 'mayorEdad');?>
                 <label for="DNI">DNI <input type="text" name="DNI" id="DNI" value=<?php recuerda('DNI') ?>></label> <br>
-                <?php printerror($errores, 'DNI');?>
-                <label for="email">Email<input type="email" name="email" id="email" value=<?php recuerda('email') ?>></label> <br>
-                <?php printerror($errores, 'email'); ?>
+                <?php printerror($errores, 'DNI');
+                      printerror($errores, 'DNIMAL'); ?>
+                <label for="email">Email<input type="text" name="email" id="email" value=<?php recuerda('email') ?>></label> <br>
+                <?php printerror($errores, 'email'); 
+                      printerror($errores, 'validaemail');?>
 
                 <!-- ARCHIVO -->
                 <label for="archivo">Subir Imagen<input type="file" name="archivo"></label> <br>

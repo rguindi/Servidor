@@ -63,6 +63,27 @@ function mayorEdad(){
     return true;
   }
 
+  function validaDNI ($dni){
+
+    $exp = '/^[\d]{8}[a-zA-Z]{1}$/';
+    if (preg_match ($exp, $dni)) {
+        $numeros = substr($dni,0,8);
+        $letra= strtoupper(substr($dni,8,1));
+        $resto = $numeros%23;
+        $posibles = "TRWAGMYFPDXBNJZSQVHLCKE";
+        if ($letra ==  substr ($posibles,$resto,1))return true;
+        else return false;
+
+  }else return false;
+}
+
+
+function validaEmail ($email){
+    $exp = '/^\D+@\D+\.\D{2,}/';
+    if (preg_match ($exp, $email)) return true;
+    return false;
+
+}
 
 
 function validaFormulario (&$errores){
@@ -77,8 +98,10 @@ if (!textoVacio ('repitepass') && !repetirContraseña ($_REQUEST['pass'], $_REQU
 if (textoVacio ('fecha')) $errores ['fecha'] = 'Debe seleccionar una fecha.';
 if (!textoVacio ('fecha') && !validaFecha ($_REQUEST['fecha'])) $errores ['formatoFecha'] = 'Introduzca una fecha con el formato espcificado. Ejemplo 07/12/2021.';
 if (!textoVacio ('fecha') && validaFecha ($_REQUEST['fecha']) && !mayorEdad ()) $errores ['mayorEdad'] = 'Es necesario tener más de 18 años.';
-if (textoVacio ('DNI')) $errores ['DNI'] = 'El Numérico no puede estar vacío.';
+if (textoVacio ('DNI')) $errores ['DNI'] = 'El DNI no puede estar vacío.';
+if (!textoVacio ('DNI') && !validaDNI ($_REQUEST['DNI']) ) $errores ['DNIMAL'] = 'Introduzca un DNI correcto';
 if (textoVacio ('email')) $errores ['email'] = 'Indique su email.';
+if (!textoVacio ('email')&& !validaEmail($_REQUEST['email'])) $errores ['validaemail'] = 'Introduzca un email correcto';
 if (empty($_FILES['archivo']['name'])) $errores ['archivo'] = 'Seleccione una imagen.';
 
 if (count($errores)==0) return true;
