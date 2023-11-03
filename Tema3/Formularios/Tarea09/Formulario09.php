@@ -63,7 +63,8 @@
 
                 <!-- ARCHIVO -->
                 <label for="archivo">Subir Imagen<input type="file" name="archivo"></label> <br>
-                <?php  printerror($errores, 'archivo');  ?>
+                <?php   printerror($errores, 'archivo'); 
+                        printerror($errores, 'formatoarchivo'); ?>
 
                 <input type="submit" value="Enviar" name="Enviar">
                 <input type="submit" value="Borrar" name="Borrar">

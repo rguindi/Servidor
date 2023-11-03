@@ -85,6 +85,12 @@ function validaEmail ($email){
 
 }
 
+function formatoImagen ($formato){
+    $exp = '/\.(bmp|jpg|png)$/i';
+    if (preg_match ($exp, $formato)) return true;
+    return false;
+
+}
 
 function validaFormulario (&$errores){
 if (textoVacio ('nombre')) $errores ['nombre'] = 'El nombre no puede estar vacío.';
@@ -103,6 +109,7 @@ if (!textoVacio ('DNI') && !validaDNI ($_REQUEST['DNI']) ) $errores ['DNIMAL'] =
 if (textoVacio ('email')) $errores ['email'] = 'Indique su email.';
 if (!textoVacio ('email')&& !validaEmail($_REQUEST['email'])) $errores ['validaemail'] = 'Introduzca un email correcto';
 if (empty($_FILES['archivo']['name'])) $errores ['archivo'] = 'Seleccione una imagen.';
+if (!empty($_FILES['archivo']['name'])&& !formatoImagen($_FILES['archivo']['name'])) $errores ['formatoarchivo'] = 'Formatos admitidos: bmp, jpg y png.';
 
 if (count($errores)==0) return true;
 return false;
