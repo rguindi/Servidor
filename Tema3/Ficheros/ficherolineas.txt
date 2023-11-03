@@ -13,6 +13,3 @@ Si se da el argumento length, la escritura se detendrá después de que length b
 Observe que si el argumento length se da, la opción de configuración magic_quotes_runtime será ignorada y no se eliminarán las barras de string.
 
 Valores devueltos Mi nueva linea\nMi nueva linea\nMi nueva linea
-
-Mi nueva linea
-Mi nueva linea

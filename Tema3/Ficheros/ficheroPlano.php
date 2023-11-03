@@ -1,14 +1,19 @@
 <?
+
+
 /*
 //Primero ver si existe
+
 //abrir y leer
 echo '<h1>ABRIR Y LEER </h1>';
 if (file_exists('fichero.txt')) {
     echo 'Existe<br>';
-    if (!$fp = fopen('fichero.txt', 'r'))
+
+    if (!$fp = fopen('fichero.txt', 'r'))      //Si no se puede abrir
         echo 'Ha habido un problema al abrir el fichero.';
-    else {
-        $leido = fread($fp, filesize('fichero.txt'));
+    else {                                              //Si Exsiste y se abre, ejecutamos codigo
+
+        $leido = fread($fp, filesize('fichero.txt'));      //filesize es una funcion que determina el tamaño en bytes del archivo. Se puede poner una cantidad de bytes a leer.
         echo $leido;
         fclose($fp);
     }
@@ -18,18 +23,18 @@ if (file_exists('fichero.txt')) {
 }
 
 
-/*
+
 
 //Escribir
 echo '<h1>Escribir Borra lo anterior</h1>';
 if (file_exists('fichero.txt')) {
     echo 'Existe <br>';
-    if (!$fp = fopen('fichero.txt', 'w'))
+    if (!$fp = fopen('fichero.txt', 'w'))   //Se abre en modo escritura (Acordarse de los permisos)
     echo 'Ha habido un problema al abrir el fichero.';
-else {
+else {                  //si existe y se abre ejecutamos codigo
     
     $texto = 'Escribiendo...';
-    if (!fwrite($fp, $texto, strlen($texto)))
+    if (!fwrite($fp, $texto, strlen($texto)))  //Puntero, texto a escribir, longitud a escribir (o hasta q se coplete $texto)  strlen = Longotus de un String
             echo 'Error al escribir';
         
     
@@ -41,22 +46,21 @@ else {
 
 
 
-
 //Escribir al final
 echo '<h1>Escribir al final</h1>';
 if (file_exists('fichero.txt')) {
     echo 'Existe <br>';
-    if (!$fp = fopen('fichero.txt', 'a'))
-        echo 'Ha habido un problema al abrir el fichero.';
+    if (!$fp = fopen('fichero.txt', 'a'))       //Abrimos el fichero en modo escritura con el puntero al final (Acordarse de los permisos)
+    echo 'Ha habido un problema al abrir el fichero.';
     else {
-
+        
         $texto = 'Escribiendo...';
         if (!fwrite($fp, $texto, strlen($texto)))
-            echo 'Error al escribir';
-
-        fclose($fp);
+        echo 'Error al escribir';
     
-    }
+    fclose($fp);
+    
+}
 } else {
     echo 'No exisste';
 }
@@ -67,20 +71,20 @@ if (file_exists('fichero.txt')) {
 echo '<h1>Escribir al Medio</h1>';
 if (file_exists('fichero.txt')) {
     echo 'Existe <br>';
-    if (!$fp = fopen('fichero.txt', 'c'))
-        echo 'Ha habido un problema al abrir el fichero.';
-    else {
-
-        $texto = 'medio';
-        fseek($fp, 28);
+    if (!$fp = fopen('fichero.txt', 'c'))   //Apertura para escribir con puntero al principio, pero no sobreeescribe (Acordarse de los permisos)
+    echo 'Ha habido un problema al abrir el fichero.';
+    else {                                  //Si existe y abre ejecutamos el codigo
+        
+        $texto = ' Texto a escribir ';
+        fseek($fp, 28);         //Movemos el puntero del archivo abierto al caracter 28
         if (!fwrite($fp, $texto, strlen($texto)))
-            echo 'Error al escribir';
-
-
-        fclose($fp);
-    }
+        echo 'Error al escribir';
+    
+    
+    fclose($fp);
+}
 } else {
-
+    
     echo 'No exisste';
 }
 
@@ -88,14 +92,14 @@ if (file_exists('fichero.txt')) {
 //Leer un fichero por lineas
 echo '<h1>Leer un fichero por lineas</h1>';
 if (file_exists('ficherolineas.txt')) {
-    echo 'Existe <br>';
-    if (!$fp = fopen('ficherolineas.txt', 'r'))
-        echo 'Ha habido un problema al abrir el fichero.';
+    if (!$fp = fopen('ficherolineas.txt', 'r'))     //Abrimos en modo lectura
+    echo 'Ha habido un problema al abrir el fichero.';
     else {
-
-       while  ($leido = fgets ($fp, filesize("ficherolineas.txt"))){
-        echo '<br>' .$leido;
-       }
+        echo 'Existe <br>'; //Si existe y abre ejecutamos el codigo
+        
+        while ($leido = fgets($fp, filesize("ficherolineas.txt"))) {     //fgets($apertura, Tamaño a leer)  El bucle se hace de esta manera
+            echo '<br>' . $leido;
+        }
         fclose($fp);
     }
 } else {
@@ -106,22 +110,24 @@ if (file_exists('ficherolineas.txt')) {
 echo '<h1>Escribir un fichero por lineas al final</h1>';
 if (file_exists('ficherolineas.txt')) {
     echo 'Existe <br>';
-    if (!$fp = fopen('ficherolineas.txt', 'a'))
-        echo 'Ha habido un problema al abrir el fichero.';
-    else {
-        $texto = "\nMi nueva linea";
-        if (!fputs($fp,$texto, strlen($texto)))
-        echo ' Error al escribir';
-       
-        
-        fclose($fp);
-    }
+    if (!$fp = fopen('ficherolineas.txt', 'a'))     //Abrimos en modo escritura con el puntero al final (Acordarse de los permisos)
+    echo 'Ha habido un problema al abrir el fichero.';
+else {
+    $texto = "\nMi nueva linea";                    
+    if (!fputs($fp,$texto, strlen($texto)))     //Puntero, texto a escribir, longitud a escribir
+    echo ' Error al escribir';
+    
+    
+    fclose($fp);
+}
 } else {
     echo 'No existe';
 }
 
 
+
 */
+
 //Escribir un fichero en la "X" linea
 echo '<h1>Escribir un fichero en la segunda linea</h1>';
 
@@ -129,29 +135,31 @@ echo '<h1>Escribir un fichero en la segunda linea</h1>';
 //Creamos arcgivo temporal, leer y modificar
 //borrar anterior y renombrar el temporal 
 
-$tmp = tempnam('.','tem.txt');
+$tmp = tempnam('.', 'tem.txt'); //Creamos fichero temporal.  (ruta, nombre)
 
 if (file_exists('ficherolineas.txt')) {
     echo 'Existe <br>';
-    if (!$fp = fopen('ficherolineas.txt', 'r'|| !$ft = fopen ($tmp, 'w')))
+    if (!$fp = fopen('ficherolineas.txt', 'r' || !$ft = fopen($tmp, 'w'))) //abrimos priginal en lectura temporal en escritura
         echo 'Ha habido un problema al abrir el fichero.';
-    else {
+    else { //Ejecutamos codigo
 
         $texto = "Texto que quiero escribir\n";
-        $contador = 1;
-       while  ($leido = fgets ($fp, filesize("ficherolineas.txt"))){
-            fputs ($ft, $leido, strlen ($texto));
-            if($contador==1){
-            fputs ($ft, $texto, strlen ($texto));
-            fputs ($ft, "\n", strlen ("\n"));
-            $contador++;
+        $contador = 1; //contador de lineas
+
+        while ($leido = fgets($fp, filesize("ficherolineas.txt"))) { //leemos por lineas
+            fputs($ft, $leido, strlen($texto)); //Escribimos en el temporal una linea del original
+            if ($contador == 1) {   //si llegamos al contaor
+                fputs($ft, $texto, strlen($texto));   //escribimos en el temporal nuestro texto
+                fputs($ft, "\n", strlen("\n"));
             }
-       }
-        fclose($fp);
+            $contador++;   
+        }
+        fclose($fp);   //Cerramos ambos ficheros
         fclose($ft);
-        unlink('ficherolineas.txt');
-        rename ($tmp,"ficherolineas.txt");
+        unlink('ficherolineas.txt');    //Borra el fichero
+        rename($tmp, "ficherolineas.txt");      //Renombra el fichero
     }
 } else {
     echo 'No existe';
 }
+
