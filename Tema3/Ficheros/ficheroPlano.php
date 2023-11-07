@@ -25,7 +25,7 @@ if (file_exists('fichero.txt')) {
 
 
 
-//Escribir
+//Escribir    w
 echo '<h1>Escribir Borra lo anterior</h1>';
 if (file_exists('fichero.txt')) {
     echo 'Existe <br>';
@@ -46,7 +46,7 @@ else {                  //si existe y se abre ejecutamos codigo
 
 
 
-//Escribir al final
+//Escribir al final   a
 echo '<h1>Escribir al final</h1>';
 if (file_exists('fichero.txt')) {
     echo 'Existe <br>';
@@ -136,10 +136,10 @@ echo '<h1>Escribir un fichero en la segunda linea</h1>';
 //borrar anterior y renombrar el temporal 
 
 $tmp = tempnam('.', 'tem.txt'); //Creamos fichero temporal.  (ruta, nombre)
-
+chmod($tmp, 0777);  // damos permisos al fichero temporal
 if (file_exists('ficherolineas.txt')) {
     echo 'Existe <br>';
-    if (!$fp = fopen('ficherolineas.txt', 'r' || !$ft = fopen($tmp, 'w'))) //abrimos priginal en lectura temporal en escritura
+    if ((!$fp = fopen('ficherolineas.txt', 'r')) || (!$ft = fopen($tmp, 'w'))) //abrimos original en lectura y temporal en escritura
         echo 'Ha habido un problema al abrir el fichero.';
     else { //Ejecutamos codigo
 
@@ -147,12 +147,12 @@ if (file_exists('ficherolineas.txt')) {
         $contador = 1; //contador de lineas
 
         while ($leido = fgets($fp, filesize("ficherolineas.txt"))) { //leemos por lineas
-            fputs($ft, $leido, strlen($texto)); //Escribimos en el temporal una linea del original
+            fputs($ft, $leido, strlen($leido)); //Escribimos en el temporal una linea del original
             if ($contador == 1) {   //si llegamos al contaor
                 fputs($ft, $texto, strlen($texto));   //escribimos en el temporal nuestro texto
                 fputs($ft, "\n", strlen("\n"));
+                $contador++;   
             }
-            $contador++;   
         }
         fclose($fp);   //Cerramos ambos ficheros
         fclose($ft);

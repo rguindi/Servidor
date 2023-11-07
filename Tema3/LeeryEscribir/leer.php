@@ -1,4 +1,5 @@
 <?php
+    
     include("./validaciones.php");
 //Si ha sido enviado y no existe el fichero no redirige, error
 if (volver()) {
@@ -6,9 +7,8 @@ if (volver()) {
         header('Location: ./seleccionar.php');
 
 }elseif (escribir()){
-        header('Location: ./escribir.php?texto=' . $_REQUEST['texto']);
+        header('Location: ./escribir.php?texto='.$_REQUEST['nombrearchivo']);
 }
- ///SEGUIR AQUI
 
 
 ?>
@@ -37,8 +37,9 @@ if (volver()) {
 <main>
 
     <form action="" method="get" name="formulario1"  enctype="multipart/form-data">
+    <input type="hidden" name="nombrearchivo" value="<?php echo $_REQUEST['texto'] ?>"> 
 
-        <label for="area"><textarea name="area" id="rea" cols="30" rows="10" disabled><?php
+        <label for="area"><textarea name="area" id="area" cols="30" rows="10" disabled style=" resize: none; " ><?php
               if (!$fp = fopen('./'.$_REQUEST['texto'],'r'))      //Si no se puede abrir
               echo 'Ha habido un problema al abrir el fichero.';
           else {                                              //Si Exsiste y se abre, ejecutamos codigo

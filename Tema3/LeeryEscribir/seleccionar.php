@@ -4,7 +4,7 @@
 if (enviadoselecciona()) {
     if (isset($_REQUEST["leer"]) && existe()){
         header('Location: ./leer.php?texto=' . $_REQUEST['texto']);
-    }elseif (isset($_REQUEST["escribir"]) && existe()){
+    }elseif (escribir() && existe()){
         header('Location: ./escribir.php?texto=' . $_REQUEST['texto']);
 }
 }
@@ -33,12 +33,12 @@ if (enviadoselecciona()) {
     <main>
 
         <form action="" method="get" name="formulario1" enctype="multipart/form-data">
-
-            <label for="texto"><input type="text" name="texto"></input></label> <br>
+            
+            <label for="texto"><input type="text" name="texto" placeholder="Nombre del fichero" ></input></label> <br>
             <label for="leer"><input type="submit" value="Leer" name="leer"></label>
             <label for="escribir"><input type="submit" value="Escribir" name="escribir"></label>
             <?php
-            
+                if (isset ($errores['existe'])) echo $errores['existe'];
     
         ?>
         </form>

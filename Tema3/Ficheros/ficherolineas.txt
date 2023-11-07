@@ -1,5 +1,8 @@
 Escribe el contenido de string al flujo de archivo apuntado por handle.
 
+
+
+
 Parámetros 
 handle
 Resource que apunta a un fichero del sitema que normalmente es creado usando fopen().
