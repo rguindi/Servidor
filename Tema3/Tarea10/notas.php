@@ -46,21 +46,23 @@ if (modificar()) {
             <?php
             if (!$fp = fopen('./notas.csv', 'r')) //Si no se puede abrir
                 echo 'Ha habido un problema al abrir el fichero.';
-            else { //Si Exsiste y se abre, ejecutamos codigo
+            else { 
             
 
                 echo "<tr>";
-                $contador = 1;
+                $contador = 0;
+                $nombre= "";
                 while ($notas = fgetcsv($fp, filesize("notas.csv"), ";")) {
 
                     foreach ($notas as $key => $value) {
                         echo "<td>" . $notas[$key] . "</td>";
+                        if ($key == 0) $nombre = $value;
 
                     }
                     echo '<form action="" method="get" enctype="multipart/form-data">';
                     echo '<td><label for="modificar"><input type="submit" value="Modificar" name="modificar"></label>';
                     echo '<label for="eliminar"><input type="submit" value="Eliminar" name="eliminar"></label></td>';
-                    echo '<input type="hidden" name="alumno" value="' . $contador . '">';
+                    echo '<input type="hidden" name="alumno" value="' . $nombre . '">';
                     echo '</form>';
                     echo "</tr>";
                     $contador++;
