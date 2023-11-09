@@ -3,7 +3,8 @@ include("./validaciones.php");
 
 if (volver()) {
     header('Location: ./notas.php');
-} elseif (modificar()) {
+
+} elseif (guardar()) {
 
 
     $tmp = tempnam('.', 'tem.csv'); //Creamos fichero temporal.  (ruta, nombre)
@@ -17,17 +18,19 @@ if (volver()) {
         $texto = [$_REQUEST['nombre'], $_REQUEST['nota1'], $_REQUEST['nota2'], $_REQUEST['nota3']];
       
 
-        while ($leido = fgetcsv($fp, filesize("notas.csv"), ";")) { //leemos por lineas
+        while ($leido = fgetcsv($fp, filesize("notas.csv"), ";")) { //Mientras leemos por lineas "todo" el archivo
 
-                foreach ($leido as $key => $value) {
-                    if ($value != $_REQUEST['nombre']) {
+            print_r ($leido);
+
+                // foreach ($leido as $key => $value) {
+                //     if ($value != $_REQUEST['nombre']) {
                         
-                        fputcsv($ft, $leido, ";"); //Escribimos en el temporal una linea del original
-                    }else {
-                        fputcsv($ft, $texto, ";"); //Escribimos en el temporal los nuevos datos
+                //         fputcsv($ft, $leido, ";"); //Escribimos en el temporal una linea del original
+                //     }else {
+                //         fputcsv($ft, $texto, ";"); //Escribimos en el temporal los nuevos datos
 
-                    }
-                }
+                //     }
+                // }
            
         }
         fclose($fp);   //Cerramos ambos ficheros
