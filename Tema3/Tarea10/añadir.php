@@ -10,8 +10,8 @@
             echo 'Ha habido un problema al abrir el fichero.';
             else {
                 
-                $texto = $_REQUEST['nombre'].';'.$_REQUEST['nota1'].';'.$_REQUEST['nota2'].';'.$_REQUEST['nota3']."\n";
-                if (!fwrite($fp, $texto, strlen($texto)))
+                $texto = [$_REQUEST['nombre'], $_REQUEST['nota1'], $_REQUEST['nota2'], $_REQUEST['nota3']];
+                if (!fputcsv($fp, $texto, ";"))
                 echo 'Error al escribir';
             
             fclose($fp);

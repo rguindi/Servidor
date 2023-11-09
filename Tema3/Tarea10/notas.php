@@ -2,7 +2,7 @@
 include("./validaciones.php");
 
 if (modificar()) {
-    header('Location: ./modificar.php?alumno=' . $_REQUEST['alumno']);
+    header('Location: ./modificar.php?alumno=' . $_REQUEST['alumno'].'&nota1='.$_REQUEST['nota1'].'&nota2='.$_REQUEST['nota2'].'&nota3='.$_REQUEST['nota3']);
 } elseif (añadir()) {
     header('Location: ./añadir.php');
 } elseif (eliminar()) {
@@ -75,14 +75,20 @@ if (modificar()) {
 
                     foreach ($notas as $key => $value) {
                         echo "<td>" . $notas[$key] . "</td>";
-                        if ($key == 0)
-                            $nombre = $value;
+                        if ($key == 0) $nombre = $value;
+                        elseif ($key == 1) $nota1 = $value;
+                        elseif ($key == 2) $nota2 = $value;
+                        elseif ($key == 3) $nota3 = $value;
+                         
 
                     }
                     echo '<form action="" method="get" enctype="multipart/form-data">';
                     echo '<td><label for="modificar"><input type="submit" value="Modificar" name="modificar"></label>';
                     echo '<label for="eliminar"><input type="submit" value="Eliminar" name="eliminar"></label></td>';
                     echo '<input type="hidden" name="alumno" value="' . $nombre . '">';
+                    echo '<input type="hidden" name="nota1" value="' . $nota1 . '">';
+                    echo '<input type="hidden" name="nota2" value="' . $nota2 . '">';
+                    echo '<input type="hidden" name="nota3" value="' . $nota3 . '">';
                     echo '</form>';
                     echo "</tr>";
                     $contador++;

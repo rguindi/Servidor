@@ -65,12 +65,18 @@ if (volver()) {
 
         <form action="" method="get" name="formulario1" enctype="multipart/form-data">
 
-            <label for="alumno">Nombre:<input type="text" name="alumno" readonly="readonly" value="<?php
+            <label for="alumno">Nombre:<input type="text" name="alumno" readonly value="<?php
             echo $_REQUEST["alumno"];
             ?>"></input></label> <br>
-            <label for="nota1">Nota 1:<input type="number" name="nota1"></input></label> <br>
-            <label for="nota2">Nota 2:<input type="number" name="nota2"></input></label> <br>
-            <label for="nota3">Nota 3:<input type="number" name="nota3"></input></label> <br>
+            <label for="nota1">Nota 1:<input type="number" name="nota1" value="<?php
+            echo $_REQUEST["nota1"];
+            ?>"></input></label> <br>
+            <label for="nota2">Nota 2:<input type="number" name="nota2" value="<?php
+            echo $_REQUEST["nota2"];
+            ?>"></input></label> <br>
+            <label for="nota3">Nota 3:<input type="number" name="nota3" value="<?php
+            echo $_REQUEST["nota3"];
+            ?>"></input></label> <br>
             <label for="leer"><input type="submit" value="Volver" name="volver"></label>
             <label for="escribir"><input type="submit" value="Guardar" name="guardar"></label>
 
