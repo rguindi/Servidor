@@ -5,12 +5,12 @@
         header('Location: ./notas.php');
     }elseif (guardar()) {
         
-       chmod("notas.csv", 0777);
+       chmod("./notas.csv", 0777);
             if (!$fp = fopen('notas.csv', 'a'))       //Abrimos el fichero en modo escritura con el puntero al final (Acordarse de los permisos)
             echo 'Ha habido un problema al abrir el fichero.';
             else {
                 
-                $texto = "\n".$_REQUEST['nombre'].';'.$_REQUEST['nota1'].';'.$_REQUEST['nota2'].';'.$_REQUEST['nota3'];
+                $texto = $_REQUEST['nombre'].';'.$_REQUEST['nota1'].';'.$_REQUEST['nota2'].';'.$_REQUEST['nota3']."\n";
                 if (!fwrite($fp, $texto, strlen($texto)))
                 echo 'Error al escribir';
             

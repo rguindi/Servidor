@@ -5,9 +5,28 @@ if (modificar()) {
     header('Location: ./modificar.php?alumno=' . $_REQUEST['alumno']);
 } elseif (añadir()) {
     header('Location: ./añadir.php');
-}elseif (eliminar()) {
-    
-    
+} elseif (eliminar()) {
+
+    $tmp = tempnam('./', 'tem.csv'); //Creamos fichero temporal.  (ruta, nombre)
+    chmod($tmp, 0777); // damos permisos al fichero temporal
+
+    if ((!$fp = fopen('notas.csv', 'r')) || (!$ft = fopen($tmp, 'w'))) //abrimos original en lectura y temporal en escritura
+        echo 'Ha habido un problema al abrir el fichero.';
+    else { //Ejecutamos codigo
+
+        while ($leido = fgetcsv($fp, filesize("notas.csv"), ";")) { //Mientras leemos por lineas "todo" el archivo
+
+            if ($leido[0] != $_REQUEST['alumno']) {
+
+                fputcsv($ft, $leido, ";"); //Escribimos en el temporal una linea del original
+
+            }
+        }
+            fclose($fp); //Cerramos ambos ficheros
+            fclose($ft);
+            unlink('notas.csv'); //Borra el fichero
+            rename($tmp, "notas.csv"); //Renombra el fichero
+    }
 }
 
 ?>
@@ -46,17 +65,18 @@ if (modificar()) {
             <?php
             if (!$fp = fopen('./notas.csv', 'r')) //Si no se puede abrir
                 echo 'Ha habido un problema al abrir el fichero.';
-            else { 
-            
+            else {
+
 
                 echo "<tr>";
                 $contador = 0;
-                $nombre= "";
+                $nombre = "";
                 while ($notas = fgetcsv($fp, filesize("notas.csv"), ";")) {
 
                     foreach ($notas as $key => $value) {
                         echo "<td>" . $notas[$key] . "</td>";
-                        if ($key == 0) $nombre = $value;
+                        if ($key == 0)
+                            $nombre = $value;
 
                     }
                     echo '<form action="" method="get" enctype="multipart/form-data">';
