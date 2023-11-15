@@ -59,9 +59,9 @@
     </ul>
     <h4>Ficheros</h4>
     <ul>
-    <li><a href="/Tema3/LeeryEscribir/seleccionar.php">Leer y escribir fichero de texto</a></li>
+    <li><a href="/Tema3/LeeryEscribir/seleccionar.php">Leer y escribir fichero de texto</a><br><a style="font-size: 13px; color: yellow; border-top: 1px dashed;" href="./vercontenido.php?contenido=/var/www/servidor/Tema3/Ficheros/ficheroPlano.php">Ver Codigo para ficheros de TXT Plano</a></li>
     <li><a href="/Tema3/Tarea10/notas.php">Notas en fichero CSV</a></li>
-
+    <li><a style="font-size: 13px; color: yellow; border-top: 1px dashed;" href="./vercontenido.php?contenido=/var/www/servidor/Tema3/AprendiendoXML/index.php">Ver Codigo para ficheros XML</a></li>
 
     </ul>
     </main>

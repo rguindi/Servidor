@@ -3,8 +3,12 @@ include("./validaciones.php");
 
 if (modificar()) {
     header('Location: ./modificar.php?alumno=' . $_REQUEST['alumno'].'&nota1='.$_REQUEST['nota1'].'&nota2='.$_REQUEST['nota2'].'&nota3='.$_REQUEST['nota3']);
+
+
 } elseif (añadir()) {
     header('Location: ./añadir.php');
+
+
 } elseif (eliminar()) {
 
     $tmp = tempnam('./', 'tem.csv'); //Creamos fichero temporal.  (ruta, nombre)
