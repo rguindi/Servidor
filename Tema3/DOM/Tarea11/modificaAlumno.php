@@ -1,32 +1,61 @@
 <?php
 if (isset($_REQUEST['guardar'])) {
-    $alumno = $_REQUEST['alumno'];
+    $alumnocambio = $_REQUEST['alumno'];
     $nota1 = $_REQUEST['nota1'];
     $nota2 = $_REQUEST['nota2'];
     $nota3 = $_REQUEST['nota3'];
     $dom = new DOMDocument();
     $dom->load('./notas.xml');
 
-
     foreach ($dom->childNodes as $notas) {
         foreach ($notas->childNodes as $alumno) {
             if ($alumno->nodeType == 1) {
                 $nodo = $alumno->firstChild;
-                do {
-                    if (($nodo->nodeType == 1)) {
-                        if (($nodo->tagName) === $alumno) {
+                if (($nodo->nodeValue) === $alumnocambio) {
 
-                            $primera = $nodo->nextSibling->nodeValue = $nota1;
-                            $segunda = $primera->nextSibling->nodeValue = $nota2;
-                            $tercera = $segunda->nextSibling->nodeValue = $nota3;
+                    $nodo = $nodo->nextSibling;
 
+                    do {
+                        if ($nodo->nodeType == 1) {
+                            $nodo->nodeValue = $nota1;
+                        } else {
+                            $nodo->nextSibling;
                         }
-                    }
-                } while ($nodo = $nodo->nextSibling);
-            }
+                    } while ($nodo->nodeType != 1);
 
+                    $nodo = $nodo->nextSibling;
+
+                    do {
+                        if ($nodo->nodeType == 1) {
+                            $nodo->nodeValue = $nota2;
+                        } else {
+                            $nodo->nextSibling;
+                        }
+                    } while ($nodo->nodeType != 1);
+
+                    $nodo = $nodo->nextSibling;
+
+                    do {
+                        if ($nodo->nodeType == 1) {
+                            $nodo->nodeValue = $nota3;
+                        } else {
+                            $nodo->nextSibling;
+                        }
+                    } while ($nodo->nodeType != 1);
+
+
+
+
+
+                }
+            }
         }
+        while ($nodo = $nodo->nextSibling)
+            ;
     }
+
+
+
     $dom->formatOutput = true; //Lo formateamos
     $dom->save('notas.xml');    //Lo guardamos
 
@@ -96,7 +125,7 @@ if (isset($_REQUEST['guardar'])) {
                                         echo '</td>';
                                     } else {
                                         echo '<td>';
-                                        echo '<label for="alumno">Nombre:<input type="text" name="nota' . $contadornotas . '" value="' . $nodo->nodeValue . '"></input></label>';
+                                        echo '<label for="alumno">Nota:' . $contadornotas . '<input type="text" name="nota' . $contadornotas . '" value="' . $nodo->nodeValue . '"></input></label>';
                                         echo '</td>';
                                         $contadornotas++;
                                     }
