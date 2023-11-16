@@ -2,6 +2,7 @@ table{
 
     background-color: rgb(105, 105, 105);
     border-collapse: collapse;
+    margin: 80px;
 
 }
 th, td {
