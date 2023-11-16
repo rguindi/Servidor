@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <title>DOM</title>
+</head>
+
+<body>
+    <header>
+        <?php
+        include("../../html/header.html");
+        ?>
+    </header>
+
+<main>
+
+
 <?php
 
 
@@ -67,3 +87,19 @@ foreach ($instrumentolista as $value) {
 // header("Content-Disposition: attachment; filename=instrumentos.xml");
 // readfile ('instrumentos.xml');
 // exit;
+
+
+</main>
+
+<footer>
+    <?php
+    include("../../html/footer.html");
+    ?>
+
+
+
+</footer>
+
+</body>
+
+</html>

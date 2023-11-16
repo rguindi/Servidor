@@ -1,4 +1,6 @@
 Escribe el contenido de string al flujo de archivo apuntado por handle.
+Texto que quiero escribir
+
 
 
 
