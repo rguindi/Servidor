@@ -3,9 +3,18 @@ table{
     background-color: rgb(105, 105, 105);
     border-collapse: collapse;
     margin: 80px;
+    margin-bottom: 20px;
 
 }
 th, td {
     border: 1px solid;
     padding: 5px;
+}
+
+.boton-guarda{
+    align-content: center;
+    margin-bottom: 50px;
+    margin-left: 80%;
+    margin-top: 0px;
+    font-weight: bold;
 }
