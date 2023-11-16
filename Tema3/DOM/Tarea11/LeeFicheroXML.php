@@ -22,16 +22,14 @@
 
 <table>
     <tr><th>Alumno</th><th>Nota 1</th><th>Nota 2</th><th>Nota3</th></tr>
-</table>
+
 
 <?php
 
 
 //LEEMOS XML con el DOM
-
-$dom->load('notas.xml');
-echo '<pre>';
-// print_r($dom);
+$dom = new DOMDocument();
+$dom->load('./notas.xml');
 
 foreach ($dom->childNodes as $notas) {
     foreach ($notas->childNodes as $alumno) {
@@ -51,6 +49,7 @@ foreach ($dom->childNodes as $notas) {
         echo '</tr>';
     }
 }
+echo '</table>';
 
 // $instrumentolista = $dom->getElementsByTagName("instrumento");
 // foreach ($instrumentolista as $value) {
@@ -61,9 +60,9 @@ foreach ($dom->childNodes as $notas) {
 
 // }
 
-?>
 
-<a href="./domdescarga.php">Descargar</a>
+
+//<a href="./domdescarga.php">Descargar</a>
 
 //GUARDAR EL ARCHIVO
 
@@ -73,7 +72,7 @@ foreach ($dom->childNodes as $notas) {
 // readfile ('instrumentos.xml');
 // exit;
 
-<?php
+
 
 ?>
 
