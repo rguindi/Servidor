@@ -4,54 +4,43 @@ if (isset($_REQUEST['guardar'])) {
     $nota1 = $_REQUEST['nota1'];
     $nota2 = $_REQUEST['nota2'];
     $nota3 = $_REQUEST['nota3'];
+
     $dom = new DOMDocument();
     $dom->load('./notas.xml');
 
     foreach ($dom->childNodes as $notas) {
         foreach ($notas->childNodes as $alumno) {
-            if ($alumno->nodeType == 1) {
-                $nodo = $alumno->firstChild;
-                if (($nodo->nodeValue) === $alumnocambio) {
+            foreach ($alumno->childNodes as $notas) {
+                if (($notas->nodeType == 1) && ($notas->nodeValue == $alumnocambio)) {
 
-                    $nodo = $nodo->nextSibling;
-
-                    do {
-                        if ($nodo->nodeType == 1) {
-                            $nodo->nodeValue = $nota1;
-                        } else {
-                            $nodo->nextSibling;
-                        }
-                    } while ($nodo->nodeType != 1);
-
-                    $nodo = $nodo->nextSibling;
+                    $primeranota = $notas->nextSibling;
 
                     do {
-                        if ($nodo->nodeType == 1) {
-                            $nodo->nodeValue = $nota2;
-                        } else {
-                            $nodo->nextSibling;
-                        }
-                    } while ($nodo->nodeType != 1);
+                        $primeranota =  $primeranota->nextSibling;
+                    } while ($primeranota->nodeType != 1);
+                    $primeranota->nodeValue = $nota1;
 
-                    $nodo = $nodo->nextSibling;
+                    $segundanota = $primeranota->nextSibling;
 
                     do {
-                        if ($nodo->nodeType == 1) {
-                            $nodo->nodeValue = $nota3;
-                        } else {
-                            $nodo->nextSibling;
-                        }
-                    } while ($nodo->nodeType != 1);
+                        $segundanota =  $segundanota->nextSibling;
+                    } while ($segundanota->nodeType != 1);
+                    $segundanota->nodeValue = $nota2;
+
+                    $terceranota = $segundanota->nextSibling;
+
+                    do {
+                        $terceranota =  $terceranota->nextSibling;
+                    } while ($terceranota->nodeType != 1);
+                    $terceranota->nodeValue = $nota3;
 
 
-
-
-
+          
                 }
             }
+
         }
-        while ($nodo = $nodo->nextSibling)
-            ;
+
     }
 
 

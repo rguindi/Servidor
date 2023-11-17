@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <notas>
   <alumno>
-    <nombre>raul</nombre>1<nota1>2</nota1>3<nota2>10</nota2>
-    <nota3>10</nota3>
+    <nombre>raul</nombre>
+    <nota1>5</nota1>
+    <nota2>6</nota2>
+    <nota3>7</nota3>
   </alumno>
   <alumno>
     <nombre>giorgi</nombre>
@@ -12,12 +14,14 @@
   </alumno>
   <alumno>
     <nombre>alvaro</nombre>
-    <nota1>6</nota1>
-    <nota2>7</nota2>
-    <nota3>10</nota3>
+    <nota1>1</nota1>
+    <nota2>2</nota2>
+    <nota3>3</nota3>
   </alumno>
   <alumno>
-    <nombre>Jose</nombre>53<nota1>4</nota1>2<nota2>5</nota2>
+    <nombre>Jose</nombre>
+    <nota1>5</nota1>
+    <nota2>5</nota2>
     <nota3>5</nota3>
   </alumno>
   <alumno>
