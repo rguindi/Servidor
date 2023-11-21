@@ -1,0 +1,7 @@
+$dom = new DOMDocument ('1.0');
+$dom->load ('instrumentos.xml', LIBXML,NOBLANKS); //Abre sin formateo
+
+//Codigo a ejecutar
+
+$dom->formatOutput = False;  //o True para volver a guardarlo formateado
+$dom->save('a.xml');
