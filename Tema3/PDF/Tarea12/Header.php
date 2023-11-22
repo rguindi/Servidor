@@ -24,12 +24,11 @@ class HeaderC extends FPDF {
         $this->Ln();
         $this->SetX(100);
         $this->Write(5,"www.raulferrero.es");
-        // $this->Line(100,100,100,100);
-  
-
-
-        // $this->Ln();
-        // $this->Ln();
+        $this->SetLineWidth(2.3);
+        $this->SetDrawColor(256,150,40);
+        $this->Line(93,69,93,35);
+    
+        $this->Ln();
 
     }
 

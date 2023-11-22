@@ -9,6 +9,8 @@ $pdf->AddPage();                //Añade una pagina
 $pdf->SetFont('Courier', 'B', 20); 
 $pdf->Write(5,"Hola Mundo");         //5 es la altura
 
+
+
 $pdf->AddPage();
 $pdf->Image("./logo.jpg", 70,20, 125, 100);
 
