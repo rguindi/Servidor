@@ -68,7 +68,11 @@
     <ul>
     <li><a href="/Tema3/DOM/dom.php">Crear un Fichero xml con el DOM</a></li>
     <li><a href="/Tema3/DOM/Tarea11/TransformaFichero.php">Conversión CSV Notas a XML</a></li>
+    </ul>
 
+    <h4>PDF</h4>
+    <ul>
+    <li><a href="/Tema3/PDF/Tarea12/HacerPdf.php">Crear PDF, Reports</a></li>
     </ul>
 
     </main>

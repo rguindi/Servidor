@@ -5,9 +5,9 @@ require('./Header.php');
 $arrayCliente = array(
     'Nombre' => 'Jose Luis Fernandez Romero',
     'DNI' => '11971618E',
-    'Direccion' => 'C/Larga nº45',
-    'Población' => 'Benavente',
-    'Ciudad' => 'Zamora'
+    'Direccion' => 'C/Larga 45, Zamora',
+    'Fecha' => '23/11/2023',
+    'Pedido' => 'PD-15077765',
 );
 $arrayasociativopedido = array(
     'Laptop 1TB 4RAM HP i7' => array(
@@ -47,16 +47,43 @@ $pdf->AddPage();                //Añade una pagina
 
 $pdf->SetFont('helvetica', 'B', 20); 
 $pdf->SetTextColor (0,0,0);
-$pdf->SetY(150);
+
+$pdf->SetLineWidth(2.3);
+$pdf->SetDrawColor(256,150,40);
+$pdf->Line(90,76,10,76);
+$pdf->Ln();
+$pdf->Ln();
+$pdf->SetFont('helvetica', 'B', 15); 
+$pdf->SetTextColor (100,100,100);
+$pdf->Write(5,"Datos del cliente:");
+$pdf->Ln();
+$pdf->Ln();
+
+cliente($arrayCliente, $pdf);
+
+
+
+$pdf->SetY(125);
 $pdf->SetX(10);
 $pdf->SetFont('helvetica', 'B', 20); 
-$pdf->SetFontSize(12);
-creaTabla($arrayasociativopedido, $pdf);
-
+creaFactura($arrayasociativopedido, $pdf);
 $pdf->Output();
 
-function creaTabla ($arrayasociativo, $pdf){
+function cliente ($arrayCliente, $pdf){
+    $pdf->SetTextColor (100,100,100);
+    $pdf->SetFontSize(10);
+foreach ($arrayCliente as $key => $value) {
+    $pdf->Write(5,$key.": ".$value);
+    $pdf->Ln();
+}
+}
 
+    
+
+
+
+function creaFactura ($arrayasociativo, $pdf){
+    $pdf->SetFontSize(10);
     $pdf-> SetFillColor(256,150,40);    //Color de fonfo
     $pdf-> Cell(80,10, 'Concepto', 0, 0,'C',true);     //True rellena de color de fondo
     $pdf-> Cell(27,10, 'Cantidad', 0, 0,'C',true);
