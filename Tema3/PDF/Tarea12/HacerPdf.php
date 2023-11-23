@@ -10,7 +10,7 @@ $arrayCliente = array(
     'Ciudad' => 'Zamora'
 );
 $arrayasociativopedido = array(
-    'Laptop' => array(
+    'Laptop 1TB 4RAM HP i7' => array(
         'cantidad' => 3,
         'precio' => 250,
         'iva' => 21
@@ -64,13 +64,14 @@ function creaTabla ($arrayasociativo, $pdf){
     $pdf-> Cell(27,10, 'Suma', 0, 0,'C',true);
     $pdf-> Cell(27,10, 'I.V.A.', 0, 0,'C',true);
     $pdf->Ln();
-
+    $base = 0;
+    $ivatotal=0;
     foreach ($arrayasociativo as $concepto => $resto) {
         $pdf->SetTextColor (100,100,100);
         $pdf->SetLineWidth(1.5);
         $pdf->SetDrawColor(256,150,40);
         $pdf-> SetFillColor(255,255,255);
-        $pdf-> Cell(80,10, $concepto, 'B', 0,'C',true);
+        $pdf-> Cell(80,10, $concepto, 'B', 0,'L',true);
         $contador = 1;
         $cantidad= 0;
         $totalproducto=0;
@@ -81,21 +82,26 @@ function creaTabla ($arrayasociativo, $pdf){
             }
             if ($contador ==2){
               $totalproducto = $cantidad*$value;  
-            $pdf-> Cell(27,10, $value." eu", 'B', 0,'C',true);
-            $pdf-> Cell(27,10, $totalproducto." eu", 'B', 0,'C',true);
+            $pdf-> Cell(27,10, $value.iconv('UTF-8', 'windows-1252', " €"), 'B', 0,'C',true);
+            $pdf-> Cell(27,10, $totalproducto.iconv('UTF-8', 'windows-1252', " €"), 'B', 0,'C',true);
             }
             if ($contador ==3){
                 $iva = ($totalproducto * $value) / 100;
-                $desglose = $value . "% (".$iva." eu)";
-            $pdf-> Cell(27,10, utf8_decode($desglose), 'B', 0,'C',true);
+                $desglose = $value ."% (".$iva.iconv('UTF-8', 'windows-1252', " €").")";
+            $pdf-> Cell(27,10, $desglose, 'B', 0,'R',true);
+            $ivatotal += $iva;
+            $base += $totalproducto;
             }
             
             $contador++;
         }
         $pdf->Ln();
     }
-   
-    $pdf-> Cell(27,10, "Total Base Imponible", 'B', 0,'C',true);
+    $totalfinal = $ivatotal+$base;
+    $pdf-> Cell(188,10, "Total Base Imponible:  $base".iconv('UTF-8', 'windows-1252', " €")."", 'B', 1,'R',true);
+    $pdf-> Cell(188,10, "I.V.A.:  $ivatotal".iconv('UTF-8', 'windows-1252', " €")."", 'B', 1,'R',true);
+    $pdf->SetTextColor (0,0,0);
+    $pdf-> Cell(188,10, "TOTAL:  $totalfinal".iconv('UTF-8', 'windows-1252', " €")."", 'B', 0,'R',true);
 
 
 
