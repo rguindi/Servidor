@@ -19,12 +19,14 @@
     <main>
     <h2>Tema1</h2>
     <ul>
+    <li><a href="./Temario/UD1.pdf">Tema1 (PDF)</a></li>
     <li><a href="/Tema1/phpinfo.php">PHP Info</a></li>
     <li><a href="/Tema1/Tutorial.pdf">Tutorial para crear servidor Linux</a></li>
     </ul>
     <h2>Tema2</h2>
     
     <ul>
+    <li><a href="./Temario/UD2.pdf">Tema2 (PDF)</a></li>
     <li><a href="/Tema2/eligeidioma.php">Elige Idioma</a></li>
     <li><a href="/Tema2/Tarea3.php">Tarea 3-1</a></li>
     <li><a href="/Tema2/Tarea3-2.php?variable=456">Tarea 3-2</a></li>
@@ -32,6 +34,9 @@
     <li><a href="/Tema2/Tarea3-4.php?raul=1982/09/24&manuel=1998/11/25">Tarea 3-4</a></li>
     </ul>
     <h2>Tema3</h2>
+    <ul>
+    <li><a href="./Temario/UD3.pdf">Tema3 (PDF)</a></li>
+    </ul>
     <h4>Operadores y bucles</h4>
     <ul>
     <li><a href="/Tema3/piramide.php?altura=16">Piramide</a></li>
