@@ -62,8 +62,8 @@
 
         }
 
-        echo '<pre>';
-        print_r ($normales);
+        // echo '<pre>';
+        // print_r ($normales);
 
         echo "<table border= 1px>";
         foreach ($normales as $key => $value1) {
