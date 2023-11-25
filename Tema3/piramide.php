@@ -20,16 +20,16 @@
     $asteriscos = 1;
 
    
-    for ($i=0; $i < $altura ; $i++) { 
+    for ($i=0; $i < $altura ; $i++) {              //Las variables extienden su ambito en sus funciones hijo, pero no al revés
        
-        global $espacios;
+        // global $espacios;
        for ($it=0; $it < $espacios ; $it++) { 
         echo "&nbsp";
        }
        $espacios--;
        
 
-       for ($ite=0; $ite <$asteriscos ; $ite++) { 
+       for ($it=0; $it <$asteriscos ; $it++) { 
             echo "*";
        }
        echo "<br>";

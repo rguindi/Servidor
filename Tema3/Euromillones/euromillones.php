@@ -62,6 +62,9 @@
 
         }
 
+        echo '<pre>';
+        print_r ($normales);
+
         echo "<table border= 1px>";
         foreach ($normales as $key => $value1) {
 
@@ -121,16 +124,16 @@
                 //----------------
         
                 if ($ganador1 && $jugado1){
-                    echo "<td class ='premiados'>$key</td>";
+                    echo "<td class ='premiados'>$value</td>";
                     $acertados++;
 
                 }
                 elseif ($jugado1)
-                    echo "<td class ='jugados'>$key</td>";
+                    echo "<td class ='jugados'>$value</td>";
                 elseif ($ganador1)
-                    echo "<td class ='ganadores'>$key</td>";
+                    echo "<td class ='ganadores'>$value</td>";
                 else
-                    echo "<td>$key</td>";
+                    echo "<td>$value</td>";
 
 
 
@@ -216,7 +219,7 @@
                 $jugado6 = false;
                 foreach ($especialesjugados as $llave => $valor) {
                     if ($value3 == $valor)
-                        $jugado1 = true;
+                        $jugado6 = true;
 
                 }
                 //------------------------

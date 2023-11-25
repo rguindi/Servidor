@@ -45,7 +45,7 @@ echo "<br>";
 
 echo "borramos los valores duplicados";
 
-      $borrar =  array_unique($datos);
+      $borrar =  array_unique($datos);  
       echo "<br>";
 
 //Imprimimos el array

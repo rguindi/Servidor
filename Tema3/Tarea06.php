@@ -133,7 +133,8 @@ $liga =
             padding-left: 5px;
             padding-right: 5px;
         }
-        table{
+
+        table {
             background-color: black;
         }
     </style>
@@ -293,14 +294,14 @@ $liga =
             foreach ($clasificacion as $key => $value) {
 
                 echo "<tr> <td>$key</td>";
-             
-
-                    echo "<td> ".$value['puntos']. "</td>";
-                    echo "<td>". $value['golesfavor'] ."</td>";
-                    echo "<td> ".$value['golescontra'] ."</td>";
 
 
-              
+                echo "<td> " . $value['puntos'] . "</td>";
+                echo "<td>" . $value['golesfavor'] . "</td>";
+                echo "<td> " . $value['golescontra'] . "</td>";
+
+
+
 
                 echo "<tr>";
             }
