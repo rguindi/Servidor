@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 
@@ -27,11 +27,23 @@ function recuerdaSelect ($nombrecomun, $opcion){
     elseif (isset ($_REQUEST[$nombrecomun]) && $_REQUEST [$nombrecomun]==$opcion)echo 'selected';
   }
 
+function Capitaliza ($frase){ //Comprobamos que las palabras empiezan en mayúsculas
+
+    $capitaliza = '/^(?:[A-Z][a-z]*\b\s*)+$/';
+
+    return preg_match($capitaliza, $frase);
+// ^\S+@\S+\.\w+$    Esta sería para email
+}
+
+
+//   --------------EXPRESIONES REGULARES-----------------
+
 function  listaErrores (&$errores){
 
     if (enviado()){
 
         if (empty ($_REQUEST ['alfabetico'])) $errores ['alfabetico'] = 'Rellene alfabetico';
+        if (!Capitaliza($_REQUEST ['alfabetico']) && !empty ($_REQUEST ['alfabetico'])) $errores ['Capitaliza'] = 'Rellene en formato Capitalizado';
         if (empty ($_REQUEST ['numerico'])) $errores ['numerico'] = 'Rellene numerico';
         if (empty ($_REQUEST ['fecha'])) $errores ['fecha'] = 'Rellene fecha';
         if (empty ($_REQUEST ['opcion'])) $errores ['opcion'] = 'Rellene Opcion';
@@ -49,3 +61,5 @@ function  listaErrores (&$errores){
     else return false;
 
 }
+
+?>
