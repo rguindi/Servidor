@@ -45,7 +45,7 @@ $dom->save('instrumentos.xml');
 
 
 
-//LEEMOS XML con el DOM
+//LEEMOS XML con el DOM    Tenemos en cuenta el archivo formateado buscando el tipo de nodo
 
 $dom->load('instrumentos.xml');
 echo '<pre>';
@@ -76,7 +76,47 @@ foreach ($instrumentolista as $value) {
 
 }
 
+
+
+
+
+
+
+
+$dom->load ('instrumentos.xml', LIBXML_NOBLANKS); //Abre sin formateo
+echo '<pre>';
+
+
+foreach ($dom->childNodes as $instrumentos) {
+    foreach ($instrumentos->childNodes as $instrumento) {
+      
+            echo "\n" . $instrumento->getAttribute('id');
+            $nodo = $instrumento->firstChild;
+            do {
+               
+
+                    echo "\n" . $nodo->tagName . ":" . $nodo->nodeValue;
+                
+            } while ($nodo = $nodo->nextSibling);
+
+        
+    }
+}
+
+
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <a href="./domdescarga.php">Descargar</a>
 
