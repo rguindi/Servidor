@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contactos>
+  <contacto id="contacto1">
+    <alfabetico/>
+    <numerico/>
+    <fecha/>
+    <radio/>
+    <instrumentos>
+      <instrumento/>
+    </instrumentos>
+    <select/>
+    <email/>
+    <pass/>
+  </contacto>
+</contactos>
