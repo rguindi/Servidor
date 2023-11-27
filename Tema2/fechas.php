@@ -29,4 +29,60 @@ $edad = $hoy-$cumplea;
  echo "<br>";
  echo "Tengo " . floor(($hoy - $cumplea) / (60 * 60 * 24 * 365)) . " años";
 
+ 
+ echo '<h2>APUNTES DE INTERNET</h2>';
+ //RESTAR FECHAS:
+
+
+$fecha1 = new DateTime('2023-01-01 10:00:00');
+$fecha2 = new DateTime('2023-02-15 15:30:45');
+
+$diferencia = $fecha1->diff($fecha2);
+
+echo "Años: " . $diferencia->y . "<br>";
+echo "Meses: " . $diferencia->m . "<br>";
+echo "Días: " . $diferencia->d . "<br>";
+echo "Horas: " . $diferencia->h . "<br>";
+echo "Minutos: " . $diferencia->i . "<br>";
+echo "Segundos: " . $diferencia->s . "<br>";
+
+$fecha1 = new DateTime('2023-01-01');
+$fecha2 = new DateTime('2023-02-15');
+
+// Restar las fechas y obtener un objeto DateInterval
+$diferencia = $fecha1->diff($fecha2);
+
+// Acceder a las propiedades del objeto DateInterval
+echo "Años: " . $diferencia->y . "<br>";
+echo "Meses: " . $diferencia->m . "<br>";
+echo "Días: " . $diferencia->d . "<br>";
+
+
+
+
+
+// Fecha actual
+$fechaActual = new DateTime();
+
+// Convertir una cadena a una fecha utilizando strtotime
+$nuevaFechaStr = "2023-12-31";
+$nuevaFecha = new DateTime(date('Y-m-d', strtotime($nuevaFechaStr)));
+
+// Calcular la diferencia
+$diferencia = $fechaActual->diff($nuevaFecha);
+
+// Mostrar la diferencia en días
+echo "La diferencia en días es: " . $diferencia->days;
+
+//SUMAR FECHAS
+$fecha1 = new DateTime('2023-01-01');
+$fecha2 = new DateTime('2023-02-15');
+
+// Sumar las fechas
+$fecha1->add($fecha2->diff(new DateTime()));  //calcula la diferencia entre $fecha2 y la fecha actual. Luego, ese intervalo se agrega a $fecha1 usando el método add
+
+// Mostrar la nueva fecha
+echo $fecha1->format('Y-m-d');
+
+
 ?>

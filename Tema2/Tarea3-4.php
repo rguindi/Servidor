@@ -32,7 +32,9 @@ personas y muestre las fechas de nacimiento de ambos y la diferencia de edad en 
 
             $date1 = new DateTime($_GET ['raul']);
             $date2 = new DateTime($_GET ['manuel']);
-            $diff = $date1->diff($date2);
+
+            $diff = $date1->diff($date2);      //Resta date1-date2
+            
             
             echo "Hay " . $diff->days /365 . ' años de diferencia. <br>';
 
