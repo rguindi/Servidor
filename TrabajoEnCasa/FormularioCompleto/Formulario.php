@@ -27,8 +27,8 @@ $errores = [];
 if (enviado() && listaErrores($errores)){
     echo "<pre>";
     print_r ($_REQUEST);
-
     añadir();
+   echo '<a href="./descargararchivo.php">Descargar</a>';
 }
 else{
 

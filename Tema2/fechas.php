@@ -75,14 +75,19 @@ $diferencia = $fechaActual->diff($nuevaFecha);
 echo "La diferencia en días es: " . $diferencia->days;
 
 //SUMAR FECHAS
-$fecha1 = new DateTime('2023-01-01');
-$fecha2 = new DateTime('2023-02-15');
+$fecha12 = new DateTime('2023-01-01');
+$fecha22 = new DateTime('2023-02-15');
 
 // Sumar las fechas
-$fecha1->add($fecha2->diff(new DateTime()));  //calcula la diferencia entre $fecha2 y la fecha actual. Luego, ese intervalo se agrega a $fecha1 usando el método add
+$fecha12->add($fecha22->diff(new DateTime()));  //calcula la diferencia entre $fecha2 y la fecha actual. Luego, ese intervalo se agrega a $fecha1 usando el método add
 
 // Mostrar la nueva fecha
-echo $fecha1->format('Y-m-d');
+echo $fecha12->format('Y-m-d');
 
+
+
+// a partir de una cadena
+$fecha = DateTime::createFromFormat('d-m-Y', '03-05-2022');
+echo $fecha->format('Y-m-d');
 
 ?>
