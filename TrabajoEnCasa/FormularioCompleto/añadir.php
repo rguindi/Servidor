@@ -52,4 +52,34 @@ function añadir (){
     $dom->formatOutput = true;    //Formatea el documento
     $dom->save('./contactos.xml');
     
+
+//AÑADO CODIGO PARA GUARDAR LOS ARCHIVOS
+
+if (count($_FILES) != 0) {
+
+    echo "<pre>";
+    print_r($_FILES);
+    echo "</pre>";
+    $rutaC = '/Applications/XAMPP/xamppfiles/htdocs/servidor/TrabajoEnCasa/FormularioCompleto/';
+
+    $numeroficheros = count($_FILES['archivo']['name']);
+
+
+    for ($i = 0; $i < $numeroficheros; $i++) {
+
+        $ruta = $rutaC . basename($_FILES['archivo']['name'][$i]);
+
+        if (move_uploaded_file($_FILES['archivo']['tmp_name'][$i], $ruta)) {
+            echo "Archivo subido con éxito";
+        } else {
+            echo "Error subiendo archivo";
+        }
+
+    }
+
+}
+
+
+
+
 }

@@ -29,12 +29,12 @@ if (file_exists('fichero.txt')) {
 echo '<h1>Escribir Borra lo anterior</h1>';
 if (file_exists('fichero.txt')) {
     echo 'Existe <br>';
-    if (!$fp = fopen('fichero.txt', 'w'))   //Se abre en modo escritura (Acordarse de los permisos)
+    if (!$fp = fopen('fichero.txt', 'w'))   //Se abre en modo escritura (Acordarse de los permisos) trunca el fichero a longitud cero
     echo 'Ha habido un problema al abrir el fichero.';
 else {                  //si existe y se abre ejecutamos codigo
     
     $texto = 'Escribiendo...';
-    if (!fwrite($fp, $texto, strlen($texto)))  //Puntero, texto a escribir, longitud a escribir (o hasta q se coplete $texto)  strlen = Longotus de un String
+    if (!fwrite($fp, $texto, strlen($texto)))  //Puntero, texto a escribir, longitud a escribir (o hasta q se coplete $texto)  strlen = Longitud de un String
             echo 'Error al escribir';
         
     
@@ -50,7 +50,7 @@ else {                  //si existe y se abre ejecutamos codigo
 echo '<h1>Escribir al final</h1>';
 if (file_exists('fichero.txt')) {
     echo 'Existe <br>';
-    if (!$fp = fopen('fichero.txt', 'a'))       //Abrimos el fichero en modo escritura con el puntero al final (Acordarse de los permisos)
+    if (!$fp = fopen('fichero.txt', 'a'))       //Abrimos el fichero en modo escritura con el puntero al final (Acordarse de los permisos) Si el fichero no existe, se intenta crear
     echo 'Ha habido un problema al abrir el fichero.';
     else {
         
@@ -71,7 +71,7 @@ if (file_exists('fichero.txt')) {
 echo '<h1>Escribir al Medio</h1>';
 if (file_exists('fichero.txt')) {
     echo 'Existe <br>';
-    if (!$fp = fopen('fichero.txt', 'c'))   //Apertura para escribir con puntero al principio, pero no sobreeescribe (Acordarse de los permisos)
+    if (!$fp = fopen('fichero.txt', 'c'))   //Apertura para escribir con puntero al principio, pero no sobreeescribe (Acordarse de los permisos) NO TRUNCA
     echo 'Ha habido un problema al abrir el fichero.';
     else {                                  //Si existe y abre ejecutamos el codigo
         

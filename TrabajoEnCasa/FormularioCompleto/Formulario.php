@@ -41,7 +41,7 @@ else{
 
     <!-- FORMULARIO -->
 
-<form action="" method="get" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
 
    <label for="alfabetico">Alfabético <input type="text" name="alfabetico" id="alfabetico" value = "<?php recuerda('alfabetico') ?>" ></label> <br>
     <?php echo "<p class = 'error'>" . $errores ['alfabetico']. "</p>"  ?>
