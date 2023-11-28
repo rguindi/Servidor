@@ -13,99 +13,15 @@
     <pass/>
   </contacto>
   <contacto id="contacto2">
-    <alfabetico>Khf</alfabetico>
+    <alfabetico>Ka</alfabetico>
     <numerico>1</numerico>
     <fecha>2023-11-09</fecha>
-    <radio>opcion2</radio>
+    <radio>opcion1</radio>
     <instrumentos>
-      <instrumento>bateria</instrumento>
+      <instrumento>guitarra</instrumento>
     </instrumentos>
     <select>Opcion 3</select>
     <email>raul_fv@hotmail.com</email>
-    <pass>ou</pass>
-  </contacto>
-  <contacto id="contacto3">
-    <alfabetico>Khf</alfabetico>
-    <numerico>1</numerico>
-    <fecha>2023-11-09</fecha>
-    <radio>opcion2</radio>
-    <instrumentos>
-      <instrumento>bateria</instrumento>
-    </instrumentos>
-    <select>Opcion 3</select>
-    <email>raul_fv@hotmail.com</email>
-    <pass>hhh</pass>
-  </contacto>
-  <contacto id="contacto4">
-    <alfabetico>Khf</alfabetico>
-    <numerico>1</numerico>
-    <fecha>2023-11-09</fecha>
-    <radio>opcion2</radio>
-    <instrumentos>
-      <instrumento>bateria</instrumento>
-    </instrumentos>
-    <select>Opcion 3</select>
-    <email>raul_fv@hotmail.com</email>
-    <pass>fsg</pass>
-  </contacto>
-  <contacto id="contacto5">
-    <alfabetico>Khf</alfabetico>
-    <numerico>1</numerico>
-    <fecha>2023-11-09</fecha>
-    <radio>opcion2</radio>
-    <instrumentos>
-      <instrumento>bateria</instrumento>
-    </instrumentos>
-    <select>Opcion 3</select>
-    <email>raul_fv@hotmail.com</email>
-    <pass>fsg</pass>
-  </contacto>
-  <contacto id="contacto6">
-    <alfabetico>Khf</alfabetico>
-    <numerico>1</numerico>
-    <fecha>2023-11-09</fecha>
-    <radio>opcion2</radio>
-    <instrumentos>
-      <instrumento>bateria</instrumento>
-    </instrumentos>
-    <select>Opcion 3</select>
-    <email>raul_fv@hotmail.com</email>
-    <pass>fsg</pass>
-  </contacto>
-  <contacto id="contacto7">
-    <alfabetico>Khf</alfabetico>
-    <numerico>1</numerico>
-    <fecha>2023-11-09</fecha>
-    <radio>opcion2</radio>
-    <instrumentos>
-      <instrumento>bateria</instrumento>
-    </instrumentos>
-    <select>Opcion 3</select>
-    <email>raul_fv@hotmail.com</email>
-    <pass>fsg</pass>
-  </contacto>
-  <contacto id="contacto8">
-    <alfabetico>Khf</alfabetico>
-    <numerico>1</numerico>
-    <fecha>2023-11-09</fecha>
-    <radio>opcion2</radio>
-    <instrumentos>
-      <instrumento>bateria</instrumento>
-    </instrumentos>
-    <select>Opcion 3</select>
-    <email>raul_fv@hotmail.com</email>
-    <pass>g</pass>
-  </contacto>
-  <contacto id="contacto9">
-    <alfabetico>Khf</alfabetico>
-    <numerico>1</numerico>
-    <fecha>2023-11-09</fecha>
-    <radio>opcion2</radio>
-    <instrumentos>
-      <instrumento>bateria</instrumento>
-    </instrumentos>
-    <select>Opcion 3</select>
-    <email>raul_fv@hotmail.com</email>
-    <pass>g</pass>
+    <pass>gfs</pass>
   </contacto>
 </contactos>

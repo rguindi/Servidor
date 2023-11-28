@@ -93,7 +93,7 @@ else{
    
    <!-- ARCHIVOS -->
 
-   <label for="archivos">Subir Documentos<input type="file" name="archivo" multiple></label> <br>
+   <label for="archivos">Subir Documentos<input type="file" name="archivo[]" multiple></label> <br>
    <?php echo "<p class = 'error'>" . $errores ['archivo']. "</p>"  ?>
 
      <!-- OCULTOS; PARA PASAR INFORMACION -->

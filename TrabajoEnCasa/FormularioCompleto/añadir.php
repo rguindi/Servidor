@@ -60,7 +60,7 @@ if (count($_FILES) != 0) {
     echo "<pre>";
     print_r($_FILES);
     echo "</pre>";
-    $rutaC = '/Applications/XAMPP/xamppfiles/htdocs/servidor/TrabajoEnCasa/FormularioCompleto/';
+    $rutaC = './';
 
     $numeroficheros = count($_FILES['archivo']['name']);
 
