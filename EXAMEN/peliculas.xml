@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<peliculas>
+  <pelicula id="0000AS-234">
+    <titulo>Trainspotting</titulo>
+    <director>No se</director>
+    <ano>1999</ano>
+    <genero>comedia</genero>
+    <duracion>02:30:23</duracion>
+    <actores>
+      <actor>Primero</actor>
+      <actor> Segundo</actor>
+      <actor/>
+    </actores>
+    <sinopsis>Pelicula de culto basado en jovenes adictops..Pelicula de culto basado en jovenes adictops..Pelicula de culto basado en jovenes adictops..</sinopsis>
+  </pelicula>
+  <pelicula id="7854PO-876">
+    <titulo>El Padrino</titulo>
+    <director>Otro mas</director>
+    <ano>1890</ano>
+    <genero>comedia</genero>
+    <duracion>02:30:23</duracion>
+    <actores>
+      <actor>Pepito</actor>
+      <actor> Julito</actor>
+      <actor/>
+    </actores>
+    <sinopsis>Pelicula antigua.a.,blalblaPelicula antigua.a.,blalblaPelicula antigua.a.,blalblaPelicula antigua.a.,blalbla</sinopsis>
+  </pelicula>
+  <pelicula id="7854PO-874">
+    <titulo>asdf</titulo>
+    <director>fff</director>
+    <ano>3456</ano>
+    <genero>comedia</genero>
+    <duracion>56:34:34</duracion>
+    <actores>
+      <actor>Raul</actor>
+      <actor> Miguel</actor>
+      <actor/>
+    </actores>
+    <sinopsis>zxvzcczxczxvzcczxczxvzcczxczxvzcczxczxvzcczxczxvzcczxczxvzcczxczxvzcczxczxvzcczxczxvzcczxczxvzcczxc</sinopsis>
+  </pelicula>
+</peliculas>
