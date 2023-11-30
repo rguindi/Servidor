@@ -6,35 +6,55 @@
 
 // sudo apt-get install mysql-server
 // Si sale mensaje del kernel, clic en 'ok' y reiniciamos todos los servicios, no siempre sale
+//sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+// en bind-address y mysql-bind-addres ponmos 0.0.0.0 para poder acceder desde cualquier ip
 
+
+
+// 2. Le cambiamos la contraseña a root con: sudo mysqladmin -u root password raul     (desde consola linux)
 // Podemos entrar con sudo mysql -v
 
-// 2. Le cambiamos la contraseña a root con: mysqladmin -u root password fernando
-
 // 3. Después de entrar, creamos un usuario con:
-    // create user 'fernando'@'%' identified by 'fernando';
+    // create user 'raul'@'%' identified by 'raul';
 // Con el % entramos desde todas las direcciones
 
+//service mysql restart            y apache2 por si acaso
+
+    //create database prueba;
+    //use prueba
+ 
 // 4. Podemos ver los usuarios creados con:
-// select host, user from user;
+// select host, user from mysql.user;
+// Le damos todos los permisos al usuario que acabamos de crear:
+// grant all privileges on *.* to 'raul'@'%' with grant option;
 
 // 5 Accedemos a un usuario con:
-// FORMA DE ACCESO -> mysql -h 192.168.7.202 -u fernando -p
+// FORMA DE ACCESO -> mysql -h 192.168.1.134 -u raul -p
 // Nos pedirá la contraseña del usuario y entramos al usuario
 
-// 6. Le damos todos los permisos al usuario que acabamos de crear:
-// grant all privileges on *.* to 'fernando'@'%' with grant option;
 
 // 7. Comprobamos que con show databases no solo vemos las tablas con metadatos
 // sino también las tablas mysql y sys
 
-require("./confBD.php");
 
 // 8. Para realizar la conexion desde el programa, hay que instalar
-// apt-get install php-mysql
+// sudo apt-get install php-mysql
+// Si sale mensaje del kernel, clic en 'ok' y reiniciamos todos los servicios, no siempre sale
 // una vez instalado, hay que reiniciar apache
 
 // Probar errores para conocer numeros a tratar posteriormente
+
+// desde comandos;
+// CREATE TABLE alumnos (
+//     id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+//     nombre VARCHAR(50),
+//     edad SMALLINT
+// );
+
+
+
+
+require("./confBD.php");
 
 try {
     $con = mysqli_connect(IP,USER,PASSWORD,'prueba');
@@ -56,8 +76,8 @@ try {
         mysqli_stmt_execute($stmt);
 
         // Si la consulta no se lleva a cabo, nos muestra ese error
-        if(!mysqli_query($con,$sql))
-            echo mysqli_errno($con);
+        // if(!mysqli_query($con,$sql))
+        //     echo mysqli_errno($con);
 
     // siempre debemos de cerrar la conexión
     mysqli_close($con);
