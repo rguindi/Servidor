@@ -6,9 +6,14 @@ require("./confBD.php");
 try {
     $con = mysqli_connect(IP,USER,PASSWORD,'prueba');
       
-    $borrar =  'delete from alumnos where id>=5';
-    mysqli_query($con, $borrar);
-    echo mysqli_affected_rows($con);
+//-----------------------------BORRAR 
+
+    // $borrar =  'delete from alumnos where id>=5';       //Creamos la sentencia sql
+    // mysqli_query($con, $borrar);                    //La ejecutamos pasando la conexion y sentencia
+    // echo mysqli_affected_rows($con);        //Muestra las filas afectadas en la ultima sentencia
+            //-----------------------------
+
+
 
     $sql = 'select * from alumnos';
 
@@ -16,10 +21,10 @@ try {
 
     //ARRAY ASOCIATIVO devuelte en formato asociativo array
 
-//   while ($array = mysqli_fetch_assoc($result)){
-//     echo '<pre>';
-//     print_r($array);
-//   }
+  while ($array = mysqli_fetch_assoc($result)){
+    echo '<pre>';
+    print_r($array);
+  }
 
      //ARRAY Object  Devuelve en formato objeto
     //  while ($array = mysqli_fetch_object($result)){
@@ -34,10 +39,10 @@ try {
     //   }
 
          //ARRAY row devuelve filas
-     while ($array = mysqli_fetch_row($result)){
-        echo '<pre>';
-        print_r($array);
-      }
+    //  while ($array = mysqli_fetch_row($result)){
+    //     echo '<pre>';
+    //     print_r($array);
+    //   }
     
     
     
@@ -63,7 +68,14 @@ try {
     mysqli_close($con);
 }
 
-// Creacion de una tabla
+
+//Mostar codigo 
+echo "<br>";
+$ruta = $_SERVER['SCRIPT_FILENAME'];
+echo "<a href=http://".$_SERVER['SERVER_ADDR']."/vercontenido.php?contenido=".$ruta.">Ver Contenido</a>";
+
+
+
 
 
 ?>

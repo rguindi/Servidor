@@ -80,8 +80,13 @@
     <li><a href="/Tema3/PDF/Tarea12/HacerPdf.php">Crear PDF, Reports</a></li>
     </ul>
 
+    <h2>Tema4</h2>
+    <h4>Accediendo a Bases de Datos</h4>
+    <ul>
+    <li><a href="/BBDD/29N.php">Crear Conexion, hacer consulta preparada.</a></li>
+    <li><a href="/BBDD/consultar.php">Tipos de Consultas</a></li>
+    </ul>
     </main>
-
     <footer>
     <?php
         include("html/footer.html");
