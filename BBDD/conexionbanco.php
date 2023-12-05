@@ -8,7 +8,7 @@ $con = new mysqli();   //otra forma de conectar
 
 try {
 
-        $con->connect(IP, USER, PASSWORD, 'prueba');
+        $con->connect(IP, USER, PASSWORD);
         $script = file_get_contents('./banco.sql');
         $con->multi_query($script);
 

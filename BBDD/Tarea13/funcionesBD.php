@@ -55,7 +55,7 @@ function cargarScript(){
 
 try {
 
-        $con->connect(IP, USER, PASSWORD, 'jugadores');
+        $con->connect(IP, USER, PASSWORD);
         $script = file_get_contents('./jugadores.sql');
         $con->multi_query($script);
 
