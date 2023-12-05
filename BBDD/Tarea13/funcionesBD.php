@@ -5,6 +5,12 @@ require('./conexionBD.php');
 
 
 
+function botonLeer(){
+    if (isset($_REQUEST['leer'])) return true;
+    return false;
+}
+
+
 
                     //LEER TABLA
 function leerTabla(){
@@ -12,7 +18,7 @@ $con = new mysqli();   //Creamos la conexion
 
 try {
 
-    $con->connect(IP,USER,PASSWORD,'Jugadores');
+    $con->connect(IP,USER,PASSWORD,'jugadores');
     $sql = 'select * from jugadores';
     $result = mysqli_query($con, $sql);
 
@@ -20,9 +26,14 @@ try {
 
     while ($array = mysqli_fetch_assoc($result)){
         echo '<tr>';
+        $dni = '';
         foreach ($array as $key => $value) {
             echo '<td>'.$value.'</td>';
+            if ($key == 'dni') $dni = $value;
         }
+        echo '<td><form action="" method="get"><input name = "modificar" type="submit" value="Modificar"></td>';
+        echo '<input type="hidden" name="dni" value="' . $dni . '">';
+        echo '<td><input name = "eliminar" type="submit" value="Eliminar"></td></form>';
         echo '</tr>';
       }
 
@@ -94,12 +105,6 @@ try {
     //-------------------------------------------------------------------------------------------------------
     
     
-    //Mostar codigo 
-    echo "<br>";
-    $ruta = $_SERVER['SCRIPT_FILENAME'];
-    echo "<a href=http://".$_SERVER['SERVER_ADDR']."/vercontenido.php?contenido=".$ruta.">Ver Contenido</a>";
-    
-
 
 
 

@@ -1,5 +1,5 @@
 <?php
-define('IP','192.168.7.204');
+define('IP','192.168.1.136');
 define('USER','raul');
 define('PASSWORD','raul');
 ?>

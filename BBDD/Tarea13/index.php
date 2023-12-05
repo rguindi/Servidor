@@ -3,20 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base de datos</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="./estilos.css">
 </head>
 <body>
     <?php
     require("./funcionesBD.php");
-    cargarScript();
+    // cargarScript();
 
     ?>
+    <br><br>
     
-    <form action="get">
-        <button>Leer tabla</button>
-
+    <form action="" method="get">
+       <input name = 'leer' type="submit" value="Mostrar Datos">
+       
     </form>
-  
+    <br><br>
+ <?php 
+ if (botonLeer()) {
+    leerTabla(); 
+ }
+ ?>
+
+<form action="" method="get">
+       <input name = 'add' type="submit" value="+">
+       
+    </form>
 
     
 </body>
