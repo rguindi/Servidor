@@ -85,6 +85,9 @@
     <ul>
     <li><a href="/BBDD/29N.php">Crear Conexion, hacer consulta preparada.</a></li>
     <li><a href="/BBDD/consultar.php">Tipos de Consultas</a></li>
+    <li><a href="/BBDD/conexion.php">Conexion diferente con Update</a></li>
+    <li><a href="/BBDD/conexionbanco.php">Ejecucion de Script</a></li>
+    <li><a href="/BBDD/Tarea13/index.php">Tarea 13 BDD</a></li>
     </ul>
     </main>
     <footer>

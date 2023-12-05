@@ -1,5 +1,6 @@
 drop database if exists banco;
 create database banco;
+drop user if exists banco;
 create user banco identified by 'bancoMalo';
 use banco;
 grant all on banco.* to banco;
