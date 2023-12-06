@@ -5,13 +5,6 @@ require('./conexionBD.php');
 
 
 
-function botonLeer(){
-    if (isset($_REQUEST['leer'])) return true;
-    return false;
-}
-
-
-
                     //LEER TABLA
 function leerTabla(){
 $con = new mysqli();   //Creamos la conexion
@@ -46,12 +39,16 @@ switch ($th->getCode()){
     case 1062:
             echo "Ha introducido una clave primaria repetida";
             break;
+            case 1049:
+                echo "<br>No existe la base de datos. <br><br>";
+                echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear Tabla"><br>';
+
+                break;
     default:
             echo $th->getMessage();
             break;
 }
 
-echo "Error de los datos de conexion";
 
 $con->close();
 }
@@ -104,7 +101,37 @@ try {
     
     //-------------------------------------------------------------------------------------------------------
     
+
+    //--------------------------ELIMINAR REGISTRO------------------------------------------------------------
+
+
+    function eliminarRegistro($dni){
+        $con = new mysqli();   //Creamos la conexion
+        try {
+            $con->connect(IP,USER,PASSWORD,'jugadores');
+            $sql = "delete from jugadores where dni = ?";
+            $stmt = $con->stmt_init();
+            $stmt->prepare($sql);
+            $stmt->bind_param('s', $dni);
+            $stmt->execute();
+            $con->close();
+            echo "Registro eliminado";
+        } catch (\Throwable $th) {
+            // Switch para recoger los codigos de errores que nos devuelve y asingarle un mensaje de texto a cada uno de ellos
+            switch ($th->getCode()){
+                case 1062:
+                        echo "Ha introducido una clave primaria repetida";
+                        break;
+                default:
+                        echo $th->getMessage();
+                        break;
+            }
+            $con->close();
+        }
+    }
     
+    //-------------------------------------------------------------------------------------------------------
+
 
 
 

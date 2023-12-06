@@ -1,4 +1,19 @@
 table, th, td{
     border : 1px solid black;
     border-collapse: collapse;
+    background-color: gray;
+    color: white;
+   text-align: center;
+}
+.error{
+    color: rgb(139, 15, 15);
+    font-weight: bold;
+}
+
+form{
+ 
+    background-color: rgb(169, 169, 169);
+    width: fit-content;
+    border-radius: 4px;
+    color: black;
 }

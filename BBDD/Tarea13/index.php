@@ -9,18 +9,27 @@
 <body>
     <?php
     require("./funcionesBD.php");
-    // cargarScript();
-
-    ?>
+      if (isset($_REQUEST['crear'])) {
+       cargarScript();
+      }
+      if (isset($_REQUEST['add'])) {
+        header('Location: ./add.php');
+      }
+      
+      ?>
     <br><br>
     
     <form action="" method="get">
-       <input name = 'leer' type="submit" value="Mostrar Datos">
-       
-    </form>
-    <br><br>
- <?php 
- if (botonLeer()) {
+       <input name = 'leer' type="submit" value="Mostrar Datos">    
+      </form>
+      <br><br>
+      
+      <?php 
+      if (isset($_REQUEST['eliminar'])) {
+        eliminarRegistro($_REQUEST['dni']);
+        leerTabla();
+      }
+ if (isset($_REQUEST['leer'])) {
     leerTabla(); 
  }
  ?>
