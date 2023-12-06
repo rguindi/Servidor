@@ -29,9 +29,9 @@ return false;
 
 }
 
-function validarApellidos ($apellidos) {
+function validarposicion ($posicion) {
    $exp = '/^[a-zA-Z]{3,}\s[a-zA-Z]{3,}$/';
-    if (preg_match ($exp, $apellidos)) return true;
+    if (preg_match ($exp, $posicion)) return true;
     return false;
     
     }
@@ -63,13 +63,17 @@ function validaFecha ($fecha){
 function validaFormulario (&$errores){
 if (textoVacio ('nombre')) $errores ['nombre'] = 'El nombre no puede estar vacío.';
 if (!textoVacio ('nombre') && !validarNombre ($_REQUEST['nombre'])) $errores ['validarNombre'] = 'Mínimo 3 caracteres.';
-if (textoVacio ('apellidos')) $errores ['apellidos'] = 'El apellidos no puede estar vacío.';
-if (!textoVacio ('apellidos') && !validarApellidos ($_REQUEST['apellidos'])) $errores ['validarApellidos'] = 'Mínimo 3 caracteres para cada apellido.';
+if (textoVacio ('posicion')) $errores ['posicion'] = 'La posicion no puede estar vacía.';
+if (!textoVacio ('posicion') && !validarposicion ($_REQUEST['posicion'])) $errores ['validarPosicion'] = 'Mínimo 3 caracteres para cada apellido.';
+if (textoVacio ('DNI')) $errores ['DNI'] = 'El DNI no puede estar vacío.';
+if (!textoVacio ('DNI') && !validaDNI ($_REQUEST['DNI']) ) $errores ['DNIMAL'] = 'Introduzca un DNI correcto';
 if (textoVacio ('fecha')) $errores ['fecha'] = 'Debe seleccionar una fecha.';
 if (!textoVacio ('fecha') && !validaFecha ($_REQUEST['fecha'])) $errores ['formatoFecha'] = 'Introduzca una fecha con el formato espcificado. Ejemplo 07/12/2021.';
 if (!textoVacio ('fecha') && validaFecha ($_REQUEST['fecha']) && !mayorEdad ()) $errores ['mayorEdad'] = 'Es necesario tener más de 18 años.';
-if (textoVacio ('DNI')) $errores ['DNI'] = 'El DNI no puede estar vacío.';
-if (!textoVacio ('DNI') && !validaDNI ($_REQUEST['DNI']) ) $errores ['DNIMAL'] = 'Introduzca un DNI correcto';
+if (textoVacio ('sueldo')) $errores ['sueldo'] = 'El sueldo no puede estar vacío.';
+if (textoVacio ('dorsal')) $errores ['dorsal'] = 'El dorsal no puede estar vacío.';
+
+
 
 if (count($errores)==0) return true;
 return false;
