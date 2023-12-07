@@ -21,21 +21,27 @@
     <br><br>
     
     <form action="" method="get">
-       <input name = 'leer' type="submit" value="Mostrar toda la tabla">    <br>
+       <input name = 'leer' type="submit" value="Mostrar toda la tabla">  </form>   <br>
+       <form action="" method="get">
        <label for="busca">Buscar por DNI <input type="text" name="busca" id="busca"></label> 
-       <input name = 'busca' type="submit" value="Buscar">   <br>
+       <input name = 'botonBusca' type="submit" value="Buscar">   <br>
        <label for="add">Añadir  <input name = 'add' type="submit" value="+"></label><br>
+       <?php if (isset ($_REQUEST['botonBusca']) && empty ($_REQUEST['busca']))  echo "<p class = error>Introduzca un DNI o parte de él para buscar</p>"; ?>
       </form>
       <br>
       
       <?php 
-      if (isset($_REQUEST['eliminar'])) {
-        eliminarRegistro($_REQUEST['dni']);
+      if (!empty($_REQUEST['eliminar'])) {
+        eliminarRegistro($_REQUEST['DNI']);
         leerTabla();
       }
  if (isset($_REQUEST['leer'])) {
     leerTabla(); 
  }
+
+  if (isset($_REQUEST['botonBusca'])) {
+      buscarPorDNI($_REQUEST['busca']); 
+  }
  ?>
 
 
