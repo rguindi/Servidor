@@ -41,7 +41,7 @@ switch ($th->getCode()){
             break;
             case 1049:
                 echo "<br>No existe la base de datos. <br><br>";
-                echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear Tabla"><br>';
+                echo '<form action="" method="get"><input name = "crear" type="submit" value=" Pulse aquí para crearla"><br>';
 
                 break;
     default:

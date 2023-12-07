@@ -48,6 +48,20 @@ function validaFecha ($fecha){
 
 }
 
+function validaDorsal ($dorsal){
+    
+    if ($dorsal>0 && $dorsal<25) return true;
+    return false;
+
+}
+
+function validaSueldo ($sueldo){
+    $sueldoFloat = floatval($sueldo);
+    if (($sueldoFloat >0)) return true;
+    return false;
+
+}
+
   function validaDNI ($dni){
 
     $exp = '/^[\d]{8}[a-zA-Z]{1}$/';
@@ -74,7 +88,9 @@ if (!textoVacio ('DNI') && !validaDNI ($_REQUEST['DNI']) ) $errores ['DNIMAL'] =
 if (textoVacio ('fecha')) $errores ['fecha'] = 'Debe seleccionar una fecha.';
 if (!textoVacio ('fecha') && !validaFecha ($_REQUEST['fecha'])) $errores ['formatoFecha'] = 'Introduzca una fecha con el formato espcificado. Ejemplo 2007-12-07.';
 if (textoVacio ('sueldo')) $errores ['sueldo'] = 'El sueldo no puede estar vacío.';
+if (!textoVacio ('sueldo') && !validaSueldo ($_REQUEST['sueldo'])) $errores ['formatoSueldo'] = 'Introduzca un sueldo correcto.';
 if (textoVacio ('dorsal')) $errores ['dorsal'] = 'El dorsal no puede estar vacío.';
+if (!textoVacio ('dorsal') && !validaDorsal ($_REQUEST['dorsal'])) $errores ['formatoDorsal'] = 'Introduzca un número de dorsal entre 1 y 24.';
 
 
 

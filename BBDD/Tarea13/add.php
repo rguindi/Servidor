@@ -44,10 +44,11 @@
                       ?>
                 <label for="sueldo">Sueldo <input type="text" name="sueldo" id="sueldo" value=<?php recuerda('sueldo') ?>></label> <br>
                 <?php printerror($errores, 'sueldo'); 
+                      printerror($errores, 'formatoSueldo');
                       ?>
                 <label for="dorsal">Dorsal <input type="number" name="dorsal" id="dorsal" value=<?php recuerda('dorsal') ?>></label> <br>
                 <?php printerror($errores, 'dorsal'); 
-                    ?>
+                      printerror($errores, 'formatoDorsal'); ?>
 
                 <input type="submit" value="Enviar" name="Enviar">
                 <input type="submit" value="Borrar" name="Borrar">
