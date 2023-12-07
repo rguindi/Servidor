@@ -15,7 +15,7 @@
     
     //Si ha ido todo bienb
     if (enviado() && validaFormulario($errores)) {
-        header('Location: ./index.php');
+        // header('Location: ./index.php');
 
 
     } else {
@@ -27,7 +27,7 @@
         <main>
             <!-- FORMULARIO -->
 
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="get">
 
                 <label for="nombre">Nombre <input type="text" name="nombre" id="nombre" value=<?php recuerda('nombre') ?>></label> <br>
                 <?php printerror($errores, 'nombre'); 
@@ -38,10 +38,10 @@
                 <label for="DNI">DNI <input type="text" name="DNI" id="DNI" value=<?php recuerda('DNI') ?>></label> <br>
                 <?php printerror($errores, 'DNI');
                       printerror($errores, 'DNIMAL'); ?>
-                <label for="fecha">Fecha de Nacimiento<input type="text" name="fecha" id="fecha" placeholder="DD/MM/AAAA" value=<?php recuerda('fecha') ?>></label> <br>
+                <label for="fecha">Fecha de Nacimiento<input type="date" name="fecha" id="fecha" placeholder="DD/MM/AAAA" value=<?php recuerda('fecha') ?>></label> <br>
                 <?php printerror($errores, 'fecha'); 
                       printerror($errores, 'formatoFecha');
-                      printerror($errores, 'mayorEdad');?>
+                      ?>
                 <label for="sueldo">Sueldo <input type="text" name="sueldo" id="sueldo" value=<?php recuerda('sueldo') ?>></label> <br>
                 <?php printerror($errores, 'sueldo'); 
                       ?>

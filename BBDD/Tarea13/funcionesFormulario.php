@@ -23,22 +23,26 @@ echo '';
 }
 
 function validarNombre ($nombre) {
-$exp = '/^[a-zA-Z]{3}/';
-if (preg_match ($exp, $nombre)) return true;
+$exp = '/^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+\s[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+\s[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+$/';     //3 palabras empezando por Mayuscula
+if ((preg_match ($exp, $nombre)) && (strlen($nombre)<=70)) return true;
 return false;
 
 }
 
 function validarposicion ($posicion) {
-   $exp = '/^[a-zA-Z]{3,}\s[a-zA-Z]{3,}$/';
-    if (preg_match ($exp, $posicion)) return true;
+//    $exp = '/^(Portero|Defensa|Central|Lateral|Delantero)$/';   //Validado por expresion Regular
+//     if (preg_match ($exp, $posicion)) return true;
+
+    $posiciones = ["Portero", "Defensa", "Central", "Lateral", "Delantero"];        //Validado por codigo PHP
+    if (in_array($posicion, $posiciones))  return true;
+
     return false;
     
     }
 
 
 function validaFecha ($fecha){
-    $exp = '/^[\d]{2}\/[\d]{2}\/[\d]{4}$/';
+    $exp = '/^[\d]{4}\-[\d]{2}\-[\d]{2}$/';
     if (preg_match ($exp, $fecha)) return true;
     return false;
 
@@ -62,14 +66,13 @@ function validaFecha ($fecha){
 
 function validaFormulario (&$errores){
 if (textoVacio ('nombre')) $errores ['nombre'] = 'El nombre no puede estar vacío.';
-if (!textoVacio ('nombre') && !validarNombre ($_REQUEST['nombre'])) $errores ['validarNombre'] = 'Mínimo 3 caracteres.';
+if (!textoVacio ('nombre') && !validarNombre ($_REQUEST['nombre'])) $errores ['validarNombre'] = 'Escriba nombre y 2 apellidos, con primer caracter de cada palabra en mayúscula. El nombre completo debe ser inferior a 75 catacteres.';
 if (textoVacio ('posicion')) $errores ['posicion'] = 'La posicion no puede estar vacía.';
-if (!textoVacio ('posicion') && !validarposicion ($_REQUEST['posicion'])) $errores ['validarPosicion'] = 'Mínimo 3 caracteres para cada apellido.';
+if (!textoVacio ('posicion') && !validarposicion ($_REQUEST['posicion'])) $errores ['validarPosicion'] = 'Solo puede elegir una de estas posiciones: "Portero", "Defensa", "Central", "Lateral" o "Delantero".';
 if (textoVacio ('DNI')) $errores ['DNI'] = 'El DNI no puede estar vacío.';
 if (!textoVacio ('DNI') && !validaDNI ($_REQUEST['DNI']) ) $errores ['DNIMAL'] = 'Introduzca un DNI correcto';
 if (textoVacio ('fecha')) $errores ['fecha'] = 'Debe seleccionar una fecha.';
-if (!textoVacio ('fecha') && !validaFecha ($_REQUEST['fecha'])) $errores ['formatoFecha'] = 'Introduzca una fecha con el formato espcificado. Ejemplo 07/12/2021.';
-if (!textoVacio ('fecha') && validaFecha ($_REQUEST['fecha']) && !mayorEdad ()) $errores ['mayorEdad'] = 'Es necesario tener más de 18 años.';
+if (!textoVacio ('fecha') && !validaFecha ($_REQUEST['fecha'])) $errores ['formatoFecha'] = 'Introduzca una fecha con el formato espcificado. Ejemplo 2007-12-07.';
 if (textoVacio ('sueldo')) $errores ['sueldo'] = 'El sueldo no puede estar vacío.';
 if (textoVacio ('dorsal')) $errores ['dorsal'] = 'El dorsal no puede estar vacío.';
 
