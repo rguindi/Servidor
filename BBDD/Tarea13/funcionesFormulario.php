@@ -4,6 +4,11 @@ function enviado (){
     if(!empty ($_REQUEST ['Enviar'])) return true;
     return false;
 }
+function modificar (){
+    if(!empty ($_REQUEST ['modificar'])) return true;
+    return false;
+}
+
 function textoVacio ($campodetexto){
     if (empty ($_REQUEST [$campodetexto])) return true;
     return false;
@@ -16,10 +21,16 @@ function printerror($errores, $valor){
 }
 
 function recuerda($campo){
-    if (enviado() && !empty ($_REQUEST[$campo])) {
+    if ((enviado() || modificar()) && !empty ($_REQUEST[$campo])) {
     echo "'$_REQUEST[$campo]'";
 }else if (isset ($_REQUEST['Borrar']))
 echo '';
+}
+
+function recuerdaDNI($dni){                     //Hago esta funcion para que el campo DNI no se pueda modificar y no se borre al darle al boton borrar
+    if (isset ($_REQUEST['Borrar'])|| modificar()) {
+    echo "'$_REQUEST[$dni]'";
+}
 }
 
 function validarNombre ($nombre) {
@@ -56,8 +67,11 @@ function validaDorsal ($dorsal){
 }
 
 function validaSueldo ($sueldo){
+    if (!is_numeric($sueldo))return false;
+
     $sueldoFloat = floatval($sueldo);
-    if (($sueldoFloat >0)) return true;
+    if (($sueldoFloat >0))return true;
+    
     return false;
 
 }
@@ -88,7 +102,7 @@ if (!textoVacio ('DNI') && !validaDNI ($_REQUEST['DNI']) ) $errores ['DNIMAL'] =
 if (textoVacio ('fecha')) $errores ['fecha'] = 'Debe seleccionar una fecha.';
 if (!textoVacio ('fecha') && !validaFecha ($_REQUEST['fecha'])) $errores ['formatoFecha'] = 'Introduzca una fecha con el formato espcificado. Ejemplo 2007-12-07.';
 if (textoVacio ('sueldo')) $errores ['sueldo'] = 'El sueldo no puede estar vacío.';
-if (!textoVacio ('sueldo') && !validaSueldo ($_REQUEST['sueldo'])) $errores ['formatoSueldo'] = 'Introduzca un sueldo correcto.';
+if (!textoVacio ('sueldo') && !validaSueldo ($_REQUEST['sueldo'])) $errores ['formatoSueldo'] = 'Introduzca un sueldo correcto. Separe los decimales con "."';
 if (textoVacio ('dorsal')) $errores ['dorsal'] = 'El dorsal no puede estar vacío.';
 if (!textoVacio ('dorsal') && !validaDorsal ($_REQUEST['dorsal'])) $errores ['formatoDorsal'] = 'Introduzca un número de dorsal entre 1 y 24.';
 

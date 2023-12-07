@@ -16,13 +16,17 @@
         header('Location: ./add.php');
       }
       
+      
       ?>
     <br><br>
     
     <form action="" method="get">
-       <input name = 'leer' type="submit" value="Mostrar Datos">    
+       <input name = 'leer' type="submit" value="Mostrar toda la tabla">    <br>
+       <label for="busca">Buscar por DNI <input type="text" name="busca" id="busca"></label> 
+       <input name = 'busca' type="submit" value="Buscar">   <br>
+       <label for="add">Añadir  <input name = 'add' type="submit" value="+"></label><br>
       </form>
-      <br><br>
+      <br>
       
       <?php 
       if (isset($_REQUEST['eliminar'])) {
@@ -34,10 +38,7 @@
  }
  ?>
 
-<form action="" method="get">
-       <input name = 'add' type="submit" value="+">
-       
-    </form>
+
 
     
 </body>

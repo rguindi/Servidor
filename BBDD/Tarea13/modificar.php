@@ -16,11 +16,14 @@
     
     //Si ha ido todo bienb
     if (enviado() && validaFormulario($errores)) {
-        addRegistro();
+        modificaRegistro();
         header("Location: ./index.php");
 
 
     } else {
+
+
+
 
         ?>
 
@@ -37,9 +40,10 @@
                 <label for="posicion">Posición <input type="text" name="posicion" id="posicion" value=<?php recuerda('posicion') ?>></label> <br>
                 <?php printerror($errores, 'posicion'); 
                       printerror($errores, 'validarPosicion'); ?>
-                <label for="DNI">DNI <input type="text" name="DNI" id="DNI" value=<?php recuerda('DNI') ?>></label> <br>
+                <label for="DNI">DNI <input type="text" name="DNI" id="DNI" value=<?php recuerdaDNI('DNI') ?> disabled></label> <br>
                 <?php printerror($errores, 'DNI');
                       printerror($errores, 'DNIMAL'); ?>
+                      <input type="hidden" name="DNI" value=<?php recuerda('DNI') ?>>       <!--Este campo es porque el campo DNI esta deshabilitado y no se envia al formulario-->
                 <label for="fecha">Fecha de Nacimiento<input type="date" name="fecha" id="fecha" placeholder="DD/MM/AAAA" value=<?php recuerda('fecha') ?>></label> <br>
                 <?php printerror($errores, 'fecha'); 
                       printerror($errores, 'formatoFecha');
