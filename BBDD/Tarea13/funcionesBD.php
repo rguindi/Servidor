@@ -11,7 +11,8 @@ $con = new mysqli();   //Creamos la conexion
 
 try {
 
-    $con->connect(IP,USER,PASSWORD,'jugadores');
+    $con->connect(IP,USER,PASSWORD);
+    $con->select_db('jugadores');
     $sql = 'select * from jugadores';
     $result = mysqli_query($con, $sql);
 
@@ -63,9 +64,14 @@ switch ($th->getCode()){
         break;
     case 1049:
         echo "Error al conectarse a la base de datos indicada";
+                //Crear boton para cargar Script
+                echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear la Base de Datos">  </form>';
+
         break;
     case 1146:
         echo "Error al encontrar la tabla indicada";
+        //Crear boton para cargar Script
+        echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear la Base de Datos">  </form>';
         break;
     case 1064:
         echo "No se han indicado los valores a insertar en la BD";
@@ -75,7 +81,12 @@ switch ($th->getCode()){
 }
 
 
-$con->close();
+
+
+
+}
+finally{
+    $con->close();
 }
 
 

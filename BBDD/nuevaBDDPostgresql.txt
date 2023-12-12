@@ -1,0 +1,46 @@
+sudo apt-get upgrade
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib  
+//Cambiamos al usuario postgresql
+sudo -i -u postgres         
+psql
+
+create database prueba;
+\c prueba
+
+su raul
+sudo nano /etc/postgresql/14//main/postgresql.conf
+buscamos #listen_addresses y lo descomentamos y ponemos asterisco.
+lo dejamos asi;
+listen_addresses = '*'
+
+
+sudo nano /etc/postgresql/14//main/pg_hba.conf 
+//Añadimos linea al final
+host    all             all             0.0.0.0/0               scram-sha-256
+
+sudo -i -u postgres
+psql
+create user raul with password 'raul'; 
+grant all privileges on all tables in schema public to raul;
+
+exit
+exit
+
+
+sudo apt-get install php-pgsql  //Reiniciamos todos los servicios (lo marcamos)
+
+sudo nano /etc/php/8.1/apache2/php.ini 
+descomentamos extension=pdo_pgsql         (quitar el ;)
+
+
+postgres
+
+sudo systemctl restart postgresql
+sudo systemctl restart apache2
+psql -U raul -d prueba -h 192.168.7.204 -W
+
+
+create table tiempo ( id serial primary key, descripcion varchar(100), grados int);
+insert into tiempo (descripcion, grados) values ('hace un dia lluvioso', 14);
+select * from tiempo;
