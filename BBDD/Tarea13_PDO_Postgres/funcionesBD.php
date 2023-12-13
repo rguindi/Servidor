@@ -4,10 +4,9 @@
 require('./conexionBD.php');
 
 
-$DSN = 'pgsql:host=' . IP . ';dbname=jugadores';
-
 //---------------------//LEER TABLA
 function leerTabla(){
+    $DSN = 'pgsql:host=' . IP . ';dbname=jugadores';
 try {
     $con = new PDO($DSN, USER, PASSWORD);
 
@@ -68,6 +67,7 @@ switch ($th->getCode()){
                 echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear la Base de Datos">  </form>';
 
         break;
+       
     case 1146:
         echo "Error al encontrar la tabla indicada";
         //Crear boton para cargar Script
@@ -78,6 +78,7 @@ switch ($th->getCode()){
         break;
     default:
         echo "Error no identificado: " . $th->getMessage();
+
 }
 
 
@@ -95,9 +96,13 @@ finally{
 
                     //FUNCION PARA CARGAR EL SCRIPT
 function cargarScript(){
-     
+    $DSN = 'pgsql:host=' . IP . ';dbname='; //conectamos sin BD
     try {
   
+        $con = new PDO($DSN, USER, PASSWORD);
+        $con->exec("CREATE DATABASE jugadores"); //Creamos la BD
+
+        $DSN = 'pgsql:host=' . IP . ';dbname=jugadores';  //conectamos a la BD para ejecutar el script
         $con = new PDO($DSN, USER, PASSWORD);
 
         $script = file_get_contents('./jugadores.sql');
@@ -153,6 +158,7 @@ function cargarScript(){
 
 
     function eliminarRegistro($dni){
+        $DSN = 'pgsql:host=' . IP . ';dbname=jugadores';
         try {
             $con = new PDO($DSN, USER, PASSWORD);   //Creamos la conexion
             $sql = "delete from jugadores where dni = ?";
@@ -195,6 +201,7 @@ function cargarScript(){
 
 //--------------------------AÑADIR REGISTRO------------------------------------------------------------
 function addRegistro(){
+    $DSN = 'pgsql:host=' . IP . ';dbname=jugadores';
 
 try {
          $con = new PDO($DSN, USER, PASSWORD);
@@ -245,6 +252,7 @@ try {
 
     //--------------------------MODIFICAR REGISTRO------------------------------------------------------------
 function modificaRegistro(){
+    $DSN = 'pgsql:host=' . IP . ';dbname=jugadores';
 
     
     try {
@@ -295,6 +303,7 @@ function modificaRegistro(){
 
   //--------------------------BUSCAR POR DNI------------------------------------------------------------
         function buscarPorDNI($frase){
+            $DSN = 'pgsql:host=' . IP . ';dbname=jugadores';
             $con = new PDO($DSN, USER, PASSWORD);   //Creamos la conexion
             $sql = 'select dni from jugadores';
             $result = mysqli_query($con, $sql);
