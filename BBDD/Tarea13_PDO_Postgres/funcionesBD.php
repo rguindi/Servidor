@@ -52,7 +52,7 @@ try {
 switch ($th->getCode()){
     case 0:
         echo "No encuentra todos los parámetros de la secuencia. <br> Prueba a crear la base de datos.";
-        echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear la Base de Datos">  </form>';
+        echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear Tabla">  </form>';
 
         break;
     case 2002:
@@ -64,21 +64,34 @@ switch ($th->getCode()){
     case 1049:
         echo "Error al conectarse a la base de datos indicada";
                 //Crear boton para cargar Script
-                echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear la Base de Datos">  </form>';
+                echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear Base de datos">  </form>';
 
         break;
+        case '7':
+            echo "La base de datos jugadores no existe. Crear.
+            <br>";
+            // Crear boton para cargar Script
+            echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear la Base de Datos">  </form>';
+            break;
        
     case 1146:
         echo "Error al encontrar la tabla indicada";
         //Crear boton para cargar Script
-        echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear la Base de Datos">  </form>';
+        echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear Tabla">  </form>';
         break;
     case 1064:
         echo "No se han indicado los valores a insertar en la BD";
         break;
+        case '42P01':
+            echo "Tabla no definida";
+                    //Crear boton para cargar Script
+        echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear Tabla">  </form>';
+
+            break;
     default:
         echo "Error no identificado: " . $th->getMessage();
-
+        echo 'Codigo: ' .$th->getCode();
+        
 }
 
 
@@ -96,30 +109,21 @@ finally{
 
                     //FUNCION PARA CARGAR EL SCRIPT
 function cargarScript(){
-    $DSN = 'pgsql:host=' . IP . ';dbname='; //conectamos sin BD
+
+    $DSN = 'pgsql:host=' . IP . ';dbname=postgres';  //conectamos una base de datos existente
     try {
-  
-        $con = new PDO($DSN, USER, PASSWORD);
-        $con->exec("CREATE DATABASE jugadores"); //Creamos la BD
 
-        $DSN = 'pgsql:host=' . IP . ';dbname=jugadores';  //conectamos a la BD para ejecutar el script
         $con = new PDO($DSN, USER, PASSWORD);
-
+        $sql = 'create database jugadores';
+        $result = $con->exec($sql);
+        //Ejecuta el script
+        $DSN = 'pgsql:host=' . IP . ';dbname=jugadores';//conectamos a la base de datos creada
+        $con = new PDO($DSN, USER, PASSWORD);
         $script = file_get_contents('./jugadores.sql');
-        $con->multi_query($script);
+        $result = $con-> exec($script);
 
 
-        //Parte de codigo para comprobar si hay algun error en el Script
-        do {
-                $con->store_result();
-                if (!$con->next_result()) {
-                        break;
-                }
-        } while (true);
-        
-        $con->close();
-        
-        
+      echo 'Script ejecutado. Pruebe su lectura.';
         
     } catch (PDOException $th) {
 
@@ -145,6 +149,7 @@ function cargarScript(){
                 break;
             default:
                 echo "Error no identificado: " . $th->getMessage();
+                
         }
         
     }finally{

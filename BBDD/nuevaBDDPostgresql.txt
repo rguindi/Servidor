@@ -23,6 +23,7 @@ sudo -i -u postgres
 psql
 create user raul with password 'raul'; 
 grant all privileges on all tables in schema public to raul;
+alter user raul createdb;
 
 exit
 exit
@@ -37,7 +38,7 @@ descomentamos extension=pdo_pgsql         (quitar el ;)
 
 sudo systemctl restart postgresql
 sudo systemctl restart apache2
-psql -U raul -d prueba -h 192.168.7.204 -W
+
 
 
 create table tiempo ( id serial primary key, descripcion varchar(100), grados int);
