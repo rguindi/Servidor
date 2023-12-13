@@ -1,9 +1,7 @@
-drop database if exists jugadores;
-create database jugadores;
 drop user if exists jugadores;
-create user jugadores identified by 'jugadores';
-use jugadores;
-grant all on jugadores.* to jugadores;
+create user jugadores with password 'jugadores';
+grant all on TABLE jugadores to jugadores;
+
 --
 CREATE TABLE jugadores (
   nombre VARCHAR(75) NOT NULL,
@@ -12,7 +10,7 @@ CREATE TABLE jugadores (
   nacimiento DATE,
   sueldo FLOAT,
   dorsal INT
-) engine =innodb;
+)
 --
 INSERT INTO jugadores VALUES ('Jordi Guisado Trujillo', 'Portero', '91782240G', '2016-06-15', 2345.23, 6);
 INSERT INTO jugadores VALUES ('Antonio Carbonell Torres', 'Lateral','81878163A', '2015-06-15', 654.98, 8);

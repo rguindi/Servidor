@@ -88,6 +88,8 @@
     <li><a href="/BBDD/conexion.php">Conexion diferente con Update</a></li>
     <li><a href="/BBDD/conexionbanco.php">Ejecucion de Script</a></li>
     <li><a href="/BBDD/Tarea13/index.php">Tarea 13 BDD</a></li>
+    <li><a href="/BBDD/Tarea13_PDO_Postgres/index.php">Tarea 13 con PDO Postgres</a></li>
+
     </ul>
     </main>
     <footer>

@@ -4,21 +4,19 @@
 require('./conexionBD.php');
 
 
+$DSN = 'pgsql:host=' . IP . ';dbname=jugadores';
 
 //---------------------//LEER TABLA
 function leerTabla(){
-$con = new mysqli();   //Creamos la conexion
-
 try {
+    $con = new PDO($DSN, USER, PASSWORD);
 
-    $con->connect(IP,USER,PASSWORD);
-    $con->select_db('jugadores');
     $sql = 'select * from jugadores';
-    $result = mysqli_query($con, $sql);
+    $result = $con->query($sql);
 
     echo '<table><tr><th>Nombre</th><th>Posición</th><th>DNI</th><th>F_Nacimiemto</th><th>Sueldo</th><th>Dorsal</th><tr>';
 
-    while ($array = mysqli_fetch_assoc($result)){
+    while ($array = $result->fetch(PDO::FETCH_ASSOC)){
         echo '<tr>';
         $nombre = '';
         $posicion = '';
@@ -50,11 +48,13 @@ try {
    echo '</table>';
 
 
-} catch (\Throwable $th) {
+} catch (PDOException $th) {
 // Switch para recoger los codigos de errores que nos devuelve y asingarle un mensaje de texto a cada uno de ellos
 switch ($th->getCode()){
     case 0:
-        echo "No encuentra todos los parámetros de la secuencia";
+        echo "No encuentra todos los parámetros de la secuencia. <br> Prueba a crear la base de datos.";
+        echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear la Base de Datos">  </form>';
+
         break;
     case 2002:
         echo "La IP de acceso a la BD es incorrecta";
@@ -86,7 +86,7 @@ switch ($th->getCode()){
 
 }
 finally{
-    $con->close();
+    unset($con);
 }
 
 
@@ -95,11 +95,11 @@ finally{
 
                     //FUNCION PARA CARGAR EL SCRIPT
 function cargarScript(){
-    $con = new mysqli();   //otra forma de conectar
+     
+    try {
+  
+        $con = new PDO($DSN, USER, PASSWORD);
 
-try {
-
-        $con->connect(IP, USER, PASSWORD);
         $script = file_get_contents('./jugadores.sql');
         $con->multi_query($script);
 
@@ -116,7 +116,7 @@ try {
         
         
         
-    } catch (\Throwable $th) {
+    } catch (PDOException $th) {
 
         // Switch para recoger los codigos de errores que nos devuelve y asingarle un mensaje de texto a cada uno de ellos
         switch ($th->getCode()){
@@ -142,6 +142,8 @@ try {
                 echo "Error no identificado: " . $th->getMessage();
         }
         
+    }finally{
+        unset($con);
     }
 }
     //-------------------------------------------------------------------------------------------------------
@@ -151,17 +153,14 @@ try {
 
 
     function eliminarRegistro($dni){
-        $con = new mysqli();   //Creamos la conexion
         try {
-            $con->connect(IP,USER,PASSWORD,'jugadores');
+            $con = new PDO($DSN, USER, PASSWORD);   //Creamos la conexion
             $sql = "delete from jugadores where dni = ?";
-            $stmt = $con->stmt_init();
-            $stmt->prepare($sql);
-            $stmt->bind_param('s', $dni);
-            $stmt->execute();
-            $con->close();
+            $stmt= $con->prepare($sql);
+            $stmt->execute(array($dni));
             echo "Registro eliminado";
-        } catch (\Throwable $th) {
+
+        } catch (PDOExceptio $th) {
             // Switch para recoger los codigos de errores que nos devuelve y asingarle un mensaje de texto a cada uno de ellos
             switch ($th->getCode()){
                 case 0:
@@ -186,6 +185,8 @@ try {
                     echo "Error no identificado: " . $th->getMessage();
             }
             $con->close();
+        }finally{
+            unset($con);
         }
     }
     
@@ -195,29 +196,22 @@ try {
 //--------------------------AÑADIR REGISTRO------------------------------------------------------------
 function addRegistro(){
 
-
-$con = new mysqli();   
-
 try {
-
-        $con->connect(IP,USER,PASSWORD,'jugadores');
+         $con = new PDO($DSN, USER, PASSWORD);
         //Creamos sentencia insert
         $sql = "INSERT INTO jugadores (nombre, posicion, dni, nacimiento, sueldo, dorsal) VALUES (?, ?, ?, ?, ?, ?)";
-        $stmt = $con->stmt_init();
-        $stmt->prepare($sql);
+        $stmt= $con->prepare($sql);
         $nombre = $_REQUEST['nombre'];
         $posicion = $_REQUEST['posicion'];
         $dni = $_REQUEST['DNI'];
         $nacimiento = $_REQUEST['fecha'];
         $sueldo = $_REQUEST['sueldo'];
         $dorsal = $_REQUEST['dorsal'];
-        $stmt->bind_param('ssssdi',$nombre, $posicion, $dni, $nacimiento, $sueldo, $dorsal);
-        $stmt->execute();
-        $con->close();
+        $stmt->execute (array($nombre, $posicion, $dni, $nacimiento, $sueldo, $dorsal));
 
 
 
-} catch (\Throwable $th) {
+} catch (PDOException $th) {
     // Switch para recoger los codigos de errores que nos devuelve y asingarle un mensaje de texto a cada uno de ellos
     switch ($th->getCode()){
         case 0:
@@ -241,11 +235,9 @@ try {
         default:
             echo "Error no identificado: " . $th->getMessage();
     }
-    // echo mysqli_connect_errno();
-    // echo mysqli_connect_error();
-    echo "Error de los datos de conexion";
-    // mysqli_close($con) para cerrar la conexion
-    $con->close();
+  
+}finally{
+    unset($con);
 }
 }
     //-------------------------------------------------------------------------------------------------------
@@ -254,29 +246,23 @@ try {
     //--------------------------MODIFICAR REGISTRO------------------------------------------------------------
 function modificaRegistro(){
 
-
-    $con = new mysqli();   
     
     try {
     
-            $con->connect(IP,USER,PASSWORD,'jugadores');
+              $con = new PDO($DSN, USER, PASSWORD);
             //Creamos sentencia insert
             $sql = "UPDATE jugadores set nombre = ?, posicion = ?, dni = ?, nacimiento = ?, sueldo = ?, dorsal= ? where dni = ?";
-            $stmt = $con->stmt_init();
-            $stmt->prepare($sql);
+            $stmt = $con->prepare($sql);
             $nombre = $_REQUEST['nombre'];
             $posicion = $_REQUEST['posicion'];
             $dni = $_REQUEST['DNI'];
             $nacimiento = $_REQUEST['fecha'];
             $sueldo = $_REQUEST['sueldo'];
             $dorsal = $_REQUEST['dorsal'];
-            $stmt->bind_param('ssssdis',$nombre, $posicion, $dni, $nacimiento, $sueldo, $dorsal, $dni);
-            $stmt->execute();
-            $con->close();
+            $stmt->execute(array($nombre, $posicion, $dni, $nacimiento, $sueldo, $dorsal, $dni));
+
     
-    
-    
-    } catch (\Throwable $th) {
+    } catch (PDOException $th) {
         // Switch para recoger los codigos de errores que nos devuelve y asingarle un mensaje de texto a cada uno de ellos
         switch ($th->getCode()){
             case 0:
@@ -300,19 +286,16 @@ function modificaRegistro(){
             default:
                 echo "Error no identificado: " . $th->getMessage();
         }
-        // echo mysqli_connect_errno();
-        // echo mysqli_connect_error();
-        echo "Error de los datos de conexion";
-        // mysqli_close($con) para cerrar la conexion
-        $con->close();
+   
+    }finally{
+        unset($con);
     }
     }
         //-------------------------------------------------------------------------------------------------------
 
   //--------------------------BUSCAR POR DNI------------------------------------------------------------
         function buscarPorDNI($frase){
-            $con = new mysqli();   //Creamos la conexion
-            $con->connect(IP,USER,PASSWORD,'jugadores');
+            $con = new PDO($DSN, USER, PASSWORD);   //Creamos la conexion
             $sql = 'select dni from jugadores';
             $result = mysqli_query($con, $sql);
 
@@ -342,7 +325,7 @@ function modificaRegistro(){
             
                 echo '<table><tr><th>Nombre</th><th>Posición</th><th>DNI</th><th>F_Nacimiemto</th><th>Sueldo</th><th>Dorsal</th><tr>';
             
-                while ($array = mysqli_fetch_assoc($result)){
+                while ($array = $result->fetch(PDO::FETCH_ASSOC)){
                     echo '<tr>';
                     $nombre = '';
                     $posicion = '';
@@ -373,7 +356,7 @@ function modificaRegistro(){
                echo '</table>';
             
             
-            } catch (\Throwable $th) {
+            } catch (PDOException $th) {
             // Switch para recoger los codigos de errores que nos devuelve y asingarle un mensaje de texto a cada uno de ellos
             switch ($th->getCode()){
                 case 0:
@@ -398,8 +381,9 @@ function modificaRegistro(){
                     echo "Error no identificado: " . $th->getMessage();
             }
             
-            
-            $con->close();
+   
+            }finally{
+                unset($con);
             }
             
             
