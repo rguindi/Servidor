@@ -1,0 +1,17 @@
+sudo nano /etc/apache2/apache2.conf
+
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride None       ----------------------   Cambiar a AllowOverride All 
+        Require all granted
+
+sudo systemctl restart apache2
+
+ cd /etc/apache2/
+  sudo mkdir auth         //Creo carpeta para archivos privados
+  cd auth
+
+  sudo htpasswd -c users raul
+  sudo htpasswd  users admin
+  sudo htpasswd -c admin admin
+
