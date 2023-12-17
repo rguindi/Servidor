@@ -42,8 +42,15 @@
   if (isset($_REQUEST['botonBusca'])) {
       buscarPorDNI($_REQUEST['busca']); 
   }
- ?>
 
+  ?>
+   <a href="./login.php">Iniciar sesion</a>
+
+  <?php
+   if (isUser()||isAdmin()){
+  echo '<a href="./cerrar.php">Cerrar sesion</a>';
+   }
+?>
 
 
     

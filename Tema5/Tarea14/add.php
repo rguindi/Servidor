@@ -1,3 +1,19 @@
+<!-- Aunque la tarea no lo pide, por lógica, hacemos que sólo el administrador pueda añadir usuarios. -->
+<?php
+require ('./zonaSegura/conexionBD.php');
+require ('./funcionesBD.php');
+if(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])){
+    if(!isAdmin()){
+        header('Location: ./index.php');
+        exit;    
+    }
+}else{
+        header('Location: ./login.php');
+        exit;    
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,7 +27,6 @@
 <body>
     <?php
     include("./funcionesFormulario.php");
-    include("./funcionesBD.php");
     $errores = array();
     
     //Si ha ido todo bienb

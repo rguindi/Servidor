@@ -1,7 +1,7 @@
 <?php
 
 
-require('./conexionBD.php');
+require('./zonaSegura/conexionBD.php');
 
 
 
@@ -151,6 +151,16 @@ try {
 
 
     function eliminarRegistro($dni){
+
+        //autenticamos el administrador:
+        //Si existe usuario logeado si
+if(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])){
+    //redirigie User o admin
+    if($_SERVER['PHP_AUTH_USER']==USUARIOADMINISTRADOR &&
+    hash('sha256',$_SERVER['PHP_AUTH_PW']) == PASSWORDADMIN)
+    {
+        //Codigo a ejecutar
+
         $con = new mysqli();   //Creamos la conexion
         try {
             $con->connect(IP,USER,PASSWORD,'jugadores');
@@ -187,7 +197,27 @@ try {
             }
             $con->close();
         }
+    
+
+
+
     }
+    //no es nada, le pide otra vez login  
+    else{
+        header('WWW-Authenticate: Basic Realm="Contenido restringido"');
+        header('HTTP/1.0 401 Unauthorized');
+        exit;
+    }
+}else{
+    //le pide login
+    header('WWW-Authenticate: Basic Realm="Contenido restringido"');
+    header('HTTP/1.0 401 Unauthorized');
+    exit;
+}
+}
+//-----------------------------------
+
+      
     
     //-------------------------------------------------------------------------------------------------------
 
@@ -406,5 +436,21 @@ function modificaRegistro(){
             }
 
                 //-------------------------------------------------------------------------------------------------------
-
+                function isUser(){
+                    if($_SERVER['PHP_AUTH_USER']==USUARIONORMAL &&
+                    hash('sha256',$_SERVER['PHP_AUTH_PW']) == PASSWORDUSER)
+                    {
+                       return true;   
+                    }
+                    return false;
+                }
+                
+                function isAdmin(){
+                    if($_SERVER['PHP_AUTH_USER']==USUARIOADMINISTRADOR &&
+                    hash('sha256',$_SERVER['PHP_AUTH_PW']) == PASSWORDADMIN)
+                    {
+                       return true;   
+                    }
+                    return false;
+                }
 ?>
