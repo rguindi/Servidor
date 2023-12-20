@@ -29,7 +29,11 @@ require("./funciones/conexionBD.php");
     <br>
   
     <?php
-    compruebaPaginas($_SESSION['usuario']['usuario']);
+    $paginas = misPaginas();
+    echo '<h2>Las paginas que puede visitar son: </h2>';
+    foreach ($paginas as $value) {
+        echo "<a href='./".$value."'>".$value."</a><br>";
+    }
     ?>
      <br>
     <!-- Nos lleva a la pagina en la que se cierra la sesión -->

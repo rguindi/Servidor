@@ -1,0 +1,29 @@
+1. Identificacion del Problema:
+- Analisis:
+
+Pagina con home (productos mas vendidos, novedades, ultimos añadidos..)
+
+            - Acceso Login;
+
+        
+Un usuario no registrado tendrá accesop a Login.
+
+Requisitos: Casos de uso o UML   (Esquema)
+    De forma escrita y con diagramas
+
+        Cliente->Login o registrado
+
+        Ver producto, comprar
+
+
+        Admin-> 
+
+
+
+        Hay 3 tipos: No registrado, cliente, administrador, moderador
+
+        moderadores: pueden meter productos en almacen
+        administradores: dan de alta producto nuevo, cambiar precio y descripcion
+
+        Modelo entidad Relacion para la base de datos: (Conceptual)
+        Luego hago el relacional. La relacional ya esta relacionada
