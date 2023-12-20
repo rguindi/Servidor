@@ -1,3 +1,4 @@
+<!-- Para cargar un script sql desde comandos source sesiones.sql -->
 <?php 
 
 session_start();

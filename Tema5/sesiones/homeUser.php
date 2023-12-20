@@ -1,4 +1,5 @@
 <?php 
+require("./funciones/conexionBD.php");
 
     // Iniciamos la sesión para que el navegador la conozca
     session_start();
@@ -26,6 +27,11 @@
         echo "Bienvenido ".$_SESSION['usuario']['nombre'];
     ?>
     <br>
+  
+    <?php
+    compruebaPaginas($_SESSION['usuario']['usuario']);
+    ?>
+     <br>
     <!-- Nos lleva a la pagina en la que se cierra la sesión -->
     <a href="./logout.php">Cierre de sesión</a>
 </body>
