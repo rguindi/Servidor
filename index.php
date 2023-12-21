@@ -96,9 +96,14 @@
     <li><a href="./Tema5/authserver/index.php">Autenticación por Servidor</a></li>
     <li><a href="./Tema5/Tarea14/index.php">Tarea 14. CRUD MYSQL con autenticación por servidor</a></li>
     <li><a href="./Tema5/sesiones/home.php">Sesiones</a></li>
-
-   
     </ul>
+
+    <h2>PROYECTO TIENDA</h2>
+    <ul>
+    <li><a href="./ProyectoTarea17/index.php">Tarea17. Navidades.</a></li>
+    </ul>
+
+    
     </main>
     <footer>
     <?php
