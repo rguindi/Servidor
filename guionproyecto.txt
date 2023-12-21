@@ -18,12 +18,44 @@ Requisitos: Casos de uso o UML   (Esquema)
 
         Admin-> 
 
-
+    Albaran tiene productos que ya estan en la base de datos. 
+    tabla prodcuto pedidos y albaranes . HAY Q HACER 3 tablas
 
         Hay 3 tipos: No registrado, cliente, administrador, moderador
 
-        moderadores: pueden meter productos en almacen
+        moderadores: pueden meter modificar pero no añadir
         administradores: dan de alta producto nuevo, cambiar precio y descripcion
 
         Modelo entidad Relacion para la base de datos: (Conceptual)
         Luego hago el relacional. La relacional ya esta relacionada
+
+------------------------------------------------------------------------------CLIENTES
+
+    CABECERA  (head.php)
+        Login si no logueado moñigote (Hola Raul) si si. cerrar sesion si logeado
+        Pinchando moñigote 2 opciones;
+        - Login para hacer login. Si login vuelve al home. Si no pagina de registro. Pagina de registro vuelve a login o ya valida (Lo que queramos)
+         Moderador y administrador puede entrar al perfil.  Por formulario de registro siempre se es cliente
+        - Mi perfil si logeado.  Formulario con datos. Boton editar o reutilizar la pagina habilitando opciones. (Guardar)
+
+HOME:
+Productos de la base de datos o imagen fija
+
+Comprar en cada producto . O Ver producto con detalles y opcion comprar en la pagina de detalles del producto.
+
+Si se le da a comprar y hay stock. Ventana procesando compra.... y vuelve a home.
+S no hay stock deberia estar el boton comprar deshabilitado.
+
+En mi perfil, boton mis pedidos. ver pedido (opcion extra imprimir factura).
+
+
+FOOTER (No obligado,voluntario)
+
+
+---------------------------------administrador
+HOME. va a ver tienda, pedidos, albaranes. Tiendas lo mismo, los otros muestra una tabla con los datos con boton de modificar y boton de eliminar.
+Borrado logico. Modificar lleva a formulario (Pedido, albaran). Moderador no teine permisos, acordases. (isdamni, is moderador, is cliente...) Albaran y producto existe añadir. 
+------------------------
+
+en ver producto:
+hacer funcion verproducto fiera de la pagina php q pinta la pagina pagina ver producto llama a esa funcion.
