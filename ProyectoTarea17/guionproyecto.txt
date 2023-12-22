@@ -1,11 +1,6 @@
 1. Identificacion del Problema:
 - Analisis:
 
-Pagina con home (productos mas vendidos, novedades, ultimos añadidos..)
-
-            - Acceso Login;
-
-        
 Un usuario no registrado tendrá accesop a Login.
 
 Requisitos: Casos de uso o UML   (Esquema)
@@ -48,8 +43,6 @@ S no hay stock deberia estar el boton comprar deshabilitado.
 
 En mi perfil, boton mis pedidos. ver pedido (opcion extra imprimir factura).
 
-
-FOOTER (No obligado,voluntario)
 
 
 ---------------------------------administrador
