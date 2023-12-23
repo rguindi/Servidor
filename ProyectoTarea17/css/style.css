@@ -93,6 +93,8 @@ background: -webkit-radial-gradient(circle farthest-corner at center center, #f3
 background: -moz-radial-gradient(circle farthest-corner at center center, #f3f3f3 0%, #c0c0c0 80%);
 }
 .articulo{
+    display: flex;
+    flex-direction: column;
     padding: 1em;
     margin: 1em;
     margin-bottom: 3em;
@@ -105,6 +107,18 @@ background: -webkit-radial-gradient(circle farthest-corner at center center, #f3
 background: -moz-radial-gradient(circle farthest-corner at center center, #f3f3f3 0%, #c0c0c0 80%);
 }
 
+article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    margin: 1em;
+    margin-bottom: 3em;
+    border-radius: 1em;
+    box-shadow: 0 0 1em #000000;
+}
+
 .card img{
     width: auto;
     max-height: 200px;
@@ -112,9 +126,7 @@ background: -moz-radial-gradient(circle farthest-corner at center center, #f3f3f
    
 }
 .imagenproducto{
-    width: auto;
-    max-width: 40%;
-    height: auto;
+    max-width: 100%;
    
 }
 .radius{
@@ -135,4 +147,17 @@ footer{
 .bi:hover{
     transition: 0.3s;
     color: #000000;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+}
+
+.errorlogin{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
 }

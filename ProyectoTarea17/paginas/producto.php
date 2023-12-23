@@ -40,12 +40,14 @@
           <?php echo novedades()[0]['titulo']; ?>
         </h1>
       </div>
-      <article class="d-flex row">
-
-        <img src="<?php echo '.'. novedades()[0]['imagen_url']; ?>" class="imagenproducto col-6 ">
+      <div class="d-flex row">
+        <figure class="imagenproducto col-6">
+          <img src="<?php echo '.' . novedades()[0]['imagen_url']; ?>" class="imagenproducto">
+        </figure>
         <div class="col-6 container" style="color: black;">
-        <h4>Descripcion</h4>
-          <p><?php echo novedades()[0]['descripcion']; ?>
+          <h4>Descripcion</h4>
+          <p>
+            <?php echo novedades()[0]['descripcion']; ?>
           </p>
 
 
@@ -56,16 +58,22 @@
               </p>
             </div>
             <div class="text-center ">
-            <a href="./comprar.php">  <p class="btn btn-success p-3 fw-bold me-2  ">Comprar</p></a>
+              <a href="./comprar.php">
+                <p class="btn btn-success p-3 fw-bold me-2  ">Comprar</p>
+              </a>
 
             </div>
           </div>
-          <p class="mt-4" >Stock: <?php echo novedades()[0]['stock']; ?> unidades.</p>
-          <p >Código de producto: <?php echo novedades()[0]['codigo']; ?> .</p>
+          <p class="mt-4">Stock:
+            <?php echo novedades()[0]['stock']; ?> unidades.
+          </p>
+          <p>Código de producto:
+            <?php echo novedades()[0]['codigo']; ?> .
+          </p>
 
         </div>
 
-      </article>
+      </div>
     </section>
 
 
