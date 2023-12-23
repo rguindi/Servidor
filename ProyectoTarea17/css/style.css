@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rubik+Doodle+Shadow&family=Rubik+Maps&display=swap');
 .slogan
 {
     font-family: 'Rubik Doodle Shadow', Arial, Helvetica, sans-serif;
@@ -22,7 +23,11 @@ body{
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    
 }
+
+
+
 main{
 background-image: url(../img/fondoPrincipal.webp);
 background-attachment: fixed;
@@ -34,9 +39,57 @@ background-attachment: fixed;
   color: #ffffff;
   margin: 0;
 }
+
+.novedadestitulo{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    text-shadow: -2px 3px 6px rgba(0, 0, 0, 0.81);
+    font-family: 'Rubik Maps', Arial, Helvetica, sans-serif;
+    font-size: large;
+    color: rgb(255, 187, 0);
+    border-bottom: 4px solid rgb(255, 208, 0);
+
+}
+
+.precio{
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 20px;
+    color: rgb(255, 187, 0);
+    text-shadow: -2px 3px 6px rgba(0, 0, 0, 0.81);
+}
+.novedades{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    padding: 1em;
+    margin: 1em;
+    margin-bottom: 3em;
+    border-radius: 1em;
+    box-shadow: 0 0 1em #000000;
+
+background: #f3f3f3;
+background: radial-gradient(circle farthest-corner at center center, #f3f3f3 0%, #c0c0c0 80%);
+background: -webkit-radial-gradient(circle farthest-corner at center center, #f3f3f3 0%, #c0c0c0 80%);
+background: -moz-radial-gradient(circle farthest-corner at center center, #f3f3f3 0%, #c0c0c0 80%);
+}
+
+.card img{
+    width: auto;
+    max-height: 200px;
+    min-height: 200px;
+   
+}
+
 header{
     background-color: lightgray;
 }
 footer{
     background-color: lightgray;
+}
+
+.bi:hover{
+    transition: 0.3s;
+    color: #000000;
 }

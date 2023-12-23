@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+  
 
   <title>Mesa para 2</title>
 </head>
@@ -25,79 +26,142 @@
 <body>
   <div class="cabecera">
     <?php
-    require('./header.html');
+    require("./header.html");
+    require("./BBDD/funciones.php")
     ?>
   </div>
 
 
   <main>
-    <div class="container ">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="text-center mt-5">Ultimas Novedades</h1>
-        </div>
-      </div>
-    </div>
 
-    <!-- Carrusel -->
-    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-          aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-          </svg>
-          <div class="container">
-            <div class="carousel-caption text-start">
-              <h1>Example headline.</h1>
-              <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-          </svg>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Some representative placeholder content for the second slide of the carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-          </svg>
-          <div class="container">
-            <div class="carousel-caption text-end">
-              <h1>One more for good measure.</h1>
-              <p>Some representative placeholder content for the third slide of this carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+    <div class="novedadestitulo">
+      <h1>ULTIMAS NOVEDADES</h1>
     </div>
-    <!-- Carrusel -->
+    <section class="novedades">
+      <article>
+        <div class="card" style="width: 18rem;">
+          <div class="card-header text-center mb-3 ">
+            <h3 class="card-text"><?php echo novedades()[0]['titulo']; ?></h3>
+          </div>
+          <img src="<?php echo novedades()[0]['imagen_url']; ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"><?php echo novedades()[0]['descripcion']; ?></p>
+          </div>
+          <div class="card-footer text-center bg-success fs-4 ">
+            <p class="card-text fw-bold precio ">Precio: <?php echo novedades()[0]['precio']; ?>€</p>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="card" style="width: 18rem;">
+        <div class="card-header text-center mb-3 ">
+            <h3 class="card-text"><?php echo novedades()[1]['titulo']; ?></h3>
+          </div>
+          <img src="<?php echo novedades()[1]['imagen_url']; ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"><?php echo novedades()[1]['descripcion']; ?></p>
+          </div>
+          <div class="card-footer text-center bg-success fs-4 ">
+            <p class="card-text fw-bold precio ">Precio: <?php echo novedades()[1]['precio']; ?>€</p>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="card" style="width: 18rem;">
+        <div class="card-header text-center mb-3 ">
+            <h3 class="card-text"><?php echo novedades()[2]['titulo']; ?></h3>
+          </div>
+          <img src="<?php echo novedades()[2]['imagen_url']; ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"><?php echo novedades()[2]['descripcion']; ?></p>
+          </div>
+          <div class="card-footer text-center bg-success fs-4 ">
+            <p class="card-text fw-bold precio ">Precio: <?php echo novedades()[2]['precio']; ?>€</p>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="card" style="width: 18rem;">
+        <div class="card-header text-center mb-3 ">
+            <h3 class="card-text"><?php echo novedades()[3]['titulo']; ?></h3>
+          </div>
+          <img src="<?php echo novedades()[3]['imagen_url']; ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"><?php echo novedades()[3]['descripcion']; ?></p>
+          </div>
+          <div class="card-footer text-center bg-success fs-4 ">
+            <p class="card-text fw-bold precio ">Precio: <?php echo novedades()[3]['precio']; ?>€</p>
+        </div>
+      </article>
+
+
+    </section>
+    <div class="novedadestitulo">
+      <h1>RECOMENDADOS</h1>
+    </div>
+    <section class="novedades">
+    <article>
+        <div class="card" style="width: 18rem;">
+          <div class="card-header text-center mb-3 ">
+            <h3 class="card-text"><?php echo recomendados()[0]['titulo']; ?></h3>
+          </div>
+          <img src="<?php echo recomendados()[0]['imagen_url']; ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"><?php echo recomendados()[0]['descripcion']; ?></p>
+          </div>
+          <div class="card-footer text-center bg-success fs-4 ">
+            <p class="card-text fw-bold precio ">Precio: <?php echo recomendados()[0]['precio']; ?>€</p>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="card" style="width: 18rem;">
+        <div class="card-header text-center mb-3 ">
+            <h3 class="card-text"><?php echo recomendados()[1]['titulo']; ?></h3>
+          </div>
+          <img src="<?php echo recomendados()[1]['imagen_url']; ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"><?php echo recomendados()[1]['descripcion']; ?></p>
+          </div>
+          <div class="card-footer text-center bg-success fs-4 ">
+            <p class="card-text fw-bold precio ">Precio: <?php echo recomendados()[1]['precio']; ?>€</p>
+        </div>
+      </article>
+
+      <article>
+        <div class="card" style="width: 18rem;">
+        <div class="card-header text-center mb-3 ">
+            <h3 class="card-text"><?php echo recomendados()[2]['titulo']; ?></h3>
+          </div>
+          <img src="<?php echo recomendados()[2]['imagen_url']; ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"><?php echo recomendados()[2]['descripcion']; ?></p>
+          </div>
+          <div class="card-footer text-center bg-success fs-4 ">
+            <p class="card-text fw-bold precio ">Precio: <?php echo recomendados()[2]['precio']; ?>€</p>
+        </div>
+      </article>
+
+      <article>
+        <div class="card" style="width: 18rem;">
+        <div class="card-header text-center mb-3 ">
+            <h3 class="card-text"><?php echo recomendados()[3]['titulo']; ?></h3>
+          </div>
+          <img src="<?php echo recomendados()[3]['imagen_url']; ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"><?php echo recomendados()[3]['descripcion']; ?></p>
+          </div>
+          <div class="card-footer text-center bg-success fs-4 ">
+            <p class="card-text fw-bold precio ">Precio: <?php echo recomendados()[3]['precio']; ?>€</p>
+        </div>
+      </article>
+
+    </section>
+
 
   </main>
 
@@ -113,3 +177,5 @@
 </body>
 
 </html>
+
+
