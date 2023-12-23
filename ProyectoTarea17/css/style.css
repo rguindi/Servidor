@@ -40,10 +40,26 @@ background-attachment: fixed;
   margin: 0;
 }
 
+article a{
+    text-decoration: none;
+}
+
 .novedadestitulo{
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    text-shadow: -2px 3px 6px rgba(0, 0, 0, 0.81);
+    font-family: 'Rubik Maps', Arial, Helvetica, sans-serif;
+    font-size: large;
+    color: rgb(255, 187, 0);
+    border-bottom: 4px solid rgb(255, 208, 0);
+
+}
+.tituloproducto{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
     text-shadow: -2px 3px 6px rgba(0, 0, 0, 0.81);
     font-family: 'Rubik Maps', Arial, Helvetica, sans-serif;
     font-size: large;
@@ -58,11 +74,25 @@ background-attachment: fixed;
     color: rgb(255, 187, 0);
     text-shadow: -2px 3px 6px rgba(0, 0, 0, 0.81);
 }
+
+
 .novedades{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 
+    padding: 1em;
+    margin: 1em;
+    margin-bottom: 3em;
+    border-radius: 1em;
+    box-shadow: 0 0 1em #000000;
+
+background: #f3f3f3;
+background: radial-gradient(circle farthest-corner at center center, #f3f3f3 0%, #c0c0c0 80%);
+background: -webkit-radial-gradient(circle farthest-corner at center center, #f3f3f3 0%, #c0c0c0 80%);
+background: -moz-radial-gradient(circle farthest-corner at center center, #f3f3f3 0%, #c0c0c0 80%);
+}
+.articulo{
     padding: 1em;
     margin: 1em;
     margin-bottom: 3em;
@@ -81,10 +111,23 @@ background: -moz-radial-gradient(circle farthest-corner at center center, #f3f3f
     min-height: 200px;
    
 }
+.imagenproducto{
+    width: auto;
+    max-width: 40%;
+    height: auto;
+   
+}
+.radius{
+    border-radius: 1em;
 
+}
 header{
     background-color: lightgray;
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
 }
+
 footer{
     background-color: lightgray;
 }
