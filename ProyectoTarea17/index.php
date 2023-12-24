@@ -1,5 +1,22 @@
 <?php
-require("./BBDD/funciones.php")
+require("./BBDD/funciones.php");
+if(!existeBD()){
+echo 'No existe la base de datos, el usuario, o la IP. <br>
+Comprueba los parámetros en conexión.php, carga el script con un usuario existente, y luego podrás dejar el usuario y pass actual.<br>
+Pulsa para cargar el script. <br>';
+echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear la Base de Datos">  </form>';
+if(isset($_REQUEST['crear'])){
+
+cargarScript();
+}
+
+}else{
+
+
+
+
+
+
   ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -248,3 +265,7 @@ require("./BBDD/funciones.php")
 </body>
 
 </html>
+
+<?php
+}  //Cerramos el else del principio
+?>
