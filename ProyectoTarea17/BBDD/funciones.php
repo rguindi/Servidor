@@ -1,6 +1,30 @@
 <?php
 require ('conexion.php');
 
+
+//FUNCION PARA ACTUALIZAR USUARIO
+function updateUser($pass, $email, $fecha, $user){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+        $sql = "UPDATE USUARIO set pass = :pass, email = :email, fecha_nac = :fecha_nac where user = :user";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':pass',$pass);
+        $stmt->bindParam(':email',$email);
+        $stmt->bindParam(':fecha_nac',$fecha);
+        $stmt->bindParam(':user',$user);
+        $stmt->execute();
+        
+        echo 'Actualizado';
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+
+//COMPRUEBA SI EXISTE A BASE DE DATOS
 function existeBD(){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
@@ -25,6 +49,7 @@ function existeBD(){
     }
 }
 
+//FUNCION CARGAR SCRIPT
 function cargarScript(){
     $con = new mysqli(); 
 
@@ -78,6 +103,8 @@ try {
     }
 }
 
+
+//FUNCION PARA SECCION RECOMENDADOS. DEVUELVE 4 PRIMEROS PRODUCTOS
 function recomendados(){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
@@ -96,6 +123,8 @@ function recomendados(){
     }
 }
 
+
+//FUNCION PARA SECCION NOVEDADES. DEVUELVE 4 ULTIMOS PRODUCTOS
 function novedades(){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
@@ -122,6 +151,8 @@ function novedades(){
         unset($con);
     }
 }
+
+//FUNCION PARA PAGINA PRDUCTOS. DEVUELVE TODOS LOS PRODUCTOS
 function todosProductos(){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
@@ -140,6 +171,8 @@ function todosProductos(){
     }
 }
 
+
+//COMPRUEBA SI EXISTE USUARIO Y CONTRASEÑA Y DEVUELVE EL USUARIO
 function validaUsuario($user,$pass){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
@@ -155,6 +188,51 @@ function validaUsuario($user,$pass){
 
     } catch (PDOException $e) {
         echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+
+//DEVUELVE UN PRODUCTO POR ID
+function getProducto($id){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+        $sql = "SELECT * FROM PRODUCTO WHERE codigo = :codigo";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':codigo',$id);
+        $stmt->execute();
+        $producto = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $producto;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+
+//COMPRA PRODUCTO procesacompra
+function compraProducto($codigo,$cantidad, $fecha, $user, $total){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+        $sql = "INSERT INTO PEDIDO (cod_producto, cantidad, fecha, usuario, total) VALUES (:codigo, :cantidad, :fecha, :user, :total)";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':codigo',$codigo);
+        $stmt->bindParam(':cantidad',$cantidad);
+        $stmt->bindParam(':fecha',$fecha);
+        $stmt->bindParam(':user',$user);
+        $stmt->bindParam(':total',$total);
+        $stmt->execute();
+
+        return true;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
     } finally{
         unset($con);
     }

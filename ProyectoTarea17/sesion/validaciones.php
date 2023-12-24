@@ -1,6 +1,6 @@
 <?php
 
-function enviado()
+function entrar()
 {
     if (isset($_REQUEST['Entrar']))
         return true;

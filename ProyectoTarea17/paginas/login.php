@@ -6,9 +6,9 @@ require("../sesion/validaciones.php");
 require("../BBDD/funciones.php");
 
 
-if(enviado() && !textoVacio('user') && !textoVacio('pass')){
+if(entrar() && !textoVacio('user') && !textoVacio('pass')){
     $usuario = validaUsuario($_REQUEST['user'],$_REQUEST['pass']);
-    // Si entramoa, nos lleva a la página del usuario
+    // Si entramoa, nos lleva a la página principal
     if($usuario){
         // Indicamos en la superglobal $_SESSION el usuario con el que estamos
         $_SESSION['usuario'] = $usuario;
@@ -20,6 +20,7 @@ if(enviado() && !textoVacio('user') && !textoVacio('pass')){
         echo "<p class='errorlogin'>No existe el usuario o Contraseña.</p>";
     }
 }
+
 
 ?>
 
@@ -47,7 +48,7 @@ if(enviado() && !textoVacio('user') && !textoVacio('pass')){
 <body>
 
     <div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5  ">
-        <form action="" method="get">
+        <form action="" method="post">
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <input type="text" id="user" name="user" class="form-control" />
@@ -68,6 +69,7 @@ if(enviado() && !textoVacio('user') && !textoVacio('pass')){
 
             <!-- Register buttons -->
                 <p>Si todavía no eres miembro: <a  href="./registro.php">Regístrate</a></p>
+                <p><a  href="../">Volver</a></p>
                
     </div>
     </form>

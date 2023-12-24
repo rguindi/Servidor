@@ -29,7 +29,7 @@
 <body>
  
     <?php
-    require("../html/header.html");
+    require("../html/header.php");
     ?>
  
 

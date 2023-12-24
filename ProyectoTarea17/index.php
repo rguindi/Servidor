@@ -13,7 +13,7 @@ cargarScript();
 }else{
 
 
-
+  session_start();
 
 
 
@@ -46,7 +46,7 @@ cargarScript();
 <body>
 
   <?php
-  require("./html/header.html");
+  require("./html/header.php");
   ?>
 
 
