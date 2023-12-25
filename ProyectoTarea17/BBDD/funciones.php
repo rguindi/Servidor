@@ -238,5 +238,24 @@ function compraProducto($codigo,$cantidad, $fecha, $user, $total){
     }
 }
 
+//DEVUELVE TODOS LOS PEDIDOS DE UN USUARIO
+function getPedidos($user){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+        $sql = "SELECT * FROM PEDIDO WHERE usuario = :user ORDER BY fecha DESC";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':user',$user);
+        $stmt->execute();
+        $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $pedidos;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
 
 ?>

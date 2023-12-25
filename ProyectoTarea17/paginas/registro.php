@@ -20,7 +20,7 @@
 <body>
 
     <div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5  ">
-        <form>
+        <form action="" method="post" >
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <input type="email" id="user" class="form-control" />

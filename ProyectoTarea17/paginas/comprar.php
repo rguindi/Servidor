@@ -8,19 +8,58 @@ if (!isset($_SESSION['usuario'])) {
     $_SESSION['error'] = "No se ha iniciado sesion";
     header("Location: ./login.php");
     exit;
-    
-}elseif (isset($_REQUEST['compra'])) {
+
+} elseif (isset($_REQUEST['compra'])) {
     $producto = getProducto($_REQUEST['producto']);
     $cantidad = $_REQUEST['cantidad'];
-    $usuario = $_SESSION['usuario'];
-    $total = $producto['precio'] * $cantidad;
+    $usuario = $_SESSION['usuario']['user'];
+    $total = round(($producto['precio'] * $cantidad), 2);
     $fecha = date('Y-m-d');
 
     if (compraProducto($producto['codigo'], $cantidad, $fecha, $usuario, $total)) {
-        echo 'Compra realizada con exito';
+        echo '
+        <!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <title>Compra Registrada</title>
+
+</head>
+
+<body>
+    <div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5  ">
+      
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <p>Pedido realizado correctamente</p>
+            </div>
+
+            
+            <div class="text-center">
+           
+
+            <!-- Register buttons -->
+             <a  href="./pedidos.php">Ver pedidos</a></p>
+                <p><a  href="../">Volver</a></p>
+               
+    </div>
+</body>
+</html>';
     }
 
-}else {
+} else {
     $producto = getProducto($_REQUEST['producto']);
     ?>
     <!DOCTYPE html>
@@ -80,17 +119,24 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
                 <div class="row  border-bottom border-black">
                     <div class="col-3 p-4 text-center">
-                        <h6><?php echo $producto['titulo']  ?></h6>
+                        <h6>
+                            <?php echo $producto['titulo'] ?>
+                        </h6>
                     </div>
                     <div class="col-3 p-4 text-center">
-                    <form action="" method="get">
-                       <input id="cantidad" type="number" value="1" style=" width: 3em;" class="text-end " >
+                        <form action="" method="post">
+                            <input id="cantidad" name="cantidad" type="number" value="1" style=" width: 3em;"
+                                class="text-end ">
                     </div>
                     <div class="col-3 p-4 text-center">
-                        <h6><?php echo $producto['precio']  ?></h6>
+                        <h6>
+                            <?php echo $producto['precio'] ?>
+                        </h6>
                     </div>
                     <div class="col-3 p-4 text-center">
-                        <h6><span id="suma" ><?php echo $producto['precio']?></span>€</h6>
+                        <h6><span id="suma">
+                                <?php echo $producto['precio'] ?>
+                            </span>€</h6>
                     </div>
                 </div>
                 <div class="row text-end ">
@@ -98,29 +144,29 @@ if (!isset($_SESSION['usuario'])) {
                         <h6>IVA: <span id="iva"></span>€</h6>
                     </div>
                     <div class="col-3 p-4 text-center ">
-                        <h6 class="fw-bold " >TOTAL: <span id="total" ></span>€</h6>
+                        <h6 class="fw-bold ">TOTAL: <span id="total"></span>€</h6>
                     </div>
-                 
+
                 </div>
                 <div class="row text-center">
                     <div class="col-3 offset-9 pb-3">
-                        
-                            
-                                <button type="submit" name="compra" class="btn btn-success">Confirmar compra</button>
-                                <input type="hidden" name="producto" value="<?php echo $producto['codigo']  ?>">
-                            </form>
-                        
+
+
+                        <button type="submit" name="compra" class="btn btn-success">Confirmar compra</button>
+                        <input type="hidden" name="producto" value="<?php echo $producto['codigo'] ?>">
+                        </form>
+
                     </div>
 
         </main>
         <script>
             let total = document.getElementById('total');
-            let precio = <?php echo $producto['precio']  ?>;
+            let precio = <?php echo $producto['precio'] ?>;
             let cantidad = document.getElementById('cantidad');
             let suma = document.getElementById('suma');
             let iva = document.getElementById('iva');
-            iva.innerHTML = (precio * cantidad.value) * 0.21;
-            total.innerHTML = precio;
+            iva.innerHTML = ((precio * cantidad.value) * 0.21).toFixed(2);
+            total.innerHTML = precio.toFixed(2);
             cantidad.addEventListener('change', () => {
                 total.innerHTML = ((precio * cantidad.value)).toFixed(2);
                 suma.innerHTML = ((precio * cantidad.value)).toFixed(2);

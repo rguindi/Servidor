@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -6,16 +6,15 @@ require("../sesion/validaciones.php");
 require("../BBDD/funciones.php");
 
 
-if(entrar() && !textoVacio('user') && !textoVacio('pass')){
-    $usuario = validaUsuario($_REQUEST['user'],$_REQUEST['pass']);
+if (entrar() && !textoVacio('user') && !textoVacio('pass')) {
+    $usuario = validaUsuario($_REQUEST['user'], $_REQUEST['pass']);
     // Si entramoa, nos lleva a la página principal
-    if($usuario){
+    if ($usuario) {
         // Indicamos en la superglobal $_SESSION el usuario con el que estamos
         $_SESSION['usuario'] = $usuario;
         header("Location: ../");
-    }
-    else{
-        
+    } else {
+
 
         echo "<p class='errorlogin'>No existe el usuario o Contraseña.</p>";
     }
@@ -41,7 +40,7 @@ if(entrar() && !textoVacio('user') && !textoVacio('pass')){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
-    <title>Login</title>
+    <title>Compra Registrada</title>
 
 </head>
 
@@ -57,22 +56,23 @@ if(entrar() && !textoVacio('user') && !textoVacio('pass')){
 
             <!-- Password input -->
             <div class="form-outline mb-4">
-                <input type="password" id="pass" class="form-control" name="pass"/>
+                <input type="password" id="pass" class="form-control" name="pass" />
                 <label class="form-label" for="pass">Contraseña</label>
             </div>
 
 
-    
-            <div class="text-center">
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-warning  btn-block mb-4" name="Entrar" >Entrar</button>
 
-            <!-- Register buttons -->
-                <p>Si todavía no eres miembro: <a  href="./registro.php">Regístrate</a></p>
-                <p><a  href="../">Volver</a></p>
-               
+            <div class="text-center">
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-warning  btn-block mb-4" name="Entrar">Entrar</button>
+
+                <!-- Register buttons -->
+                <p>Si todavía no eres miembro: <a href="./registro.php">Regístrate</a></p>
+                <p><a href="../">Volver</a></p>
+
+            </div>
+        </form>
     </div>
-    </form>
 
 </body>
 

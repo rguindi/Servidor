@@ -15,7 +15,7 @@ require ('../BBDD/funciones.php');
         $_SESSION['usuario']['pass'] = $_REQUEST['pass'];
         $_SESSION['usuario']['email'] = $_REQUEST['email'];
         $_SESSION['usuario']['fecha_nac'] = $_REQUEST['nacimiento'];
-        header("Location: ./miPerfil.php");
+        header("Location: ../index.php");
     }else{
          
 
@@ -42,7 +42,7 @@ require ('../BBDD/funciones.php');
 <body>
 
     <div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5">
-        <form action="" method="get">
+        <form action="" method="post">
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <input type="email" id="user" class="form-control" name="user" value="<?php echo $_SESSION['usuario']['user']; ?>" disabled />
