@@ -9,6 +9,7 @@ if (!isset($_SESSION['usuario'])) {
     header("Location: ./login.php");
     exit;
 
+    //Si se pulsa comprar
 } elseif (isset($_REQUEST['compra'])) {
     $producto = getProducto($_REQUEST['producto']);
     $cantidad = $_REQUEST['cantidad'];
@@ -16,7 +17,50 @@ if (!isset($_SESSION['usuario'])) {
     $total = round(($producto['precio'] * $cantidad), 2);
     $fecha = date('Y-m-d');
 
-    if (compraProducto($producto['codigo'], $cantidad, $fecha, $usuario, $total)) {
+        //Si no hay stock
+    if(!comprobarStock($producto['codigo'], $cantidad)){
+        echo '
+        <!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <title>Sin Stock</title>
+
+</head>
+
+<body>
+    <div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5  ">
+      
+        
+            <div class="form-outline mb-4">
+                <p>Lo sentimos, no tenemos suficiente stock para generar el pedido</p>
+            </div>
+
+            
+            <div class="text-center">
+           
+
+            <!-- Register buttons -->
+                <p><a  href="../">Volver</a></p>
+               
+    </div>
+</body>
+</html>';
+    }
+    //Si compra correcta
+    elseif (compraProducto($producto['codigo'], $cantidad, $fecha, $usuario, $total)) {
         echo '
         <!DOCTYPE html>
 <html lang="es">

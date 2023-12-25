@@ -42,10 +42,10 @@
             </a>
     
             <ul class="dropdown-menu text-small">
-              <li><a class="dropdown-item" href="./paginas/miPerfil.php">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="#">Pedidos</a></li>
+              <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/miPerfil.php">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/pedidos.php">Pedidos</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="./paginas/logout.php">Desconectar</a></li>
+              <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/logout.php">Desconectar</a></li>
             </ul>
           </div>
           ';

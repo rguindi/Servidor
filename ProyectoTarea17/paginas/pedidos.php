@@ -73,7 +73,30 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
                 <?php
                 foreach ($pedidos as $key => $value) {
-                   
+                    $producto= getProducto($value['Id']);
+                   echo'
+                   <div class="row mt-3 border-bottom border-black">
+                    <div class="col-2 text-center  ">
+                        <h5>'.$value['Id'].'</h5>
+                    </div>
+                    <div class="col-2 text-center  ">
+                        <h5>'.$value['fecha'].'</h5>
+                    </div>
+                    <div class="col-2 text-center  ">
+                        <h5>'.$producto['titulo'].'</h5>
+                    </div>
+                    <div class="col-2 text-center  ">
+                        <h5>'.$value['cantidad'].'</h5>
+                    </div>
+                    <div class="col-2 text-center  ">
+                        <h5>'.$value['total'].'</h5>
+                    </div>
+                    <div class="col-2 text-center  ">
+                        <button class="btn btn-warning mb-2">Factura</button>
+                    </div>
+
+                </div>
+                   ';
                 }
                ?>
 

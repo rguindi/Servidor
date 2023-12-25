@@ -213,19 +213,24 @@ function getProducto($id){
     }
 }
 
-//COMPRA PRODUCTO procesacompra
+//COMPRA PRODUCTO procesacompra, y actualiza stock
 function compraProducto($codigo,$cantidad, $fecha, $user, $total){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
         $con = new PDO($DSN,USER,PASS);
         $sql = "INSERT INTO PEDIDO (cod_producto, cantidad, fecha, usuario, total) VALUES (:codigo, :cantidad, :fecha, :user, :total)";
+        $sql2 = "UPDATE PRODUCTO SET stock = stock - :cantidad WHERE codigo = :codigo";
         $stmt = $con->prepare($sql);
+        $stmt2 = $con->prepare($sql2);
         $stmt->bindParam(':codigo',$codigo);
         $stmt->bindParam(':cantidad',$cantidad);
         $stmt->bindParam(':fecha',$fecha);
         $stmt->bindParam(':user',$user);
         $stmt->bindParam(':total',$total);
         $stmt->execute();
+        $stmt2->bindParam(':codigo',$codigo);
+        $stmt2->bindParam(':cantidad',$cantidad);
+        $stmt2->execute();
 
         return true;
 
@@ -250,6 +255,30 @@ function getPedidos($user){
         $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $pedidos;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+
+//COMPRUEBA STOCK
+function comprobarStock($codigo, $cantidad){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+        $sql = "SELECT stock FROM PRODUCTO WHERE codigo = :codigo";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':codigo',$codigo);
+        $stmt->execute();
+        $stock = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($stock['stock'] >= $cantidad){
+            return true;
+        }else{
+            return false;
+        }
 
     } catch (PDOException $e) {
         echo $e->getMessage();
