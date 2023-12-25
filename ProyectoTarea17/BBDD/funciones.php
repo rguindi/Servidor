@@ -248,7 +248,7 @@ function getPedidos($user){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
         $con = new PDO($DSN,USER,PASS);
-        $sql = "SELECT * FROM PEDIDO WHERE usuario = :user ORDER BY fecha DESC";
+        $sql = "SELECT * FROM PEDIDO WHERE usuario = :user ORDER BY Id DESC";
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':user',$user);
         $stmt->execute();

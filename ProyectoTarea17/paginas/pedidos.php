@@ -73,7 +73,7 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
                 <?php
                 foreach ($pedidos as $key => $value) {
-                    $producto= getProducto($value['Id']);
+                    $producto= getProducto($value['cod_producto']);
                    echo'
                    <div class="row mt-3 border-bottom border-black">
                     <div class="col-2 text-center  ">
@@ -83,7 +83,9 @@ if (!isset($_SESSION['usuario'])) {
                         <h5>'.$value['fecha'].'</h5>
                     </div>
                     <div class="col-2 text-center  ">
-                        <h5>'.$producto['titulo'].'</h5>
+                        <h5>';
+                        echo $producto['titulo'];
+                        echo '</h5>
                     </div>
                     <div class="col-2 text-center  ">
                         <h5>'.$value['cantidad'].'</h5>
