@@ -1,9 +1,14 @@
 <?php
 
 session_start();
+// Si ya hay un usuario de $_SESSION primero hacemoso logout
+if (isset($_SESSION['usuario'])) {
+    header("Location: /ProyectoTarea17/paginas/logout.php");
+    exit;
+}
 
 require("../sesion/validaciones.php");
-require("../BBDD/funciones.php");
+require_once("../BBDD/funciones.php");
 
 
 if (entrar() && !textoVacio('user') && !textoVacio('pass')) {

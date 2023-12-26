@@ -287,4 +287,52 @@ function comprobarStock($codigo, $cantidad){
     }
 }
 
+function existeUser($user){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "SELECT * FROM USUARIO WHERE user = :user";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':user',$user);
+        $stmt->execute();
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($usuario){
+            return true;
+        }else{
+            return false;
+        }
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+
+function registrarCliente($user, $pass, $email, $fecha){     
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "INSERT INTO USUARIO (user, pass, email, fecha_nac, rol) VALUES (:user, :pass, :email, :fecha_nac, 'cliente')";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':user',$user);
+        $stmt->bindParam(':pass',$pass);
+        $stmt->bindParam(':email',$email);
+        $stmt->bindParam(':fecha_nac',$fecha);
+        $stmt->execute();
+
+        return true;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    } finally{
+        unset($con);
+    }
+}
+
 ?>
