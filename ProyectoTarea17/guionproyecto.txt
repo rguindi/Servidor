@@ -1,19 +1,11 @@
 
 FALTA INFORMACION Y CONTACTO
+HACER FACTURAS
+
 MODERADOR Y ADMIN
+  Añadir Albaran tiene productos que ya estan en la base de datos. 
+  Ver albaranes y pedidos
 
-    Albaran tiene productos que ya estan en la base de datos. 
-    tabla prodcuto pedidos y albaranes . HAY Q HACER 3 tablas
-    FACTURAS
-
-        Hay 3 tipos: No registrado, cliente, administrador, moderador
-
-        moderadores: pueden meter modificar pero no añadir
-        administradores: dan de alta producto nuevo, cambiar precio y descripcion
-
-      
-
----------------------------------administrador
-HOME. va a ver tienda, pedidos, albaranes. Tiendas lo mismo, los otros muestra una tabla con los datos con boton de modificar y boton de eliminar.
-Borrado logico. Modificar lleva a formulario (Pedido, albaran). Moderador no teine permisos, acordases. (isdamni, is moderador, is cliente...) Albaran y producto existe añadir. 
-------------------------
+  SOLO ADMIN
+  Modificar, introducir o borrado logico productos  (añadir producto)
+  modificar añadir, o borrardo logico albaranes y pedidos

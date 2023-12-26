@@ -1,5 +1,5 @@
 <?php
-require("./BBDD/funciones.php");
+require_once("./BBDD/funciones.php");
 if(!existeBD()){
 echo 'No existe la base de datos, el usuario, o la IP. <br>
 Comprueba los parámetros en conexión.php, carga el script con un usuario existente, y luego podrás dejar el usuario y pass actual.<br>

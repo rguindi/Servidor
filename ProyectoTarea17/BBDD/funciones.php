@@ -335,4 +335,115 @@ function registrarCliente($user, $pass, $email, $fecha){
     }
 }
 
+function isAdmin($user){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "SELECT rol FROM USUARIO WHERE user = :user";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':user',$user);
+        $stmt->execute();
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($usuario['rol'] == 'admin'){
+            return true;
+        }else{
+            return false;
+        }
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+
+function isCliente($user){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "SELECT rol FROM USUARIO WHERE user = :user";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':user',$user);
+        $stmt->execute();
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($usuario['rol'] == 'cliente'){
+            return true;
+        }else{
+            return false;
+        }
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+
+function isModerador($user){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "SELECT rol FROM USUARIO WHERE user = :user";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':user',$user);
+        $stmt->execute();
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($usuario['rol'] == 'moderador'){
+            return true;
+        }else{
+            return false;
+        }
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+
+//DEVUELVE TODOS LOS PEDIDOS
+function getAllPedidos(){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "SELECT * FROM PEDIDO ORDER BY Id DESC";
+        $stmt = $con->prepare($sql);
+        $stmt->execute();
+        $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $pedidos;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+//DEVUELVE TODOS LOS ALBARANES
+function getAlbaranes(){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "SELECT * FROM ALBARAN ORDER BY Id DESC";
+        $stmt = $con->prepare($sql);
+        $stmt->execute();
+        $albaranes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $albaranes;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+
 ?>

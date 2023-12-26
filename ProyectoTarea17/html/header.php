@@ -21,6 +21,7 @@
       <!-- -------------------------Login------------------------- -->
       <!-- -----Si no Login---- -->
       <?php
+      require_once("/var/www/servidor/ProyectoTarea17/BBDD/funciones.php");
       if (!isset($_SESSION['usuario'])){
       echo '
     <div class="text-end">
@@ -32,6 +33,9 @@
           //-- -----Si no Login----
         }else{
           // <!-- -----Si Login---- -->
+
+          // <!-- -----Si es cliente---- -->
+          if(isCliente($_SESSION['usuario']['user'])){         
           echo '
           <div class="dropdown text-end">
             <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,7 +53,32 @@
             </ul>
           </div>
           ';
-          
+          }
+           // <!-- -----Si es cliente---- -->
+           
+           // <!-- -----Si es Administrador o Moderador---- -->
+           else if(isAdmin($_SESSION['usuario']['user']) || isModerador($_SESSION['usuario']['user'])){
+            echo '
+            <div class="dropdown text-end">
+              <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-emoji-smile-fill"></i>
+                <span>Hola ';
+                echo $_SESSION['usuario']['user'];
+                echo '</span>
+              </a>
+      
+              <ul class="dropdown-menu text-small">
+                <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/miPerfil.php">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/administrarPedidos.php">Pedidos</a></li>
+                <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/administrarAlbaranes.php">Albaranes</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/logout.php">Desconectar</a></li>
+              </ul>
+            </div>
+            ';
+           }
+           // <!-- -----Si es Administrador o Moderador---- -->
+
           // <!-- -------------------------Login-------------------------
           
         }
