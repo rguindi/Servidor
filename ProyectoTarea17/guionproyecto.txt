@@ -1,10 +1,4 @@
-
-FALTA INFORMACION Y CONTACTO
 HACER FACTURAS
-
-MODERADOR Y ADMIN
-  Añadir Albaran tiene productos que ya estan en la base de datos. 
-  Ver albaranes y pedidos
 
   SOLO ADMIN
   Modificar, introducir o borrado logico productos  (añadir producto)

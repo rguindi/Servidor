@@ -80,4 +80,15 @@ function errores($errores, $name)
 
 
 }
+
+function validaAlbaran(&$errores)
+{
+    if (textoVacio("producto")) $errores['producto'] = "Introduzda un numero de producto.";
+    if (!textoVacio("producto") && !getProducto($_REQUEST['producto'])) $errores['productonoexiste'] = "No se ha encontrado ningún producto con ese identificador.";
+    if (textoVacio("cantidad")) $errores['cantidad'] = "Introduzca una cantidad.";
+    if (textoVacio("fecha")) $errores['fecha'] = "Introduzca una fecha.";
+    if (count($errores) == 0)
+        return true;
+    return false;
+}
 ?>

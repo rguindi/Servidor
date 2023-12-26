@@ -3,8 +3,8 @@ require('../BBDD/funciones.php');
 // Iniciamos la sesión para que el navegador la conozca
 session_start();
 // Si no hay un usuario de $_SESSION no podemos comprar
-// por lo que no tenemos permisos para estar ahí y nos manda a login
-if (!isset($_SESSION['usuario'])) {
+// por lo que no tenemos permisos para estar ahí y nos manda a login. Si no es cliente (es admin o moderador) también nos manda a login
+if (!isset($_SESSION['usuario'])|| !isCliente($_SESSION['usuario']['user'])) {
     $_SESSION['error'] = "No se ha iniciado sesion";
     header("Location: ./login.php");
     exit;

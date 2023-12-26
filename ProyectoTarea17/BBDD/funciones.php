@@ -55,7 +55,7 @@ function cargarScript(){
 
 try {
 
-        $con->connect(IP, USER, PASSWORD);
+        $con->connect(IP, USER, PASS);
         $script = file_get_contents('./script.sql');
         $con->multi_query($script);
 
@@ -109,7 +109,7 @@ function recomendados(){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
         $con = new PDO($DSN,USER,PASS);
-        $sql = "SELECT * FROM PRODUCTO LIMIT 4;";
+        $sql = "SELECT * FROM PRODUCTO WHERE activo = true LIMIT 4;";
         $stmt = $con->prepare($sql);
         $stmt->execute();
         $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -129,7 +129,7 @@ function novedades(){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
         $con = new PDO($DSN,USER,PASS);
-        $sql = "SELECT * FROM PRODUCTO ORDER BY codigo DESC LIMIT 4";
+        $sql = "SELECT * FROM PRODUCTO WHERE activo = true ORDER BY codigo DESC LIMIT 4";
         $stmt = $con->prepare($sql);
         $stmt->execute();
         $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -157,7 +157,7 @@ function todosProductos(){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
         $con = new PDO($DSN,USER,PASS);
-        $sql = "SELECT * FROM PRODUCTO";
+        $sql = "SELECT * FROM PRODUCTO WHERE activo = true";
         $stmt = $con->prepare($sql);
         $stmt->execute();
         $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -177,7 +177,7 @@ function validaUsuario($user,$pass){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
         $con = new PDO($DSN,USER,PASS);
-        $sql = "SELECT * FROM USUARIO WHERE user = :user AND pass = :pass";
+        $sql = "SELECT * FROM USUARIO WHERE user = :user AND pass = :pass AND activo = true";
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':user',$user);
         $stmt->bindParam(':pass',$pass);
@@ -198,7 +198,7 @@ function getProducto($id){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
         $con = new PDO($DSN,USER,PASS);
-        $sql = "SELECT * FROM PRODUCTO WHERE codigo = :codigo";
+        $sql = "SELECT * FROM PRODUCTO WHERE codigo = :codigo AND activo = true";
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':codigo',$id);
         $stmt->execute();
@@ -248,7 +248,7 @@ function getPedidos($user){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
         $con = new PDO($DSN,USER,PASS);
-        $sql = "SELECT * FROM PEDIDO WHERE usuario = :user ORDER BY Id DESC";
+        $sql = "SELECT * FROM PEDIDO WHERE activo = true AND usuario = :user ORDER BY Id DESC";
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':user',$user);
         $stmt->execute();
@@ -268,7 +268,7 @@ function comprobarStock($codigo, $cantidad){
     $DSN = 'mysql:host='.IP.';dbname='.BD;
     try {
         $con = new PDO($DSN,USER,PASS);
-        $sql = "SELECT stock FROM PRODUCTO WHERE codigo = :codigo";
+        $sql = "SELECT stock FROM PRODUCTO WHERE codigo = :codigo AND activo = true";
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':codigo',$codigo);
         $stmt->execute();
@@ -292,7 +292,7 @@ function existeUser($user){
     try {
         $con = new PDO($DSN,USER,PASS);
 
-        $sql = "SELECT * FROM USUARIO WHERE user = :user";
+        $sql = "SELECT * FROM USUARIO WHERE user = :user AND activo = true";
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':user',$user);
         $stmt->execute();
@@ -340,7 +340,7 @@ function isAdmin($user){
     try {
         $con = new PDO($DSN,USER,PASS);
 
-        $sql = "SELECT rol FROM USUARIO WHERE user = :user";
+        $sql = "SELECT rol FROM USUARIO WHERE user = :user AND activo = true";
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':user',$user);
         $stmt->execute();
@@ -364,7 +364,7 @@ function isCliente($user){
     try {
         $con = new PDO($DSN,USER,PASS);
 
-        $sql = "SELECT rol FROM USUARIO WHERE user = :user";
+        $sql = "SELECT rol FROM USUARIO WHERE user = :user AND activo = true";
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':user',$user);
         $stmt->execute();
@@ -388,7 +388,7 @@ function isModerador($user){
     try {
         $con = new PDO($DSN,USER,PASS);
 
-        $sql = "SELECT rol FROM USUARIO WHERE user = :user";
+        $sql = "SELECT rol FROM USUARIO WHERE user = :user AND activo = true";
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':user',$user);
         $stmt->execute();
@@ -413,7 +413,7 @@ function getAllPedidos(){
     try {
         $con = new PDO($DSN,USER,PASS);
 
-        $sql = "SELECT * FROM PEDIDO ORDER BY Id DESC";
+        $sql = "SELECT * FROM PEDIDO WHERE activo = true ORDER BY Id DESC";
         $stmt = $con->prepare($sql);
         $stmt->execute();
         $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -432,7 +432,7 @@ function getAlbaranes(){
     try {
         $con = new PDO($DSN,USER,PASS);
 
-        $sql = "SELECT * FROM ALBARAN ORDER BY Id DESC";
+        $sql = "SELECT * FROM ALBARAN WHERE activo = true ORDER BY Id DESC";
         $stmt = $con->prepare($sql);
         $stmt->execute();
         $albaranes = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -446,4 +446,33 @@ function getAlbaranes(){
     }
 }
 
+//REGISTRA ALBARAN
+function registrarAlbaran($codigo, $cantidad, $fecha, $user){     
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "INSERT INTO ALBARAN (cod_producto, cantidad, fecha, usuario) VALUES (:codigo, :cantidad, :fecha, :user)";
+        $sql2 = "UPDATE PRODUCTO SET stock = stock + :cantidad WHERE codigo = :codigo";
+        $stmt = $con->prepare($sql);
+        $stmt2 = $con->prepare($sql2);
+        $stmt->bindParam(':codigo',$codigo);
+        $stmt->bindParam(':cantidad',$cantidad);
+        $stmt->bindParam(':fecha',$fecha);
+        $stmt->bindParam(':user',$user);
+        $stmt->execute();
+        $stmt2->bindParam(':codigo',$codigo);
+        $stmt2->bindParam(':cantidad',$cantidad);
+        $stmt2->execute();
+
+        return true;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    } finally{
+        unset($con);
+    }
+}
 ?>

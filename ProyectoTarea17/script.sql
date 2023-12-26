@@ -12,37 +12,40 @@ GRANT ALL PRIVILEGES ON JUEGOSDEMESA.* TO juegos;
 FLUSH PRIVILEGES;
 
 
--- Crea la tabla PRODUCTO con la columna imagen_url
+-- Crea la tabla PRODUCTO con la columna imagen_url y el campo de borrado lógico
 CREATE TABLE IF NOT EXISTS PRODUCTO (
     codigo INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255),
     descripcion VARCHAR(600),
     precio DECIMAL(10,2),
     stock INT,
-    imagen_url VARCHAR(255)
-)engine=innodb;
+    imagen_url VARCHAR(255),
+    activo BOOLEAN DEFAULT true
+) ENGINE=INNODB;
 
--- Crea la tabla USUARIO
+-- Crea la tabla USUARIO con el campo de borrado lógico
 CREATE TABLE IF NOT EXISTS USUARIO (
     user VARCHAR(15) PRIMARY KEY,
     pass VARCHAR(255),
     email VARCHAR(255),
     fecha_nac DATE,
-    rol VARCHAR(50)
-)engine=innodb;
+    rol VARCHAR(50),
+    activo BOOLEAN DEFAULT true
+) ENGINE=INNODB;
 
--- Crea la tabla ALBARÁN
+-- Crea la tabla ALBARÁN con el campo de borrado lógico
 CREATE TABLE IF NOT EXISTS ALBARAN (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     cod_producto INT,
     cantidad INT,
     fecha DATE,
     usuario VARCHAR(15),
+    activo BOOLEAN DEFAULT true,
     FOREIGN KEY (cod_producto) REFERENCES PRODUCTO(codigo),
     FOREIGN KEY (usuario) REFERENCES USUARIO(user)
-)engine=innodb;
+) ENGINE=INNODB;
 
--- Crea la tabla PEDIDO
+-- Crea la tabla PEDIDO con el campo de borrado lógico
 CREATE TABLE IF NOT EXISTS PEDIDO (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     cod_producto INT,
@@ -50,9 +53,10 @@ CREATE TABLE IF NOT EXISTS PEDIDO (
     fecha DATE,
     usuario VARCHAR(15),
     total DECIMAL(10,2),
+    activo BOOLEAN DEFAULT true,
     FOREIGN KEY (cod_producto) REFERENCES PRODUCTO(codigo),
     FOREIGN KEY (usuario) REFERENCES USUARIO(user)
-)engine=innodb;
+) ENGINE=INNODB;
 
 
 -- Inserta usuarios
