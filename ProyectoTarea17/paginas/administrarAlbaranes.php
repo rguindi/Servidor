@@ -11,6 +11,13 @@ if (!isset($_SESSION['usuario'])) {
     header("Location: ../");
     exit;
 
+}else if(isAdmin($_SESSION['usuario']['user']) && isset($_REQUEST['eliminar'])){
+    eliminarAlbaran($_REQUEST['id']);
+    header("Location: /ProyectoTarea17/paginas/administrarAlbaranes.php");
+    exit;
+}else if(isAdmin($_SESSION['usuario']['user']) && isset($_REQUEST['modificar'])){
+    header("Location: ./modificarAlbaran.php?id=".$_REQUEST['id']);
+    exit;
 }else
 
 {
@@ -120,8 +127,11 @@ if (!isset($_SESSION['usuario'])) {
                          <h5>'.$value['usuario'].'</h5>
                      </div>
                      <div class="col-3 text-center  ">
-                          <button class="btn btn-secondary mb-2">Modificar</button>
-                          <button class="btn btn-danger mb-2">Eliminar</button>
+                     <form action="" method="POST">
+                          <button name="modificar" class="btn btn-secondary mb-2">Modificar</button>
+                          <button name="eliminar" class="btn btn-danger mb-2">Eliminar</button>
+                          <input type="hidden" name="id" value="'.$value['Id'].'">
+                    </form>
                       </div>
                      </div>';
                 }

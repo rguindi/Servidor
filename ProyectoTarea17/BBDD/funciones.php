@@ -475,4 +475,165 @@ function registrarAlbaran($codigo, $cantidad, $fecha, $user){
         unset($con);
     }
 }
+
+//DEVUELVE UN ALBARAN POR ID
+function getAlbaran($id){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "SELECT * FROM ALBARAN WHERE Id = :id AND activo = true";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+        $albaran = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $albaran;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+
+//MODIFICAR ALBARAN
+function modificarAlbaran($id, $codigo, $cantidad, $fecha, $user){     
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "UPDATE ALBARAN SET cod_producto = :codigo, cantidad = :cantidad, fecha = :fecha, usuario = :user WHERE Id = :id";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->bindParam(':codigo',$codigo);
+        $stmt->bindParam(':cantidad',$cantidad);
+        $stmt->bindParam(':fecha',$fecha);
+        $stmt->bindParam(':user',$user);
+        $stmt->execute();
+
+        return true;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    } finally{
+        unset($con);
+    }
+}
+
+//ELIMINAR PRODUCTO
+function eliminarProducto($codigo){     
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "UPDATE PRODUCTO SET activo = false WHERE codigo = :codigo";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':codigo',$codigo);
+        $stmt->execute();
+
+        return true;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    } finally{
+        unset($con);
+    }
+}
+
+//ELIMINAR ALBARAN
+function eliminarAlbaran($id){     
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "UPDATE ALBARAN SET activo = false WHERE Id = :id";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+
+        return true;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    } finally{
+        unset($con);
+    }
+}
+
+//ELIMINAR PEDIDO
+function eliminarPedido($id){     
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "UPDATE PEDIDO SET activo = false WHERE Id = :id";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+
+        return true;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    } finally{
+        unset($con);
+    }
+}
+
+//DEVUELVE UN PEDIDO POR ID
+function getPedido($id){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "SELECT * FROM PEDIDO WHERE Id = :id AND activo = true";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+        $pedido = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $pedido;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
+
+//MODIFICAR PEDIDO
+function modificarPedido($id, $codigo, $cantidad, $fecha, $user, $total){     
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+
+        $sql = "UPDATE PEDIDO SET cod_producto = :codigo, cantidad = :cantidad, fecha = :fecha, usuario = :user, total = :total WHERE Id = :id";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->bindParam(':codigo',$codigo);
+        $stmt->bindParam(':cantidad',$cantidad);
+        $stmt->bindParam(':fecha',$fecha);
+        $stmt->bindParam(':user',$user);
+        $stmt->bindParam(':total',$total);
+        $stmt->execute();
+
+        return true;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    } finally{
+        unset($con);
+    }
+}
 ?>

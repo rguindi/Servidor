@@ -11,7 +11,16 @@ if (!isset($_SESSION['usuario'])) {
     header("Location: ../");
     exit;
 
-}else
+}else if(isAdmin($_SESSION['usuario']['user']) && isset($_REQUEST['eliminar'])){
+    eliminarPedido($_REQUEST['id']);
+    header("Location: /ProyectoTarea17/paginas/administrarPedidos.php");
+    exit;
+} else if(isAdmin($_SESSION['usuario']['user']) && isset($_REQUEST['modificar'])){
+    header("Location: ./modificarPedido.php?id=".$_REQUEST['id']);
+    exit;
+
+}
+else
 
 {
     $pedidos = getAllPedidos();
@@ -125,9 +134,12 @@ if (!isset($_SESSION['usuario'])) {
                         <h5>'.$value['total'].'</h5>
                     </div>
                     <div class="col-4 text-center  ">
-                        <button class="btn btn-warning mb-2">Factura</button>
-                        <button class="btn btn-secondary mb-2">Modificar</button>
-                        <button class="btn btn-danger mb-2">Eliminar</button>
+                    <form action="" method="post">
+                        <button name="factura" class="btn btn-warning mb-2">Factura</button>
+                        <button name="modificar"  class="btn btn-secondary mb-2">Modificar</button>
+                        <button name="eliminar" class="btn btn-danger mb-2">Eliminar</button>
+                        <input type="hidden" name="id" value="'.$value['Id'].'">
+                    </form>
                     </div>
 
                 </div>

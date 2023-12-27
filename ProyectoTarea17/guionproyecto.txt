@@ -1,5 +1,7 @@
+//MEJORAS PENDIENTES
 HACER FACTURAS
+Modificar stock al modificar pedido o albaran?
+validar formato en servidor en modificarPedido.php, esta solo validado en cliente.
 
-  SOLO ADMIN
+  SOLO ADMIN (SECCION PRODUCTOS)
   Modificar, introducir o borrado logico productos  (añadir producto)
-  modificar añadir, o borrardo logico albaranes y pedidos
