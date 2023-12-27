@@ -14,7 +14,7 @@ if (!isAdmin($_SESSION['usuario']['user'])) {
 
 
 $errores = array ();
-if (registrar() && validaAlbaran($errores)) {
+if (registrar() && validaPedido($errores)) {
     modificarPedido($_REQUEST['id'], $_REQUEST['producto'], $_REQUEST['cantidad'], $_REQUEST['fecha'], $_REQUEST['usuario'], $_REQUEST['total']);  //SEGUIMOS AQUI
     echo '<p> Pedido modificado correctamente... Redirigiendo a pedidos </p>';
     ?>
@@ -62,7 +62,7 @@ if (registrar() && validaAlbaran($errores)) {
             </div>
             <!-- Producto input -->
             <div class="form-outline mb-4">
-                <input type="text" id="producto" class="form-control" name="producto" value= '<?php echo $pedido['cod_producto']; ?>' />
+                <input type="number" id="producto" class="form-control" name="producto" value= '<?php echo $pedido['cod_producto']; ?>' />
                 <label class="form-label" for="producto">Codigo de producto</label>
                 <p class="error"><?php errores ($errores,'producto');?></p>
                 <p class="error"><?php errores ($errores,'productonoexiste');?></p>
@@ -95,7 +95,9 @@ if (registrar() && validaAlbaran($errores)) {
             <!-- Total -->
             <div class="form-outline mb-4">
                 <input type="number" id="total" class="form-control" name="total" value= '<?php echo $pedido['total']; ?>' pattern="\d+(\.\d{1,2})?"/>
-                <label class="form-label" for="total">Total</label>                
+                <label class="form-label" for="total">Total</label>     
+                <p class="error"><?php errores ($errores,'total');?></p>          
+                <p class="error"><?php errores ($errores,'totaltipo');?></p>          
             </div>
 
             

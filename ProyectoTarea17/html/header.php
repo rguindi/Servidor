@@ -22,6 +22,7 @@
       <!-- -----Si no Login---- -->
       <?php
       require_once("/var/www/servidor/ProyectoTarea17/BBDD/funciones.php");
+      session_start();
       if (!isset($_SESSION['usuario'])){
       echo '
     <div class="text-end">

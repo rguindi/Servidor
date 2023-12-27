@@ -62,10 +62,9 @@ if (registrar() && validaProducto($errores)) {
             </div>
             <!-- Producto input -->
             <div class="form-outline mb-4">
-                <input type="number" id="codigo" class="form-control" name="codigo" value= '<?php echo $producto['codigo']; ?>' />
-                <label class="form-label" for="codigo">Codigo de producto</label>
-                <p class="error"><?php errores ($errores,'codigo');?></p>
-                <p class="error"><?php errores ($errores,'errordetipo');?></p>
+                <input hidden type="number" id="codigo"  class="form-control" name="codigo" value= '<?php echo $producto['codigo']; ?>' />
+               
+             
                 
 
             </div>
@@ -97,14 +96,14 @@ if (registrar() && validaProducto($errores)) {
 
             <!-- stock -->
             <div class="form-outline mb-4">
-                <input type="number" id="stock" class="form-control"  value= '<?php echo $producto['stock']; ?>' />
+                <input type="number" id="stock" class="form-control" name="stock"  value= '<?php echo $producto['stock']; ?>' />
                 <label class="form-label" for="stock">Stock</label>  
                 <p class="error"><?php errores ($errores,'stock');?></p>  
                 <p class="error"><?php errores ($errores,'errordetipostock');?></p>  
             </div>
             <!-- imagen -->
             <div class="form-outline mb-4">
-                <input type="text" id="imagen" class="form-control"  value= '<?php echo $producto['imagen_url']; ?>' />
+                <input type="text" id="imagen" class="form-control" name="imagen" value= '<?php echo $producto['imagen_url']; ?>' />
                 <label class="form-label" for="imagen">URL Imagen</label>  
                 <p class="error"><?php errores ($errores,'imagen');?></p>  
             </div>

@@ -91,16 +91,26 @@ function validaAlbaran(&$errores)
         return true;
     return false;
 }
+function validaPedido(&$errores)
+{
+    if (textoVacio("producto")) $errores['producto'] = "Introduzda un numero de producto.";
+    if (!textoVacio("producto") && !getProducto($_REQUEST['producto'])) $errores['productonoexiste'] = "No se ha encontrado ningún producto con ese identificador.";
+    if (textoVacio("cantidad")) $errores['cantidad'] = "Introduzca una cantidad.";
+    if (textoVacio("fecha")) $errores['fecha'] = "Introduzca una fecha.";
+    if (textoVacio("total")) $errores['total'] = "Introduzca un total.";
+    if (preg_match('/^\d+\,\d{2}$/', $_REQUEST['total'])) $errores['totaltipo'] = "Introduzca un precio con dos decimales.";
+    if (count($errores) == 0)
+        return true;
+    return false;
+}
 function validaProducto(&$errores)
 {
-    if (textoVacio("codigo")) $errores['codigo'] = "Introduzda un numero de producto.";
-    if (!is_int($_REQUEST['codigo'])) $errores['errordetipo'] = "Introduzda un numero.";
     if (textoVacio("titulo")) $errores['titulo'] = "Introduzca un titulo.";
     if (textoVacio("descripcion")) $errores['descripcion'] = "Introduzca una descripcion.";
     if (textoVacio("precio")) $errores['precio'] = "Introduzca un precio.";
-    if (preg_match('/^\d+\.\d{2}$/', $_REQUEST['precio'])) $errores['preciotipo'] = "Introduzca un precio con dos decimales.";
+    if (preg_match('/^\d+\,\d{2}$/', $_REQUEST['precio'])) $errores['preciotipo'] = "Introduzca un precio con dos decimales.";
     if (textoVacio("stock")) $errores['stock'] = "Introduzca un stock.";
-    if (!is_int($_REQUEST['stock'])) $errores['errordetipostock'] = "Introduzda un numero.";
+    if (!filter_var($_REQUEST['stock'], FILTER_VALIDATE_INT)) $errores['errordetipostock'] = "Introduzca un número entero para el stock.";
     if (textoVacio("imagen")) $errores['imagen'] = "La imagen no puede estar vacia.";
     if (count($errores) == 0)
         return true;
