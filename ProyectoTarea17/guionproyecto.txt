@@ -4,4 +4,4 @@ Modificar stock al modificar pedido o albaran?
 validar formato en servidor en modificarPedido.php, esta solo validado en cliente.
 
   SOLO ADMIN (SECCION PRODUCTOS)
-  Modificar, introducir o borrado logico productos  (añadir producto)
+  Modificar, introducir productos 

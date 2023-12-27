@@ -636,4 +636,31 @@ function modificarPedido($id, $codigo, $cantidad, $fecha, $user, $total){
         unset($con);
     }
 }
+
+//MODIFICAR PRODUCTO
+function modificarProducto($codigo, $titulo, $descripcion, $precio, $stock, $imagen_url){     
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+        $sql = "UPDATE PRODUCTO SET titulo = :titulo, descripcion = :descripcion, precio = :precio, stock = :stock, imagen_url = :imagen_url WHERE codigo = :codigo";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':codigo',$codigo);
+        $stmt->bindParam(':titulo',$titulo);
+        $stmt->bindParam(':descripcion',$descripcion);
+        $stmt->bindParam(':precio',$precio);
+        $stmt->bindParam(':stock',$stock);
+        $stmt->bindParam(':imagen_url',$imagen_url);
+        $stmt->execute();
+
+        return true;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    } finally{
+        unset($con);
+    }
+}
+
 ?>

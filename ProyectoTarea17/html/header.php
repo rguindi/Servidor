@@ -70,8 +70,11 @@
               <ul class="dropdown-menu text-small">
                 <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/miPerfil.php">Mi perfil</a></li>
                 <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/administrarPedidos.php">Pedidos</a></li>
-                <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/administrarAlbaranes.php">Albaranes</a></li>
-                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/administrarAlbaranes.php">Albaranes</a></li>';
+                if (isAdmin($_SESSION['usuario']['user'])){
+                  echo '<li><a class="dropdown-item" href="/ProyectoTarea17/paginas/administrarProductos.php">Productos</a></li>';
+                }
+                echo '<li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/logout.php">Desconectar</a></li>
               </ul>
             </div>

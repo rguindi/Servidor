@@ -91,4 +91,19 @@ function validaAlbaran(&$errores)
         return true;
     return false;
 }
+function validaProducto(&$errores)
+{
+    if (textoVacio("codigo")) $errores['codigo'] = "Introduzda un numero de producto.";
+    if (!is_int($_REQUEST['codigo'])) $errores['errordetipo'] = "Introduzda un numero.";
+    if (textoVacio("titulo")) $errores['titulo'] = "Introduzca un titulo.";
+    if (textoVacio("descripcion")) $errores['descripcion'] = "Introduzca una descripcion.";
+    if (textoVacio("precio")) $errores['precio'] = "Introduzca un precio.";
+    if (preg_match('/^\d+\.\d{2}$/', $_REQUEST['precio'])) $errores['preciotipo'] = "Introduzca un precio con dos decimales.";
+    if (textoVacio("stock")) $errores['stock'] = "Introduzca un stock.";
+    if (!is_int($_REQUEST['stock'])) $errores['errordetipostock'] = "Introduzda un numero.";
+    if (textoVacio("imagen")) $errores['imagen'] = "La imagen no puede estar vacia.";
+    if (count($errores) == 0)
+        return true;
+    return false;
+}
 ?>
