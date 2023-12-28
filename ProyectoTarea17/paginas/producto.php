@@ -43,7 +43,7 @@
       </div>
       <div class="d-flex row">
         <figure class="imagenproducto col-6">
-          <img src="<?php echo '.' . $producto['imagen_url']; ?>" class="imagenproducto">
+          <img src="<?php echo '.' . $producto['imagen_url']; ?>" class="imagenproducto" style="max-height: 500px;" >
         </figure>
         <div class="col-6 container" style="color: black;">
           <h4>Descripcion</h4>
