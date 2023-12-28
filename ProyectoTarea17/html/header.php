@@ -4,7 +4,7 @@
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/ProyectoTarea17/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none me-4  ">
-        <h3 class="slogan" >Mesa Para Dos</h3>
+        <h3 class="slogan text-center " >Mesa Para <br><span style="color: red; font-size: 2em;"> 2</span></h3>
         <img class="img-fluid " style="width: 100px;" src="./img/logo.png" alt="No se encuentra la imagen">
       </a>
 
