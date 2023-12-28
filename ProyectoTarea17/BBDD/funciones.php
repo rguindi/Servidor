@@ -663,4 +663,30 @@ function modificarProducto($codigo, $titulo, $descripcion, $precio, $stock, $ima
     }
 }
 
+//AÑADIR PRODUCTO
+function addProducto($titulo, $descripcion, $precio, $stock, $imagen_url){     
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
+        $sql = "INSERT INTO PRODUCTO (titulo, descripcion, precio, stock, imagen_url) VALUES (:titulo, :descripcion, :precio, :stock, :imagen_url)";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':titulo',$titulo);
+        $stmt->bindParam(':descripcion',$descripcion);
+        $stmt->bindParam(':precio',$precio);
+        $stmt->bindParam(':stock',$stock);
+        $stmt->bindParam(':imagen_url',$imagen_url);
+        $stmt->execute();
+
+        return true;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    } finally{
+        unset($con);
+    }
+}
+
+
 ?>

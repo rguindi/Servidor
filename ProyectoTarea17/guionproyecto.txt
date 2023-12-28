@@ -1,5 +1,2 @@
-
 HACER FACTURAS
-Modificar stock al modificar pedido o albaran?
-  SOLO ADMIN (SECCION PRODUCTOS)
-  introducir productos 
+

@@ -94,8 +94,8 @@ if (registrar() && validaPedido($errores)) {
             </div>
             <!-- Total -->
             <div class="form-outline mb-4">
-                <input type="number" id="total" class="form-control" name="total" value= '<?php echo $pedido['total']; ?>' pattern="\d+(\.\d{1,2})?"/>
-                <label class="form-label" for="total">Total</label>     
+                <input type="text" id="total" class="form-control" name="total" value= '<?php echo $pedido['total']; ?>' pattern="\d+(\.\d{1,2})?"/>
+                <label class="form-label" for="total">Total (Ej 6.99)</label>     
                 <p class="error"><?php errores ($errores,'total');?></p>          
                 <p class="error"><?php errores ($errores,'totaltipo');?></p>          
             </div>

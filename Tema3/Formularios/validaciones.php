@@ -69,7 +69,7 @@ function validaFormulario (&$errores){
  if (radioVacio('aficcion')) $errores ['aficcion'] = 'Debe seleccionar al menos una aficccion';
  if (radioVacio('fecha_nac')) $errores ['fecha_nac'] = 'Debe seleccionar una fecha de nacimiento';
 if (selectVacio('equipos')) $errores ['equipos'] = 'Debe seleccionar un aquipo';
-if (textVacio("fichero")) $errores ['fichero'] = "Fichero vacio.";
+// if (textVacio("fichero")) $errores ['fichero'] = "Fichero vacio.";
 if (count($errores)==0) return true;
 return false;
 }

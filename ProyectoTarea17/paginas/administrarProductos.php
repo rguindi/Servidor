@@ -18,7 +18,10 @@ if (!isset($_SESSION['usuario'])) {
 } else if(isset($_REQUEST['modificar'])){
     header("Location: ./modificarProducto.php?id=".$_REQUEST['codigo']);
     exit;
-
+}
+else if(isset($_REQUEST['add'])){
+    header("Location: ./addProducto.php");
+    exit;
 }
 else
 
@@ -78,6 +81,9 @@ else
                     </div>
                     <div class="col-4 text-center  ">
                         <h5>Acciones</h5>
+                        <form action="" method="post">
+                        <button type="submit" name="add"  class="btn btn-warning mb-2">Añadir producto</button>
+                        </form>
                     </div>
 
                 </div>

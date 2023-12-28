@@ -31,6 +31,7 @@ $errores = array ();
 if (enviado()&& validaFormulario($errores)){
     echo "<pre>";
     print_r ($_REQUEST);
+    print_r ($_FILES);
 
 }else{
 
@@ -49,7 +50,7 @@ if (enviado()&& validaFormulario($errores)){
 -->
 
 
-    <form action="" method="get" name="formulario1"  enctype="multipart/form-data">
+    <form action="" method="post" name="formulario1"  enctype="multipart/form-data">
     <label for="nombre">Nombre:<input type="text" name="nombre" id="nombre" 
     
     value= <?php

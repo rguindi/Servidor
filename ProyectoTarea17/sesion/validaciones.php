@@ -116,4 +116,17 @@ function validaProducto(&$errores)
         return true;
     return false;
 }
+function validaSubirProducto(&$errores)
+{
+    if (textoVacio("titulo")) $errores['titulo'] = "Introduzca un titulo.";
+    if (textoVacio("descripcion")) $errores['descripcion'] = "Introduzca una descripcion.";
+    if (textoVacio("precio")) $errores['precio'] = "Introduzca un precio.";
+    if (preg_match('/^\d+\,\d{2}$/', $_REQUEST['precio'])) $errores['preciotipo'] = "Introduzca un precio con dos decimales.";
+    if (textoVacio("stock")) $errores['stock'] = "Introduzca un stock.";
+    if (!filter_var($_REQUEST['stock'], FILTER_VALIDATE_INT)) $errores['errordetipostock'] = "Introduzca un número entero para el stock.";
+    if (!isset($_FILES['imagen']) || $_FILES['imagen']['error'] == UPLOAD_ERR_NO_FILE) $errores['imagen'] = "La imagen no puede estar vacia.";
+    if (count($errores) == 0)
+        return true;
+    return false;
+}
 ?>
