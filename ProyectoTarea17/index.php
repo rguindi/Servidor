@@ -2,7 +2,7 @@
 require_once("./BBDD/funciones.php");
 if(!existeBD()){
 echo 'No existe la base de datos, el usuario, o la IP. <br>
-Comprueba los parámetros en conexión.php, carga el script con un usuario existente, y luego podrás dejar el usuario y pass actual.<br>
+Comprueba los parámetros en conexión.php, carga el script con un usuario existente, y luego podrás dejar el usuario y pass actual.<br>Otorga permisos a la carpeta BBD/img/productos para poder subir imagenes. <br>
 Pulsa para cargar el script. <br>';
 echo '<form action="" method="get"><input name = "crear" type="submit" value="Crear la Base de Datos">  </form>';
 if(isset($_REQUEST['crear'])){

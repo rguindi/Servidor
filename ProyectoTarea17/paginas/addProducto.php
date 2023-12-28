@@ -104,6 +104,7 @@ if (registrar() && validaSubirProducto($errores)) {
                 <input type="file" id="imagen" class="form-control" name="imagen"/>
                 <label class="form-label" for="imagen">Imagen (Formato jpg)</label>  
                 <p class="error"><?php errores ($errores,'imagen');?></p>  
+                <p class="error"><?php errores ($errores,'imagenjpg');?></p>  
             </div>
     
 

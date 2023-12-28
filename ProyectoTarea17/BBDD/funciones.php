@@ -688,5 +688,24 @@ function addProducto($titulo, $descripcion, $precio, $stock, $imagen_url){
     }
 }
 
+//DEVUELVE  USUARIO POR ID
+function getUsuario($user){
+    $DSN = 'mysql:host='.IP.';dbname='.BD;
+    try {
+        $con = new PDO($DSN,USER,PASS);
 
+        $sql = "SELECT * FROM USUARIO WHERE user = :user AND activo = true";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':user',$user);
+        $stmt->execute();
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $usuario;
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    } finally{
+        unset($con);
+    }
+}
 ?>

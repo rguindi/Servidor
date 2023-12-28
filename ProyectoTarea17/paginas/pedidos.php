@@ -7,7 +7,13 @@ if (!isset($_SESSION['usuario'])) {
     header("Location: ./login.php");
     exit;
 
-} else {
+}else if(isset($_SESSION['usuario']) && isset($_REQUEST['factura'])){
+    header("Location: ../PDF/factura.php?id=".$_REQUEST['id']);
+    exit;
+
+} 
+ 
+else {
     $pedidos = getPedidos($_SESSION['usuario']['user']);
     ?>
     <!DOCTYPE html>
@@ -94,14 +100,16 @@ if (!isset($_SESSION['usuario'])) {
                         <h5>'.$value['total'].'</h5>
                     </div>
                     <div class="col-2 text-center  ">
-                        <button class="btn btn-warning mb-2">Factura</button>
+                    <form action="" method="post">
+                    <button name="factura" class="btn btn-warning mb-2">Factura</button>
+                    <input type="hidden" name="id" value="'.$value['Id'].'">
+                    </form>
                     </div>
 
                 </div>
                    ';
                 }
                ?>
-
         </main>
         <script>
             let total = document.getElementById('total');

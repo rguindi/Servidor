@@ -125,6 +125,8 @@ function validaSubirProducto(&$errores)
     if (textoVacio("stock")) $errores['stock'] = "Introduzca un stock.";
     if (!filter_var($_REQUEST['stock'], FILTER_VALIDATE_INT)) $errores['errordetipostock'] = "Introduzca un número entero para el stock.";
     if (!isset($_FILES['imagen']) || $_FILES['imagen']['error'] == UPLOAD_ERR_NO_FILE) $errores['imagen'] = "La imagen no puede estar vacia.";
+    elseif (!preg_match('/\.jpg$/i', $_FILES['imagen']['name'])) {
+        $errores['imagenjpg'] = "La imagen debe tener una extensión JPG.";}
     if (count($errores) == 0)
         return true;
     return false;
