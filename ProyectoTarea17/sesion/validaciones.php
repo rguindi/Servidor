@@ -131,4 +131,22 @@ function validaSubirProducto(&$errores)
         return true;
     return false;
 }
+
+//INSERTAR COOKIE
+function insertarCookie($id)
+{
+
+    //Si no existe la cookie la creamos
+    if (!isset($_COOKIE['usuario'])) {
+        setcookie('usuario', $id, time() + 3600 * 24);
+
+    }
+
+    //Si existe la cookie la borramos y la creamos
+    if (isset($_COOKIE['usuario'])) {
+
+        setcookie('usuario', $id, time() - 3600 * 24);
+        setcookie('usuario', $id, time() + 3600 * 24);
+    }
+}
 ?>

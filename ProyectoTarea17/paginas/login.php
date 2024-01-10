@@ -15,6 +15,10 @@ if (entrar() && !textoVacio('user') && !textoVacio('pass')) {
     $usuario = validaUsuario($_REQUEST['user'], $_REQUEST['pass']);
     // Si entramoa, nos lleva a la página principal
     if ($usuario) {
+        //Si el usuario ha marcado la casilla de recordar usuario, creamos la cookie
+        if (isset($_REQUEST['recuerda'])) {
+            insertarCookie($_REQUEST['user']);
+        }
         // Indicamos en la superglobal $_SESSION el usuario con el que estamos
         $_SESSION['usuario'] = $usuario;
         header("Location: ../");
@@ -53,16 +57,22 @@ if (entrar() && !textoVacio('user') && !textoVacio('pass')) {
 
     <div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5  ">
         <form action="" method="post">
-            <!-- Email input -->
+            <!-- User input -->
             <div class="form-outline mb-4">
-                <input type="text" id="user" name="user" class="form-control" />
+                <input type="text" id="user" name="user" class="form-control" required value="<?php if(isset ($_COOKIE['usuario'])) echo $_COOKIE['usuario']; ?>"/>
                 <label class="form-label" for="user">Usuario</label>
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
-                <input type="password" id="pass" class="form-control" name="pass" />
+                <input type="password" id="pass" class="form-control" name="pass" required />
                 <label class="form-label" for="pass">Contraseña</label>
+            </div>
+        
+            <!-- Acepta condiciones de uso -->
+            <div class="form-outline  mb-4 text-center">
+                <input type="checkbox" id="recuerda" class=" d-inline " name="recuerda"  />
+                <label class="form-label" for="pass"> Recordar usuario</label>
             </div>
 
 
