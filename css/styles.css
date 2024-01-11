@@ -16,6 +16,8 @@ header #nombre {
 body{
     background-color: black;
     font-family: 'Courier New', Courier, monospace;
+
+ 
 }
 main{
     background-image: url("../img/teclado.jpg");
@@ -24,6 +26,10 @@ main{
     color: white;
     background-attachment: fixed;
     background-repeat:no-repeat;
+    
+    height: 100vh;
+
+
 }
 
 
@@ -63,6 +69,7 @@ main h2 {
 }
 
 footer{
+    margin-top: 20px;
     background-color: #bec092;
     padding-left: 50px;
    
