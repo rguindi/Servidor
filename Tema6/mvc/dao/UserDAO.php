@@ -40,7 +40,7 @@ class UserDAO{
 
     public static function insert($usuario){
         $sql = "INSERT INTO Usuario (codUsuario, password, descUsuario, fechaUltimaConexion) VALUES (?,?,?,?)";
-        //insrtar todos los atributos
+        //insertar todos los atributos
         $parametros = (array)$usuario;
         unset($parametros['User perfil']); //Eliminamos el perfil porque no se inserta
         $result = FactoryBD::realizaConsulta($sql, $parametros);
