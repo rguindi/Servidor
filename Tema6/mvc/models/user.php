@@ -6,13 +6,15 @@ class User{
 
     private $fechaUltimaConexion;
     private $perfil; //Puede ser usuario, administrador o invitado
+    private $activo; 
 
-    public function __construct($codUsuario,$password,$descUsuario,$fechaUltimaconexion,$perfil){
+    public function __construct($codUsuario,$password,$descUsuario,$fechaUltimaconexion,$perfil="usuario", $activo=true){
         $this->codUsuario=$codUsuario;
         $this->password=$password;
         $this->descUsuario=$descUsuario;
         $this->fechaUltimaConexion=$fechaUltimaconexion;
         $this->perfil=$perfil;
+        $this->activo=$activo;
     }
     public function __get($atributo){
         return $this->$atributo;
