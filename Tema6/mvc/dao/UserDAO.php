@@ -47,7 +47,7 @@ class UserDAO{
         //insertar todos los atributos
         $parametros = array(
             $usuario->codUsuario,
-            $usuario->password,
+            sha1($usuario->password),
             $usuario->descUsuario,
             $usuario->fechaUltimaConexion,
             $usuario->perfil,
@@ -115,6 +115,7 @@ class UserDAO{
 
     public static function validarUser($codUsuario, $password) {
         $sql = "SELECT * FROM Usuario WHERE codUsuario = ? AND password = ? AND activo = true";
+        $password = sha1($password);
         $parametros = array($codUsuario, $password);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         if ($result->rowCount() == 1) {
@@ -130,6 +131,18 @@ class UserDAO{
             return $usuario;
         } else {
             return null;
+        }
+    }
+
+    public static function cambiarPassword($codUsuario, $password) {
+        $sql = "UPDATE Usuario SET password = ? WHERE codUsuario = ?";
+        $password = sha1($password);
+        $parametros = array($password, $codUsuario);
+        $result = FactoryBD::realizaConsulta($sql, $parametros);
+        if ($result) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
