@@ -16,4 +16,16 @@ if(isset($_REQUEST['Login_iniciarSesion'])){
 }
 }elseif(isset($_REQUEST['registrar'])){
     $_SESSION['vista'] = VIEW.'registro.php';
+}elseif(isset($_REQUEST['registro'])){
+    $errores = array();
+    if(validaFormulario($errores)){
+        $usuario = new User($_REQUEST['nombre'], $_REQUEST['pass'], $_REQUEST['desc'], date('Y-m-d'), $_REQUEST['perfil']);
+        if(UserDAO::insert($usuario)){
+            $sms = 'Usuario registrado';
+            $_SESSION['vista'] = VIEW.'login.php';
+        }else{
+            $errores['validado'] = 'No se ha podido registrar';
+        }
+
+    }
 }

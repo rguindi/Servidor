@@ -11,5 +11,5 @@
     <p class="error">   <?php if(isset($errores)) errores ($errores,'validado');?> </p>
     <br>
     <input type="submit" name="Login_iniciarSesion"  value="Iniciar">
-    <input type="submit" name="registrar"  value="login_registro">
+    <input type="submit" name="registrar"  value="registro">
 </form>
