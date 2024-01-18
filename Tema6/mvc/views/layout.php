@@ -20,7 +20,10 @@
         <nav>
             <div>
                 <?php if (validado()) {
-                    echo "Bienvenido " . $_SESSION['usuario']->descUsuario;?>
+                    echo "Bienvenido " . $_SESSION['usuario']->descUsuario;
+                    echo '<form action="" method="post">
+                    <input type="submit" value="verCitas" name="verCitas"> </form>'
+                    ?>
                     <form action="" method="post">
                         <input type="submit" value="Cerrar Session" name="logout">
                         <input type="submit" value="verPerfil" name="verPerfil">

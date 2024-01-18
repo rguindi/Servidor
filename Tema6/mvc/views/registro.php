@@ -1,3 +1,9 @@
+<p class="text-bg-danger  text-center ">
+
+    Bienvenidos a la pagina Login
+</p>
+
+
 <form action="" method="post">
     <label for="nombre"> Codigo o nombre
         <input type="text" name="nombre" id="nombre">

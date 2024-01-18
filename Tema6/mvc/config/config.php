@@ -12,5 +12,7 @@ require ('./core/funciones.php');
 require ("./config/confBD.php");
 require('./dao/FactoryBD.php');
 require('./dao/UserDAO.php');
+require('./dao/CitaDAO.php');
 require('./models/user.php');
+require('./models/cita.php');
 ?>

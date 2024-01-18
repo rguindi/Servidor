@@ -118,3 +118,18 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 alter table Usuario add column activo boolean default true;
+
+create table cita(
+	id int primary key auto_increment,
+	especialista varchar(25) not null,
+	motivo varchar(200) not null,
+	fecha date not null,
+	activo boolean default true,
+	paciente varchar(15)
+) engine = innodb;
+alter table cita add constraint paciente_fk
+foreign key (paciente) references Usuario (codUsuario);
+
+insert into cita values (1, 'traumatologo', 'dolor de rodilla', '2021-05-12', true, 'PEPITO');
+insert into cita values (2, 'oftalmologo', 'dolor de oidos', '2021-05-12', true, '1');
+
