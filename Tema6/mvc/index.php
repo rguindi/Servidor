@@ -19,8 +19,7 @@ elseif (isset($_REQUEST['verPerfil'])){
 
 }
 
-if(isset($_SESSION['controller'])) require_once $_SESSION['controller'];
+if(isset($_SESSION['controller'])) require_once $_SESSION['controller'];  //si existe el controlador lo cargamos
 
 require_once './views/layout.php';
 
-?>

@@ -1,3 +1,8 @@
+<p class="text-bg-danger text-center ">
+
+    Bienvenidos a la pagina Ver USsuario
+</p>
+
 <?php
 if(isset($sms)){
     echo $sms;
@@ -11,4 +16,5 @@ if(isset($sms)){
 
 <form action="" method="post">
     <input type="submit" name="userEditar" value="editar">
+    <input type="submit" name="cambiapass" value="Cambiar contraseña">
 </form>

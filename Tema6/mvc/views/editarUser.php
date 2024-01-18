@@ -1,3 +1,7 @@
+<p class="text-bg-success   text-center ">
+
+    Bienvenidos a la pagina Editar User
+</p>
 <form action="" method="post">
     <label for="cod"> codUsuario
         <input type="text" readonly name="cod" id="cod" value="<?php echo $_SESSION['usuario']->codUsuario?> ">

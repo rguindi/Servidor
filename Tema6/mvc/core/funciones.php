@@ -16,11 +16,11 @@ function textVacio($name){
 
 }
 
-function passIguales($pass1, $pass2){
+function passIguales(&$errores, $pass1, $pass2){
     if ($pass1 == $pass2){
-        $errores['passigual'] = "Las contraseñas no coinciden";
         return true;
     }
+    $errores['passigual'] = "Las contraseñas no coinciden";
     return false;
 }
 function validado(){

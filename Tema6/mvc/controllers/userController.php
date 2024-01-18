@@ -1,4 +1,5 @@
 <?php
+$errores = array();
 if (!validado()) {
     $_SESSION['vista'] = VIEW . 'login.php';
     $_SESSION['controller'] = CON . 'loginController.php';
@@ -22,7 +23,7 @@ if (!validado()) {
         }
     }elseif (isset($_REQUEST['guardarPass'])) {
         $usuario = $_SESSION['usuario'];
-        if (!textVacio('pass') && !textVacio('pass2')&& passIguales($_REQUEST['pass'], $_REQUEST['pass2'])) {
+        if (!textVacio('pass') && !textVacio('pass2')&& passIguales($errores, $_REQUEST['pass'], $_REQUEST['pass2'])) {
 
             $usuario->password = $_REQUEST['pass'];
             if (UserDAO::cambiarPassword($usuario->codUsuario, $usuario->password)) {
@@ -35,4 +36,3 @@ if (!validado()) {
         }
 }
 }
-?>
