@@ -5,7 +5,7 @@
 
 <?php
 $citas = array();
- $citas = CitaDAO::FindByPaciente($_SESSION['usuario']->codUsuario);
+ $citas = CitaDAO::FindByPaciente($_SESSION['usuario']);
 ?>
 <table>
     <tr>
@@ -25,6 +25,8 @@ foreach ($citas as $cita) {
     echo "<td>".$cita->motivo."</td>";
     echo "<td>".$cita->fecha."</td>";
     echo "<td>".$cita->paciente."</td>";
+    echo "<td><input type='submit' name='borrar' value='Borrar'></td>";
+    echo "<td><input type='submit' name='modificar' value='Modificar'></td>";
     echo "</form>";
     echo "</tr>";
 }
