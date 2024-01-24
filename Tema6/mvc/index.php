@@ -15,6 +15,7 @@ if (isset ($_REQUEST['login'])){
 elseif(isset($_REQUEST['logout'])){
     session_destroy();
     header('Location: index.php'); //recargamos el index para que se destruya la sesion
+    exit;
 }
 elseif (isset($_REQUEST['verPerfil'])){
     $_SESSION['vista'] = VIEW.'verUsuario.php';
