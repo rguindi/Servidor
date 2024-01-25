@@ -8,10 +8,10 @@ require_once VIEW . 'header.php';
         <?php
 
         //VISTAS
-        if (!isset($_SESSION['vista'])) {
+        if (!isset($_SESSION['view'])) {
             require VIEW . 'home.php'; //si no hay vista cargamos la home
         } else {
-            require $_SESSION['vista'];
+            require $_SESSION['view'];
         }
         ?>
 

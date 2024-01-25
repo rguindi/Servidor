@@ -24,9 +24,9 @@
       if (!isset($_SESSION['usuario'])){
       echo '
     <div class="text-end">
-      <a href="/ProyectoTarea17/paginas/login.php" class="d-block link-body-emphasis text-decoration-none">
+    <button type="submit" name="login" class="border-0 bg-transparent d-block link-body-emphasis text-decoration-none">
         <i class="bi bi-person-fill"></i><span class="ms-2" >Login / Registro</span>
-      </a>
+      </button>
     </div>
           ';
           //-- -----Si no Login----

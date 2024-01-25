@@ -79,6 +79,31 @@ function existeBD(){
 }
 
 
+function textoVacio($name)
+{
+    if (empty($_REQUEST[$name]))
+        return true;
+    else
+        return false;
+}
+
+//INSERTAR COOKIE
+function insertarCookie($id)
+{
+
+    //Si no existe la cookie la creamos
+    if (!isset($_COOKIE['usuario'])) {
+        setcookie('usuario', $id, time() + 3600 * 24);
+
+    }
+
+    //Si existe la cookie la borramos y la creamos
+    if (isset($_COOKIE['usuario'])) {
+
+        setcookie('usuario', $id, time() - 3600 * 24);
+        setcookie('usuario', $id, time() + 3600 * 24);
+    }
+}
 
 
 

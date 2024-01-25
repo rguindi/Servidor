@@ -17,6 +17,14 @@ if(!existeBD()){
 }
     
 
+if (isset($_REQUEST['login'])){
+    $_SESSION['controller'] = './controllers/loginController.php';
+    $_SESSION['view'] = VIEW.'login.php';
+    require $_SESSION['view'];
+    exit;
+
+}
+
 
 
 
