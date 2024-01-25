@@ -18,11 +18,20 @@ if(!existeBD()){
     
 
 if (isset($_REQUEST['login'])){
-    $_SESSION['controller'] = './controllers/loginController.php';
+    $_SESSION['controller'] = CON. 'loginController.php';
     $_SESSION['view'] = VIEW.'login.php';
-    require $_SESSION['view'];
-    exit;
-
+}
+if (isset($_REQUEST['miPerfil'])){
+    $_SESSION['controller'] = CON. 'perfilController.php';
+    $_SESSION['view'] = VIEW.'miPerfil.php';
+}
+if (isset($_REQUEST['home'])){
+    unset($_SESSION['controller']);
+    $_SESSION['view'] = VIEW.'home.php';
+}
+if (isset($_REQUEST['logout'])){
+    session_destroy();
+    header("Location: ./");
 }
 
 

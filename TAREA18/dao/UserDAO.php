@@ -4,7 +4,7 @@ class UserDAO
 {
 
     public static function findAll(){
-        $sql = "SELECT * FROM Usuario WHERE activo = 1";
+        $sql = "SELECT * FROM USUARIO WHERE activo = 1";
         $parametros = array();
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         $array_usuarios = array();
@@ -25,7 +25,7 @@ class UserDAO
 
 
     public static function findByUser($user) {
-        $sql = "SELECT * FROM Usuario WHERE user = ? AND activo = 1";
+        $sql = "SELECT * FROM USUARIO WHERE user = ? AND activo = 1";
         $parametros = array($user);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         if ($result->rowCount() == 1) {
@@ -46,7 +46,7 @@ class UserDAO
     }
 
     public static function insert($usuario) {
-        $sql = "INSERT INTO Usuario (user, pass, email, fecha_nac, rol, activo) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO USUARIO (user, pass, email, fecha_nac, rol, activo) VALUES (?,?,?,?,?,?)";
         //insertar todos los atributos
         $parametros = array(
             $usuario->user,
@@ -65,7 +65,7 @@ class UserDAO
     }
 
     public static function update($usuario) {
-        $sql = "UPDATE Usuario SET pass=?, email=?, fecha_nac=?, rol=?, activo=? WHERE user=?";
+        $sql = "UPDATE USUARIO SET pass=?, email=?, fecha_nac=?, rol=?, activo=? WHERE user=?";
         $parametros = array(
             password_hash($usuario->pass, PASSWORD_BCRYPT),
             $usuario->email,
@@ -83,7 +83,7 @@ class UserDAO
     }
 
     public static function delete($usuario) {
-        $sql = "UPDATE Usuario SET activo=0 WHERE user=?";
+        $sql = "UPDATE USUARIO SET activo=0 WHERE user=?";
         $parametros = array(
             $usuario->user
         );
@@ -96,7 +96,7 @@ class UserDAO
     }
 
     public static function validaUsuario($user, $pass) {
-        $sql = "SELECT * FROM Usuario WHERE user = ? AND activo = 1";
+        $sql = "SELECT * FROM USUARIO WHERE user = ? AND activo = 1";
         $parametros = array($user);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         if ($result->rowCount() == 1) {
@@ -120,7 +120,7 @@ class UserDAO
     }
     
     public static function isAdmin($user){
-        $sql = "SELECT * FROM Usuario WHERE user = ? AND activo = 1";
+        $sql = "SELECT * FROM USUARIO WHERE user = ? AND activo = 1";
         $parametros = array($user);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         if ($result->rowCount() == 1) {
@@ -136,7 +136,7 @@ class UserDAO
     }
 
     public static function isModerador($user){
-        $sql = "SELECT * FROM Usuario WHERE user = ? AND activo = 1";
+        $sql = "SELECT * FROM USUARIO WHERE user = ? AND activo = 1";
         $parametros = array($user);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         if ($result->rowCount() == 1) {
@@ -152,7 +152,7 @@ class UserDAO
     }
 
     public static function isCliente($user){
-        $sql = "SELECT * FROM Usuario WHERE user = ? AND activo = 1";
+        $sql = "SELECT * FROM USUARIO WHERE user = ? AND activo = 1";
         $parametros = array($user);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         if ($result->rowCount() == 1) {
