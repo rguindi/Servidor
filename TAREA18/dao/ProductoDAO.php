@@ -4,7 +4,7 @@ class ProductoDAO
 {
 
     public static function findAll(){
-        $sql = "SELECT * FROM Producto WHERE activo = 1";
+        $sql = "SELECT * FROM PRODUCTO WHERE activo = 1";
         $parametros = array();
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         $array_productos = array();
@@ -25,7 +25,7 @@ class ProductoDAO
     }
 
     public static function findByCodigo($codigo){
-        $sql = "SELECT * FROM Producto WHERE codigo = ? AND activo = 1";
+        $sql = "SELECT * FROM PRODUCTO WHERE codigo = ? AND activo = 1";
         $parametros = array($codigo);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         if ($result->rowCount() == 1) {
@@ -47,7 +47,7 @@ class ProductoDAO
     }
 
     public static function insert($producto) {
-        $sql = "INSERT INTO Producto (codigo, titulo, descripcion, precio, stock, imagen_url, activo) VALUES (?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO PRODUCTO (codigo, titulo, descripcion, precio, stock, imagen_url, activo) VALUES (?,?,?,?,?,?,?)";
         //insertar todos los atributos
         $parametros = array(
             $producto->codigo,
@@ -67,7 +67,7 @@ class ProductoDAO
     }
 
     public static function update($producto) {
-        $sql = "UPDATE Producto SET titulo=?, descripcion=?, precio=?, stock=?, imagen_url=?, activo=? WHERE codigo=?";
+        $sql = "UPDATE PRODUCTO SET titulo=?, descripcion=?, precio=?, stock=?, imagen_url=?, activo=? WHERE codigo=?";
         //insertar todos los atributos
         $parametros = array(
             $producto->titulo,
@@ -87,7 +87,7 @@ class ProductoDAO
     }
 
     public static function delete($producto) {
-        $sql = "UPDATE Producto SET activo=0 WHERE codigo=?";
+        $sql = "UPDATE PRODUCTO SET activo=0 WHERE codigo=?";
         //insertar todos los atributos
         $parametros = array(
             $producto->codigo
@@ -102,7 +102,7 @@ class ProductoDAO
 
     //FUNCION PARA SECCION RECOMENDADOS. DEVUELVE 4 PRIMEROS PRODUCTOS
     public static function recomendados(){
-        $sql = "SELECT * FROM Producto WHERE activo = 1 LIMIT 4";
+        $sql = "SELECT * FROM PRODUCTO WHERE activo = 1 LIMIT 4";
         $parametros = array();
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         $array_productos = array();
@@ -146,7 +146,7 @@ class ProductoDAO
 
     //FUNCION REDUCIR STOCK
     public static function reduceStock($codigo, $cantidad){
-        $sql = "UPDATE Producto SET stock = stock - ? WHERE codigo = ?";
+        $sql = "UPDATE PRODUCTO SET stock = stock - ? WHERE codigo = ?";
         $parametros = array($cantidad, $codigo);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         if ($result) {
@@ -157,7 +157,7 @@ class ProductoDAO
     }
 
     public static function comprobarStock($codigo, $cantidad){
-        $sql = "SELECT stock FROM Producto WHERE codigo = ?";
+        $sql = "SELECT stock FROM PRODUCTO WHERE codigo = ?";
         $parametros = array($codigo);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         $stock = $result->fetchObject();

@@ -31,7 +31,7 @@ $recomendados = ProductoDAO::recomendados();
       </article>
 
       <article>
-        <a href="/ProyectoTarea17/paginas/producto.php?producto=<?php echo $novedades[1]['codigo']; ?>">
+        <a href="/ProyectoTarea17/paginas/producto.php?producto=<?php echo $novedades[1]->codigo; ?>">
           <div class="card" style="width: 18rem;">
             <div class="card-header text-center mb-3 ">
               <h3 class="card-text">

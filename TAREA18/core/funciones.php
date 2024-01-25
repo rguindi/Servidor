@@ -6,7 +6,7 @@ function cargarScript(){
 try {
 
         $con->connect(IP, USER, PASS);
-        $script = file_get_contents('./script.sql');
+        $script = file_get_contents('./config/script.sql');
         $con->multi_query($script);
 
 
