@@ -29,9 +29,23 @@ if (isset($_REQUEST['home'])){
     unset($_SESSION['controller']);
     $_SESSION['view'] = VIEW.'home.php';
 }
+if (isset($_REQUEST['productos'])){
+    unset($_SESSION['controller']);
+    $_SESSION['view'] = VIEW.'productos.php';
+}
 if (isset($_REQUEST['logout'])){
     session_destroy();
     header("Location: ./");
+}
+
+if (isset($_REQUEST['info'])){
+    unset($_SESSION['controller']);
+    $_SESSION['view'] = VIEW.'info.php';
+}
+
+if (isset($_REQUEST['producto'])){
+    $_SESSION['controller'] = CON. 'productoController.php';
+    $_SESSION['view'] = VIEW.'producto.php';
 }
 
 

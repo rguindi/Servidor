@@ -8,7 +8,7 @@ $recomendados = ProductoDAO::recomendados();
     <section class="novedades ">
 
       <article>
-        <a href="/ProyectoTarea17/paginas/producto.php?producto=<?php echo $novedades[0]->codigo ?>">
+        <a href="./?producto=<?php echo $novedades[0]->codigo ?>">
           <div class="card " style="width: 18rem; ">
             <div class="card-header text-center mb-3 ">
               <h3 class="card-text">
@@ -31,7 +31,7 @@ $recomendados = ProductoDAO::recomendados();
       </article>
 
       <article>
-        <a href="/ProyectoTarea17/paginas/producto.php?producto=<?php echo $novedades[1]->codigo; ?>">
+        <a href="./?producto=<?php echo $novedades[1]->codigo; ?>">
           <div class="card" style="width: 18rem;">
             <div class="card-header text-center mb-3 ">
               <h3 class="card-text">
@@ -54,7 +54,7 @@ $recomendados = ProductoDAO::recomendados();
       </article>
 
       <article>
-        <a href="/ProyectoTarea17/paginas/producto.php?producto=<?php echo $novedades[2]->codigo; ?>">
+        <a href="./?producto=<?php echo $novedades[2]->codigo; ?>">
           <div class="card" style="width: 18rem;">
             <div class="card-header text-center mb-3 ">
               <h3 class="card-text">
@@ -77,7 +77,7 @@ $recomendados = ProductoDAO::recomendados();
       </article>
 
       <article>
-        <a href="/ProyectoTarea17/paginas/producto.php?producto=<?php echo $novedades[3]->codigo; ?>">
+        <a href="./?producto=<?php echo $novedades[3]->codigo; ?>">
           <div class="card" style="width: 18rem;">
             <div class="card-header text-center mb-3 ">
               <h3 class="card-text">
@@ -106,7 +106,7 @@ $recomendados = ProductoDAO::recomendados();
     </div>
     <section class="novedades">
       <article>
-        <a href="/ProyectoTarea17/paginas/producto.php?producto=<?php echo $recomendados[0]->codigo; ?>">
+        <a href="./?producto=<?php echo $recomendados[0]->codigo; ?>">
           <div class="card" style="width: 18rem;">
             <div class="card-header text-center mb-3 ">
               <h3 class="card-text">
@@ -129,7 +129,7 @@ $recomendados = ProductoDAO::recomendados();
       </article>
 
       <article>
-        <a href="/ProyectoTarea17/paginas/producto.php?producto=<?php echo $recomendados[1]->codigo; ?>">
+        <a href="./?producto=<?php echo $recomendados[1]->codigo; ?>">
           <div class="card" style="width: 18rem;">
             <div class="card-header text-center mb-3 ">
               <h3 class="card-text">
@@ -152,7 +152,7 @@ $recomendados = ProductoDAO::recomendados();
       </article>
 
       <article>
-        <a href="/ProyectoTarea17/paginas/producto.php?producto=<?php echo $recomendados[2]->codigo; ?>">
+        <a href="./?producto=<?php echo $recomendados[2]->codigo; ?>">
           <div class="card" style="width: 18rem;">
             <div class="card-header text-center mb-3 ">
               <h3 class="card-text">
@@ -175,7 +175,7 @@ $recomendados = ProductoDAO::recomendados();
       </article>
 
       <article>
-        <a href="/ProyectoTarea17/paginas/producto.php?producto=<?php echo $recomendados[3]->codigo; ?>">
+        <a href="./?producto=<?php echo $recomendados[3]->codigo; ?>">
           <div class="card" style="width: 18rem;">
             <div class="card-header text-center mb-3 ">
               <h3 class="card-text">

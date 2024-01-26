@@ -6,11 +6,11 @@
       <a href="./?home" type="submit" name='home' class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none me-4  ">
         <h3 class="slogan text-center " >Mesa Para <br><span style="color: red; font-size: 2em;"> 2</span></h3>
         <img class="img-fluid " style="width: 100px;" src="./webroot/img/logo.png" alt="No se encuentra la imagen">
-</a>
+      </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><button type="submit" name='productos' class="nav-link px-2 link-body-emphasis">Productos</button></li>
-        <li><button type="submit" name='info' class="nav-link px-2 link-body-emphasis">Información y contacto</button></li>
+        <li class="nav-item"><a href="./?productos" name='productos' class="nav-link px-2 link-body-emphasis">Productos</a></li>
+        <li class="nav-item"><a href="./?info" name='info' class="nav-link px-2 link-body-emphasis">Información y contacto</a></li>
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
