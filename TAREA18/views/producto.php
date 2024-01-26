@@ -1,8 +1,3 @@
-<?php
-
-    $producto = ProductoDAO::findByCodigo($_REQUEST['producto']);
-      ?>
-
 
     <section class="articulo ">
       <div class="tituloproducto">
@@ -28,7 +23,7 @@
               </p>
             </div>
             <div class="text-center ">
-              <a href="./comprar.php?producto=<?php echo $producto->codigo; ?>">
+              <a href="./?comprar=<?php echo $producto->codigo; ?>">
                 <p class="btn btn-success p-3 fw-bold me-2  ">Comprar</p>
               </a>
 
