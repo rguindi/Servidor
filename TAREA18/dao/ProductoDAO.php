@@ -160,8 +160,8 @@ class ProductoDAO
         $sql = "SELECT stock FROM PRODUCTO WHERE codigo = ?";
         $parametros = array($codigo);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
-        $stock = $result->fetchObject();
-        if ($stock->stock >= $cantidad) {
+        $producto = $result->fetchObject();
+        if ($producto->stock >= $cantidad) {
             return true;
         } else {
             return false;

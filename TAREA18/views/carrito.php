@@ -1,4 +1,4 @@
-<main>
+
             <div class="container card mt-2  ">
                 <div class="row">
                     <div class="col-12 text-center  ">
@@ -56,7 +56,7 @@
 
 
                         <button type="submit" name="compra" class="btn btn-success">Confirmar compra</button>
-                        <input type="hidden" name="producto" value="<?php echo $_SESSION['producto']->codigo ?>">
+                     
                         </form>
 
                     </div>

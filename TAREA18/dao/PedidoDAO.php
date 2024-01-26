@@ -1,7 +1,7 @@
 <?php
 class PedidoDAO{
     public static function findAll(){
-        $sql = "SELECT * FROM Pedido WHERE activo = 1";
+        $sql = "SELECT * FROM PEDIDO WHERE activo = 1";
         $parametros = array();
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         $array_pedidos = array();
@@ -22,7 +22,7 @@ class PedidoDAO{
     }
 
     public static function findByCodigo($id){
-        $sql = "SELECT * FROM Pedido WHERE id = ? AND activo = 1";
+        $sql = "SELECT * FROM PEDIDO WHERE id = ? AND activo = 1";
         $parametros = array($id);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         if ($result->rowCount() == 1) {
@@ -44,8 +44,8 @@ class PedidoDAO{
     }
 
     //COMPRA PRODUCTO procesacompra, y actualiza stock
-    public static function compraProducto($pedido, $producto){
-        $sql = "INSERT INTO Pedido (cod_producto, cantidad, fecha, usuario, total, activo) VALUES (?,?,?,?,?,?)";
+    public static function compraProducto($pedido){
+        $sql = "INSERT INTO PEDIDO (cod_producto, cantidad, fecha, usuario, total, activo) VALUES (?,?,?,?,?,?)";
         //insertar todos los atributos
         $parametros = array(
             $pedido->cod_producto,
@@ -65,7 +65,7 @@ class PedidoDAO{
     }
 
     public static function findByUser($user) {
-        $sql = "SELECT * FROM Pedido WHERE usuario = ? AND activo = 1";
+        $sql = "SELECT * FROM PEDIDO WHERE usuario = ? AND activo = 1";
         $parametros = array($user);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         $array_pedidos = array();

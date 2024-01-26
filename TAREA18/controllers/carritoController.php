@@ -14,11 +14,27 @@ if (isset($_REQUEST['compra']) && !isset($_SESSION['usuario'])) {
         //SI HAY STOCK
     } else {
        //Procesamos la compra
-       
+       $pedido = new Pedido(null, $_SESSION['producto']->codigo, $_REQUEST['cantidad'], date('Y-m-d'), $_SESSION['usuario']->user, round(($_SESSION['producto']->precio * $_REQUEST['cantidad']), 2), 1);
+         if (PedidoDAO::compraProducto($pedido)) {
+
+              $_SESSION['view'] = VIEW . 'pedidoProcesado.php';
+              header("Location: ./");
+              exit;
+         } else {
+              echo 'Error al procesar la Compra';
+              exit;
+         }
+
     }
 } elseif (isset($_REQUEST['volver'])) {
     unset($_SESSION['controller']);
     unset($_SESSION['view']);
+    header("Location: ./");
+    exit;
+
+} elseif (isset($_REQUEST['verPedidos'])) {
+    $_SESSION['controller'] = CON . 'verPedidosController.php';
+    $_SESSION['view'] = VIEW . 'verPedidos.php';
     header("Location: ./");
     exit;
 }
