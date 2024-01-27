@@ -7,7 +7,7 @@ class PedidoDAO{
         $array_pedidos = array();
         while ($pedido = $result->fetchObject()) {
             $pedido = new Pedido(
-                $pedido->id,
+                $pedido->Id,
                 $pedido->cod_producto,
                 $pedido->cantidad,
                 $pedido->fecha,
@@ -71,7 +71,7 @@ class PedidoDAO{
         $array_pedidos = array();
         while ($pedido = $result->fetchObject()) {
             $pedido = new Pedido(
-                $pedido->id,
+                $pedido->Id,
                 $pedido->cod_producto,
                 $pedido->cantidad,
                 $pedido->fecha,
@@ -83,6 +83,12 @@ class PedidoDAO{
             array_push($array_pedidos, $pedido);
         }
         return $array_pedidos;
+    }
+
+    public static function delete($id){
+        $sql = "UPDATE PEDIDO SET activo = 0 WHERE id = ?";
+        $parametros = array($id);
+        return FactoryBD::realizaConsulta($sql, $parametros);
     }
 
 }

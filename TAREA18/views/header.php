@@ -46,7 +46,7 @@
     
             <ul class="dropdown-menu text-small">
               <li><a class="dropdown-item" href="./?miPerfil">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/pedidos.php">Pedidos</a></li>
+              <li><a class="dropdown-item" href="./?verPedidos">Pedidos</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="./?logout">Desconectar</a></li>
             </ul>
@@ -67,14 +67,14 @@
               </a>
       
               <ul class="dropdown-menu text-small">
-                <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/miPerfil.php">Mi perfil</a></li>
-                <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/administrarPedidos.php">Pedidos</a></li>
-                <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/administrarAlbaranes.php">Albaranes</a></li>';
+                <li><a class="dropdown-item" href="./?miPerfil">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="./?administrarPedidos">Pedidos</a></li>
+                <li><a class="dropdown-item" href="./?administrarAlbaranes">Albaranes</a></li>';
                 if (UserDAO::isAdmin($_SESSION['usuario']->user)){
-                  echo '<li><a class="dropdown-item" href="/ProyectoTarea17/paginas/administrarProductos.php">Productos</a></li>';
+                  echo '<li><a class="dropdown-item" href="./?administrarProductos">Productos</a></li>';
                 }
                 echo '<li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/ProyectoTarea17/paginas/logout.php">Desconectar</a></li>
+                <li><a class="dropdown-item"  href="./?logout">Desconectar</a></li>
               </ul>
             </div>
             ';

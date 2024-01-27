@@ -19,5 +19,6 @@ require('./models/user.php');
 require('./models/producto.php');
 require('./models/pedido.php');
 require('./models/albaran.php');
+require('./webroot/pdf/fpdf186/fpdf.php');
 
 ?>

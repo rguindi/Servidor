@@ -59,15 +59,11 @@ CREATE TABLE IF NOT EXISTS PEDIDO (
 ) ENGINE=INNODB;
 
 
--- Inserta usuarios
+-- Inserta usuarios    PASS: admin Adminpass1, moderador Modpass1, cliente Contraseña1
 INSERT INTO USUARIO (user, pass, email, fecha_nac, rol) VALUES
-('cliente1', 'Contraseña1', 'cliente1@example.com', '1990-01-01', 'cliente'),
-('cliente2', 'Contraseña2', 'cliente2@example.com', '1992-05-15', 'cliente'),
-('cliente3', 'Contraseña3', 'cliente3@example.com', '1985-11-20', 'cliente'),
-('cliente4', 'Contraseña4', 'cliente4@example.com', '1998-03-10', 'cliente'),
-('cliente5', 'Contraseña5', 'cliente5@example.com', '1995-08-25', 'cliente'),
-('admin', 'Adminpass1', 'admin@example.com', '1980-02-14', 'admin'),
-('moderador', 'Modpass1', 'moderador@example.com', '1982-07-30', 'moderador');
+('cliente1', '$2y$10$JezXdOZVSafqnBfj12ZII.ST/DiF/UyBpUDrCaMfaDX9R66MqIBPm', 'cliente1@example.com', '1990-01-01', 'cliente'),  
+('admin', '$2y$10$6.NSE2/lUkI5N3FWsl.0zea9/ee103MxgDvSooJiyzRfrY55l8yay', 'admin@example.com', '1980-02-14', 'admin'),
+('moderador', '$2y$10$1BzZgGwGEE87xAZEN1q5NeY8mmfzC1NMSrwAIEXFVhDK3gBoGTQy6', 'moderador@example.com', '1982-07-30', 'moderador');
 
 -- Inserta productos relacionados con juegos de mesa
 INSERT INTO PRODUCTO (titulo, descripcion, precio, stock, imagen_url) VALUES
@@ -86,10 +82,10 @@ INSERT INTO PRODUCTO (titulo, descripcion, precio, stock, imagen_url) VALUES
 -- Inserta pedidos
 INSERT INTO PEDIDO (cod_producto, cantidad, fecha, usuario, total) VALUES
 (1, 2, '2023-01-05', 'cliente1', 33.38),
-(5, 1, '2023-02-10', 'cliente2', 34.99),
-(7, 1, '2023-03-15', 'cliente3', 42.70),
-(2, 2, '2023-04-20', 'cliente4', 54.48),
-(5, 1, '2023-05-25', 'cliente5', 34.99);
+(5, 1, '2023-02-10', 'cliente1', 34.99),
+(7, 1, '2023-03-15', 'cliente1', 42.70),
+(2, 2, '2023-04-20', 'cliente1', 54.48),
+(5, 1, '2023-05-25', 'cliente1', 34.99);
 
 -- Inserta albaranes
 INSERT INTO ALBARAN (cod_producto, cantidad, fecha, usuario) VALUES

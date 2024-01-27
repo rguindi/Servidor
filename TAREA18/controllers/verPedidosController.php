@@ -6,10 +6,14 @@ if (!isset($_SESSION['usuario'])) {
     exit;
    
 
-// }else if(isset($_SESSION['usuario']) && isset($_REQUEST['factura'])){
-//     header("Location: ../PDF/factura.php?id=".$_REQUEST['id']);
-//     exit;
+}else if(isset($_SESSION['usuario']) && isset($_REQUEST['factura'])){
+    // $_SESSION['controller'] = CON . 'facturaController.php';
+    $_SESSION['id'] = $_REQUEST['id']; //Guardo el id del pedido en la sesion para poder usarlo en la factura
+    
+    echo '<script>window.open("./factura.php", "_blank");</script>';
 
+
+    
 } 
 
     $pedidos = PedidoDAO::findByUser($_SESSION['usuario']->user);

@@ -10,7 +10,7 @@
 
 
         <!-- Register buttons -->
-        <a href="./?verPedidos.php">Ver pedidos</a></p>
+        <a href="./?verPedidos">Ver pedidos</a></p>
         <p><a href="./?volver">Volver</a></p>
 
     </div>

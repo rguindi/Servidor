@@ -48,8 +48,31 @@ if (isset($_REQUEST['producto'])){
     $_SESSION['view'] = VIEW.'producto.php';
 }
 
+if (isset($_REQUEST['verPedidos'])) {
+    $_SESSION['controller'] = CON . 'verPedidosController.php';
+    $_SESSION['view'] = VIEW . 'verPedidos.php';
+    header("Location: ./");
+    exit;
+}
+if (isset($_REQUEST['administrarPedidos'])) {
+    $_SESSION['controller'] = CON . 'administrarPedidosController.php';
+    $_SESSION['view'] = VIEW . 'administrarPedidos.php';
+    header("Location: ./");
+    exit;
+}
+if (isset($_REQUEST['administrarProductos'])) {
+    $_SESSION['controller'] = CON . 'administrarProductosController.php';
+    $_SESSION['view'] = VIEW . 'administrarProductos.php';
+    header("Location: ./");
+    exit;
+}
 
-
+if (isset($_REQUEST['administrarAlbaranes'])) {
+    $_SESSION['controller'] = CON . 'administrarAlbaranesController.php';
+    $_SESSION['view'] = VIEW . 'administrarAlbaranes.php';
+    header("Location: ./");
+    exit;
+}
 
 
 

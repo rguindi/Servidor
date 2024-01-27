@@ -31,11 +31,7 @@ if (isset($_REQUEST['compra']) && !isset($_SESSION['usuario'])) {
     unset($_SESSION['view']);
     header("Location: ./");
     exit;
-
-} elseif (isset($_REQUEST['verPedidos'])) {
-    $_SESSION['controller'] = CON . 'verPedidosController.php';
-    $_SESSION['view'] = VIEW . 'verPedidos.php';
-    header("Location: ./");
-    exit;
 }
+
+
 ?>
