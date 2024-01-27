@@ -158,4 +158,65 @@ function repetirPass($pass, $repitepass){
 
 }
 
+function validaPedido(&$errores){
+    if (textoVacio("producto")) $errores['producto'] = "Introduzda un numero de producto.";
+    if (!textoVacio("producto") && !ProductoDAO::findByCodigo($_REQUEST['producto'])) $errores['productonoexiste'] = "No se ha encontrado ningún producto con ese identificador.";
+    if (textoVacio("cantidad")) $errores['cantidad'] = "Introduzca una cantidad.";
+    if (textoVacio("fecha")) $errores['fecha'] = "Introduzca una fecha.";
+    if (textoVacio("total")) $errores['total'] = "Introduzca un total.";
+    if (preg_match('/^\d+\,\d{2}$/', $_REQUEST['total'])) $errores['totaltipo'] = "Introduzca un precio con dos decimales.";
+    if (count($errores) == 0)
+        return true;
+    return false;
+}
+function validaPedido2(&$errores){
+    if (textoVacio("productom")) $errores['productom'] = "Introduzda un numero de producto.";
+    if (!textoVacio("productom") && !ProductoDAO::findByCodigo($_REQUEST['productom'])) $errores['productonoexiste'] = "No se ha encontrado ningún producto con ese identificador.";
+    if (textoVacio("cantidad")) $errores['cantidad'] = "Introduzca una cantidad.";
+    if (textoVacio("fecha")) $errores['fecha'] = "Introduzca una fecha.";
+    if (textoVacio("total")) $errores['total'] = "Introduzca un total.";
+    if (preg_match('/^\d+\,\d{2}$/', $_REQUEST['total'])) $errores['totaltipo'] = "Introduzca un precio con dos decimales.";
+    if (count($errores) == 0)
+        return true;
+    return false;
+}
+
+function validaAlbaran(&$errores){
+    if (textoVacio("productocod")) $errores['producto'] = "Introduzda un numero de producto.";
+    if (!textoVacio("productocod") && !ProductoDAO::findByCodigo($_REQUEST['productocod'])) $errores['productonoexiste'] = "No se ha encontrado ningún producto con ese identificador.";
+    if (textoVacio("cantidad")) $errores['cantidad'] = "Introduzca una cantidad.";
+    if (textoVacio("fecha")) $errores['fecha'] = "Introduzca una fecha.";
+    if (count($errores) == 0)
+        return true;
+    return false;
+}
+
+function validaProducto(&$errores)
+{
+    if (textoVacio("titulo")) $errores['titulo'] = "Introduzca un titulo.";
+    if (textoVacio("descripcion")) $errores['descripcion'] = "Introduzca una descripcion.";
+    if (textoVacio("precio")) $errores['precio'] = "Introduzca un precio.";
+    if (preg_match('/^\d+\,\d{2}$/', $_REQUEST['precio'])) $errores['preciotipo'] = "Introduzca un precio con dos decimales.";
+    if (textoVacio("stock")) $errores['stock'] = "Introduzca un stock.";
+    if (!filter_var($_REQUEST['stock'], FILTER_VALIDATE_INT)) $errores['errordetipostock'] = "Introduzca un número entero para el stock.";
+    if (textoVacio("imagen")) $errores['imagen'] = "La imagen no puede estar vacia.";
+    if (count($errores) == 0)
+        return true;
+    return false;
+}
+function validaSubirProducto(&$errores)
+{
+    if (textoVacio("titulo")) $errores['titulo'] = "Introduzca un titulo.";
+    if (textoVacio("descripcion")) $errores['descripcion'] = "Introduzca una descripcion.";
+    if (textoVacio("precio")) $errores['precio'] = "Introduzca un precio.";
+    if (preg_match('/^\d+\,\d{2}$/', $_REQUEST['precio'])) $errores['preciotipo'] = "Introduzca un precio con dos decimales.";
+    if (textoVacio("stock")) $errores['stock'] = "Introduzca un stock.";
+    if (!filter_var($_REQUEST['stock'], FILTER_VALIDATE_INT)) $errores['errordetipostock'] = "Introduzca un número entero para el stock.";
+    if (!isset($_FILES['imagen']) || $_FILES['imagen']['error'] == UPLOAD_ERR_NO_FILE) $errores['imagen'] = "La imagen no puede estar vacia.";
+    elseif (!preg_match('/\.jpg$/i', $_FILES['imagen']['name'])) {
+        $errores['imagenjpg'] = "La imagen debe tener una extensión JPG.";}
+    if (count($errores) == 0)
+        return true;
+    return false;
+}
 ?>

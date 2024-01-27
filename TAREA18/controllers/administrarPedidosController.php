@@ -17,7 +17,7 @@ if (!isset($_SESSION['usuario'])) {
     header("Location: ./");
     exit;
 } else if(UserDAO::isAdmin($_SESSION['usuario']->user) && isset($_REQUEST['modificar'])){
-    $_SESSION['id'] = $_REQUEST['id']; //Guardo el id del pedido en la sesion
+    $_SESSION['idPedido'] = $_REQUEST['id']; //Guardo el id del pedido en la sesion
     $_SESSION['controller'] = CON . 'modificarPedidoController.php';
     $_SESSION['view'] = VIEW . 'modificarPedido.php';
     header("Location: ./");

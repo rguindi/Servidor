@@ -25,4 +25,11 @@ if (!isset($_SESSION['usuario'])) {
     header("Location: ./");
     exit;
 }
+
+else if(isset($_REQUEST['addAlbaran'])){
+    $_SESSION['controller'] = CON . 'addAlbaranController.php';
+    $_SESSION['view'] = VIEW . 'addAlbaran.php';
+    header("Location: ./");
+    exit;
+}
     $albaranes = AlbaranDAO::findByAll();

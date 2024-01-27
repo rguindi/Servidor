@@ -29,7 +29,7 @@ class PedidoDAO{
 
             $pedido = $result->fetchObject();
             $pedido = new Pedido(
-                $pedido->id,
+                $pedido->Id,
                 $pedido->cod_producto,
                 $pedido->cantidad,
                 $pedido->fecha,
@@ -89,6 +89,26 @@ class PedidoDAO{
         $sql = "UPDATE PEDIDO SET activo = 0 WHERE id = ?";
         $parametros = array($id);
         return FactoryBD::realizaConsulta($sql, $parametros);
+    }
+
+    public static function update($pedido) {
+        $sql = "UPDATE PEDIDO SET cod_producto=?, cantidad=?, fecha=?, usuario=?, total=?, activo=? WHERE id=?";
+        //insertar todos los atributos
+        $parametros = array(
+            $pedido->cod_producto,
+            $pedido->cantidad,
+            $pedido->fecha,
+            $pedido->usuario,
+            $pedido->total,
+            $pedido->activo,
+            $pedido->id
+        );
+        $result = FactoryBD::realizaConsulta($sql, $parametros);
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

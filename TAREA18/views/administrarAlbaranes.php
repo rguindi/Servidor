@@ -21,7 +21,7 @@
                         <h5>Usuario</h5>
                     </div>
                     <div class="col-3 text-center  ">
-                    <a href="./nuevoAlbaran.php"> <button class="btn btn-warning mb-2">Nuevo Albarán</button></a>
+                    <a href="./?addAlbaran"> <button class="btn btn-warning mb-2">Nuevo Albarán</button></a>
                     </div>
 
                 </div>

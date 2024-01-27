@@ -20,7 +20,7 @@
                     <div class="col-4 text-center  ">
                         <h5>Acciones</h5>
                         <form action="" method="post">
-                        <button type="submit" name="add"  class="btn btn-warning mb-2">Añadir producto</button>
+                        <button type="submit" name="addProducto"  class="btn btn-warning mb-2">Añadir producto</button>
                         </form>
                     </div>
 
@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-4 text-center  ">
                     <form action="" method="post">
-                        <button name="modificar"  class="btn btn-secondary mb-2">Modificar</button>
+                        <button name="modificarP"  class="btn btn-secondary mb-2">Modificar</button>
                         <button name="eliminar" class="btn btn-danger mb-2">Eliminar</button>
                         <input type="hidden" name="codigo" value="'.$value->codigo.'">
                     </form>

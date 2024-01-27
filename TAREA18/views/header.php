@@ -56,7 +56,7 @@
            // <!-- -----Si es cliente---- -->
            
            // <!-- -----Si es Administrador o Moderador---- -->
-           else if(UserDAO::isAdmin($_SESSION['usuario']->user) || isModerador($_SESSION['usuario']->user)){
+           else if(UserDAO::isAdmin($_SESSION['usuario']->user) || UserDAO::isModerador($_SESSION['usuario']->user)){
             echo '
             <div class="dropdown text-end">
               <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

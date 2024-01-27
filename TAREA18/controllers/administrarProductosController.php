@@ -20,7 +20,7 @@ else if(isset($_REQUEST['eliminar'])){
     exit;
 
 }
-else if($_REQUEST['modificar']){
+else if(isset($_REQUEST['modificarP'])){
     $_SESSION['idProducto'] = $_REQUEST['codigo']; //Guardo el id del Albaran en la sesion
     $_SESSION['controller'] = CON . 'modificarProductoController.php';
     $_SESSION['view'] = VIEW . 'modificarProducto.php';
@@ -28,7 +28,7 @@ else if($_REQUEST['modificar']){
     exit;
 }
 
-else if(isset($_REQUEST['add'])){
+else if(isset($_REQUEST['addProducto'])){
     $_SESSION['controller'] = CON . 'addProductoController.php';
     $_SESSION['view'] = VIEW . 'addProducto.php';
     header("Location: ./");
