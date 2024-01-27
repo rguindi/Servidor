@@ -86,12 +86,10 @@ class ProductoDAO
         }
     }
 
-    public static function delete($producto) {
+    public static function delete($codigo) {
         $sql = "UPDATE PRODUCTO SET activo=0 WHERE codigo=?";
         //insertar todos los atributos
-        $parametros = array(
-            $producto->codigo
-        );
+        $parametros = array($codigo);
         $result = FactoryBD::realizaConsulta($sql, $parametros);
         if ($result) {
             return true;
