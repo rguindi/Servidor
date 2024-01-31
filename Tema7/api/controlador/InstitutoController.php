@@ -15,7 +15,7 @@ class InstitutoController extends Base{
 
                     $datos = InstitutoDAO::findByAll();
                 }else if (count($recursos) == 2 && count($filtros)>0) {
-                    self::buscaConFiltros();
+                   $datos = self::buscaConFiltros();
                   
                     
                 }else if (count($recursos) == 3){
@@ -26,8 +26,25 @@ class InstitutoController extends Base{
 
                 break;
             case 'POST':
+
+                $datos = file_get_contents('php://input');
+                $datos = json_decode($datos, true);   //true para que lo devuelva como array asociativo
+                if(isset($datos['nombre']) && isset($datos['localidad']) && isset($datos['telefono'])){
+                $instituto = new Instituto(null, $datos['nombre'], $datos['localidad'], $datos['telefono']); 
+                if (InstitutoDAO::insert($instituto)) {
+                    $instituto = InstitutoDAO::findLastId();
+                    $instituto = json_encode($instituto);
+                    self::response('HTTP/1.1 201 OK, Instituto insertado correctamente', $instituto);
+                }
+                }else{
+                    self::response('HTTP/1.1 400 No se han introducido todos los datos (nombre, localidad, telefono)');
+                }
                
+
+               break;
             case 'PUT':
+                self::put();
+
          
                 break;
             case 'DELETE':
@@ -48,6 +65,32 @@ class InstitutoController extends Base{
                 self::response('HTTP/1.1 400 No se permite el filtro '.$key);
             }
         }
+        return InstitutoDAO::findByFiltros($filtros);
+
+
+    }
+
+    static function put(){
+        $recursos = self::divideURI();
+        if (count($recursos) == 3){
+            $permitimos = array('nombre', 'localidad', 'telefono');
+        
+        $datos = file_get_contents('php://input');
+        $datos = json_decode($datos, true);   //true para que lo devuelva como array asociativo
+        foreach ($datos as $key => $value) {
+            if (!in_array($key, $permitimos)) {
+                self::response('HTTP/1.1 400 No se permite el filtro '.$key);
+            }
+        }
+       $instituto = InstitutoDAO::findById($recursos[2]);
+       if (count($instituto)==1) {
+        $instituto = (object)       //SEGUIR AQUIO
+
+       
+        
+    }else{
+        self::response('HTTP/1.1 400 No ha indicado el id');
+    }
 
 
     }

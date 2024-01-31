@@ -6,6 +6,8 @@ print_r (Base::condiciones());
 
 if (isset( $_SERVER['PATH_INFO'])){
 
+    echo $_SERVER['PATH_INFO']."<br>";
+
     //comprobar el recurso
     $recurso= Base::divideURI();
     // echo $recurso[1];
