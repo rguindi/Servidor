@@ -2,11 +2,11 @@
 require('./controlador/Base.php');
 require('./controlador/InstitutoController.php');
 
-print_r (Base::condiciones());
+//print_r (Base::condiciones());
 
 if (isset( $_SERVER['PATH_INFO'])){
 
-    echo $_SERVER['PATH_INFO']."<br>";
+   
 
     //comprobar el recurso
     $recurso= Base::divideURI();

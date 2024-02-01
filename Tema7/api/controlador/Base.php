@@ -4,6 +4,7 @@
 
     class Base{
         public static function response($head, $body=''){
+            header('Content-Type: application/json');
             header($head, $body);
 
             echo $body;

@@ -70,6 +70,18 @@ class InstitutoDAO{
             return false;
         }    
     }
+
+    public static function delete($id){
+        $sql="DELETE FROM instituto WHERE id=?";
+        $parametros = array($id);
+        $stmt=FactoryBD::realizaConsulta($sql, $parametros);
+        if ($stmt->rowCount()>0) {
+
+            return true;
+        }else{
+            return false;
+        }    
+    }
 }
 
 ?>
