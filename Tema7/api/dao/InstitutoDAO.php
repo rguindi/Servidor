@@ -26,11 +26,12 @@ class InstitutoDAO{
                  $valor = "%".$value."%";
                  array_push($parametros, $valor);
              }else{
-                 $sql .= $key." = ?";
+                 $sql .= $key." LIKE ?";   //Cambiar like por = si se quiere que sea exacto
+                 $value = "%".$value."%";
                  array_push($parametros, $value);
 
              }
-                if ($num == 2) {
+                if ($num == 2) {  //si hay dos filtros añade el AND, si no, no
                     $num--;
                     $sql .= " AND ";
                 }

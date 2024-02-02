@@ -16,6 +16,11 @@
             $uri = $_SERVER['PATH_INFO'];
             return explode('/', $uri);
         }
+
+
+
+
+        
         public static function condiciones(){
            
              parse_str($_SERVER['QUERY_STRING'], $filtros);

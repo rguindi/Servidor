@@ -19,7 +19,7 @@ if (isset( $_SERVER['PATH_INFO'])){
     }
 
 }else{
-    Base::response('HTTP/1.1 400 Direccion incorrecta');
+    Base::response('HTTP/1.1 400 Direccion incorrecta, no se ha especificado el recurso');
 }
 
 ?>
