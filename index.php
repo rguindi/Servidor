@@ -231,6 +231,26 @@
                     </div>
                 </div>
             </div>
+            <div class=" d-flex justify-content-start  ">
+                <div class="accordion mt-4 col-12 col-xxl-6 col-xl-8 col-md-10 shadow z-0 " id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo5" aria-expanded="false" aria-controls="collapseTwo5">
+                                <h2>Tema7</h2>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                <li><a href="./Tema7/leerApi.php">Leer API.</a></li>
+                                <li><a href="./Tema7/consumirApi/index.php">Consumir API.</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class=" d-flex justify-content-start mb-4 ">
                 <div class="accordion mt-4 col-12 col-xxl-6 col-xl-8 col-md-10 shadow z-0 " id="accordionExample">
@@ -246,7 +266,7 @@
                                 <ul>
                                     <li><a href="./ProyectoTarea17/index.php">Tarea17. Navidades.</a></li>
                                     <li><a href="./TAREA18/index.php">Tarea18. JUEGOS MVC.</a></li>
-                                    <li><a href="./Tema7/leerApi.php">Leer API.</a></li>
+                                   
                                 </ul>
                             </div>
                         </div>
