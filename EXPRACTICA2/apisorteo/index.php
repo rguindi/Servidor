@@ -1,6 +1,6 @@
 <?php
 require('./controlador/Base.php');
-require('./controlador/InstitutoController.php');
+require('./controlador/NumerosController.php');
 
 //print_r (Base::condiciones());
 
@@ -12,8 +12,8 @@ if (isset( $_SERVER['PATH_INFO'])){
     $recurso= Base::divideURI();
     // echo $recurso[1];
 
-    if($recurso [1]== 'institutos'){
-        InstitutoController::institutos();
+    if($recurso [1]== 'numeros'){
+        NumerosController::numeros();
 
     }
     

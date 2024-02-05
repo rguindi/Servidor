@@ -1,4 +1,4 @@
 <?php
-define('URI', 'http://192.168.1.136/Tema7/api/index/');
+define('URI', 'http://localhost/Tema7/api/index/');
 
 ?>

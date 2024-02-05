@@ -236,11 +236,11 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo5" aria-expanded="false" aria-controls="collapseTwo5">
+                                data-bs-target="#collapseTwo6" aria-expanded="false" aria-controls="collapseTwo6">
                                 <h2>Tema7</h2>
                             </button>
                         </h2>
-                        <div id="collapseTwo5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapseTwo6" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul>
                                 <li><a href="./Tema7/leerApi.php">Leer API.</a></li>
@@ -257,11 +257,11 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo6" aria-expanded="false" aria-controls="collapseTwo6">
+                                data-bs-target="#collapseTwo7" aria-expanded="false" aria-controls="collapseTwo7">
                                 <h2>PROYECTO TIENDA</h2>
                             </button>
                         </h2>
-                        <div id="collapseTwo6" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapseTwo7" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul>
                                     <li><a href="./ProyectoTarea17/index.php">Tarea17. Navidades.</a></li>
