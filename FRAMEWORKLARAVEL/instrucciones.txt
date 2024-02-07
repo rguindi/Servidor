@@ -1,0 +1,80 @@
+REQUISITOS PREVIOS
+sudo apt-get update
+sudo apt-get install php-cli
+sudo apt-get install php-mbstring
+sudo apt-get install unzip
+curl tambien si no lo tenemos  (sudo apt-get install php-curl)
+
+sudo curl -s https://getcomposer.org/installer | php
+
+para ser accesible desde cualqueiir sistio carpeta Bin, windows carpeta system
+ por eso movemos el composer
+
+ sudo mv composer.phar /usr/local/bin/composer
+
+ hace falta node.js por si se utilizan modulos de javascript
+
+ sudo apt-get install nodejs npm --fix-missing
+
+vamos a una carpeta para crear el proyecyto, no hace falta q sea dentro de www. lo hago en el home. creo un proyecto prueba
+composer create-project --prefer-dist laravel/laravel prueba
+ya puedes abrir la carpeta de vs code
+
+cambiamos en env;
+
+APP_URL=http://192.168.7.204
+
+
+DB_CONNECTION=mysql
+DB_HOST=192.168.7.204
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=raul
+DB_PASSWORD=raul
+
+levantar el servicio entramos al proyecto
+sudo php artisan serve
+sudo systemctl stop apache2
+sudo php artisan serve --host=192.168.7.204 --port=80
+
+
+Paramos el servicio.
+php artisan make:model Coche            Crea un modelo Coche
+Manipulamos en models (app)
+
+para meterlo en la base de datos migration:
+php artisan make:migration CreateCoche
+ver en Database migrations
+
+Crea todas las tablas en la base de datos
+php artisan migrate
+
+sudo mysql;
+use laravel;
+
+desc coches;
+
+Vamos a usar el factory de coches para introducir datos a la base de datos faker
+ php artisan make:factory Coche  
+ me creacopche fatory en database:
+ añado:
+    return [
+            'marca' => fake()->name(),
+            'modelo' => fake()->word(),
+            'ano' => fake()->year(),
+
+
+creamos semillas
+php artisan make:seeder coche  
+crea archivo coche en seeders
+añado:
+   public function run(): void
+    {
+        \App\Models\Coche::factory(20)->create();
+    }
+
+
+php artisan db:seed --class=Coche      para ejecutar
+
+
+sudo php artisan make:view Coche    (o crearlo a mano, resources views)
